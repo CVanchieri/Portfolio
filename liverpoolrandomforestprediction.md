@@ -280,7 +280,7 @@ test_final.head(30)
 ```
 ![LiverpoolFootballClub](/assets/images/LPFC13.png) <br>
 
-#### Adding actual results for 2020 season, Updated on 10/20/2020.
+#### Adding actual results for 2020 season, updated on 10/20/2020.
 ![LiverpoolFootballClub](/assets/images/LPFC14.png) <br>
 
 #### Summary
