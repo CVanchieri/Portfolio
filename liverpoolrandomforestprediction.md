@@ -154,10 +154,6 @@ y_val = val[target]
 X_test = test[features]
 y_test = test[target]
 ```
-```
-print("train =", train.shape, "val =", val.shape, "test =", test.shape)
-```
-![LiverpoolFootballClub](/assets/images/LPFC6.png) <br>
 
 #### Step 8: 1st RandomForestClassifier Model.
 ```
@@ -175,7 +171,7 @@ model.fit(X_train_transformed, y_train)
 print ('Train Accuracy', model.score(X_train_transformed, y_train))
 print ('Validation Accuracy', model.score(X_val_transformed, y_val))
 ```
-![LiverpoolFootballClub](/assets/images/LPFC7.png) <br>
+![LiverpoolFootballClub](/assets/images/LPFC6.png) <br>
 
 #### Step 9: Check the features importance and remove below 0.
 #### Permutation Importance
@@ -194,7 +190,7 @@ eli5.show_weights(
     top=None,
     feature_names = feature_names)
 ```
-![LiverpoolFootballClub](/assets/images/LPFC8.png) <br>
+![LiverpoolFootballClub](/assets/images/LPFC7.png) <br>
 
 #### Step 10: 2nd RandomForestClassifier Model.
 ```
@@ -211,14 +207,14 @@ test_pred = model.predict(X_test)
 print ('Train Accuracy', model.score(X_train, y_train))
 print ('Validation Accuracy', model.score(X_val, y_val))
 ```
-![LiverpoolFootballClub](/assets/images/LPFC9.png) <br>
+![LiverpoolFootballClub](/assets/images/LPFC8.png) <br>
 
 #### Step 11: Check multiple scores.
 #### Classification Report
 ```
 print(classification_report(y_val, val_pred))
 ```
-![LiverpoolFootballClub]/assets/images/LPFC10.png) <br>
+![LiverpoolFootballClub]/assets/images/LPFC9.png) <br>
 (Precision, recall, f1 scores.)
 
 #### Step 12: Check the importances of the features.
@@ -233,7 +229,7 @@ plt.title(f'Top Features')
 ```
 importances.sort_values()[-n:].plot.barh(color='red');
 ```
-![LiverpoolFootballClub](/assets/images/LPFC11.png) <br>
+![LiverpoolFootballClub](/assets/images/LPFC10.png) <br>
 
 #### Step 13: Merge the train and test data sets.
 ```
@@ -249,7 +245,7 @@ val_predictions = val_predictions.merge(
 print(val_predictions.shape)
 val_predictions.head()
 ```
-![LiverpoolFootballClub](/assets/images/LPFC12.png) <br>
+![LiverpoolFootballClub](/assets/images/LPFC11.png) <br>
 
 #### Step 14: A confusion matrix heatmap for overall predictions.
 ```
@@ -265,7 +261,7 @@ def plot_confusion_matrix(y_true, y_pred):
 plot_confusion_matrix(y_val, val_pred);
 plt.figure(figsize=(40,20))
 ```
-![LiverpoolFootballClub](/assets/images/LPFC13.png) <br>
+![LiverpoolFootballClub](/assets/images/LPFC12.png) <br>
 (Confusion matrix for predictions.)
 
 #### Step 15: Final predictions for the 2020 season.
@@ -282,7 +278,7 @@ test_predictions = test_predictions.merge(
 test_final = test_predictions.sort_values('GameDate')
 test_final.head(30)
 ```
-![LiverpoolFootballClub](/assets/images/LPFC14.png) <br>
+![LiverpoolFootballClub](/assets/images/LPFC13.png) <br>
 
 #### Summary
 In all I believe feature engineering is the most important part to this specific data set and model. With only having in-match 
