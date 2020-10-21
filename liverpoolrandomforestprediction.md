@@ -280,6 +280,9 @@ test_final.head(30)
 ```
 ![LiverpoolFootballClub](/assets/images/LPFC13.png) <br>
 
+#### Adding actual results for 2020 season, Updated on 10/20/2020.
+![LiverpoolFootballClub](/assets/images/LPFC14.png) <br>
+
 #### Summary
 In all I believe feature engineering is the most important part to this specific data set and model. With only having in-match 
 statistics there are many important variables that are just not accounted for like, weather, team roster, injury reports just to 
