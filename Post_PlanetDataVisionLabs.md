@@ -10,15 +10,8 @@ show_tile: false
 
 ![PlanetData](/assets/images/PDVheader.png) <br>
 
-## Visualizing the COVID-19 virus in a matplotlib barchart race.
-
-
-With a little more downtime during the lockdown I decided to see if I could make one of these bar chart races I have seen.  With COVID-19 
-being such a hot topic I figured that finding and API to pull some good data from shouldn't be to tough so thats how the project began, a bar chart race on 
-COVID-19.  I was not sure how or which programs or libraries were used to create this type of graph, not surprising there are a few out there.  
-I found a couple websites that would generate a bar chart race with the right data, but I was more interested in the full development being all 
-in Python, to my surprise I found that Matplotlib was a capable source and so it was an easy decision to try something new that I was not considering 
-an option.
+## A website to teach middle school students about the Earth and data visualizations with interative lessons.
+This website was a group prject, the team consisted of 3 data scientist and 2 web developers.  We saw an opportunity to teach young students about the earth through interactive data visualizations giving them a mild introduction to data visualzation as well.  The ds teams focus was sourcing, aggregating, and pushing the manipulated data to the web team with a few data visualization mock up ideas to go with the data.  The tools used by the ds team was AWS, Docker, Postman, Flask, Heroku, PostgreSQL, all developed in Python.  There were 2 visualizations that included predictions and the predictive models used were, Facebook Prophet and a Random Forest Regressor.  There was a 6 week time period given to work on the project, there is no 'finished' or 'complete' for the project as there will be future groups that will keep adding and working on the project, it is on going.
 
 #### The home page.
 ![PlanetData](/assets/images/PDV1.png) <br>
@@ -35,11 +28,7 @@ an option.
 
 
 #### Summary
-I had seen a few of these bar chart race graphs floating around but I was unsure of what programs or libraries that were necessary 
-to create one.  I was surprised to find out that Matplotlib was a resource for this type of animated graph, I was under the impression
-that Matplotlib was a more basic visualization library and I did not consider this 'basic' looking.  My overall take away was that 
-Matplotlib is more creative and useful than I had first thought, the graph is fun to look and it wasn't a big pain to put together either 
-surprisingly.  If you have overlooked Matplotlib I'd consider digging into a little bit there are some gems hidden in there.
+This was my first group project that worked directly with othe teams.  With great communication the team collaborated and really worked well together to produced a great project that will be a solid foundation for other groups to take over and keep adding more to the site.  Overall the experience was a good one, I learned new processes about AWS backend services that will really help me out in future and working with the web team was very informative about how web backend and front not only work but how they interact with they can interact with a data science team.  There was much more involved in this website than the visualizations above, the link below will take you the the live website and the websites github repository.
 
 Any suggestions or feedback is greatly appreciated, I am still learning and am always open to suggestions and comments. <br>
 
