@@ -8,7 +8,7 @@ show_tile: false
 
 ---
 
-![PlanetData](/assets/images/PDVHeader.png) <br>
+![PlanetData](/assets/images/PDVHeader.jpg) <br>
 
 ## Visualizing the COVID-19 virus in a matplotlib barchart race.
 
