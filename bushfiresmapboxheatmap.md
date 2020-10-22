@@ -95,7 +95,7 @@ fig.update_layout(height=1000)
 fig.show()
 ```
 ![AustraliaBushFires](/assets/images/ABF2.png) <br>
-((Sample image of the time-series video.)
+(Sample image of the time-series video.)
 
 #### Summary
 I had never used Mapbox prior to this prjoect and I only have a little experience with Plotly.  I am quite impressed with the simplicity in something that has alot of detailed options for mapping, Mapbox has a vast amount of little changes that can be made and implemented.  This was a fun visual to create on a topic that is very prominent and important to me.  I can definitely see Mapbox being used again in the future of my projects, visually entertaining maps and graphs are always something I keep an eye out for.
