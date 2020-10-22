@@ -152,8 +152,8 @@ that Matplotlib was a more basic visualization library and I did not consider th
 Matplotlib is more creative and useful than I had first thought, the graph is fun to look and it wasn't a big pain to put together either 
 surprisingly.  If you have overlooked Matplotlib I'd consider digging into a little bit there are some gems hidden in there.
 
-Any suggestions or feedback is greatly appreciated, I am still learning and am always open to suggestions and comments.
-e
+Any suggestions or feedback is greatly appreciated, I am still learning and am always open to suggestions and comments. <br>
+
 GitHub file 
 [Link]({{'https://github.com/CVanchieri/DSPortfolio/blob/master/posts/MatplotlibCOVID19BarChartRacePost/COVID19MatplotlibBarChartRace.ipynb'}})
 
