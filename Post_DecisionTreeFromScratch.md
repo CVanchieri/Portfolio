@@ -4,6 +4,7 @@ title:
 image: 
 nav-menu: false
 description: null
+show-tile: false
 
 ---
 
