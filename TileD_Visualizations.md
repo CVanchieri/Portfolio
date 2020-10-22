@@ -18,7 +18,7 @@ Data visualization gives us a clear idea of what the information means by giving
 ### World deceased counts for the COVID-19 virus in a matplotlib bar chart race.
 
 <ul class="actions">
-   <li><a href="https://cvanchieri.github.io/DSPortfolio/COVIDbarchartrace.html" class="button next">View Details</a></li>
+   <li><a href="https://cvanchieri.github.io/DSPortfolio/Post_COVID19BarChartRace.html" class="button next">View Details</a></li>
 </ul>
 
 ---
@@ -26,7 +26,7 @@ Data visualization gives us a clear idea of what the information means by giving
 ### USA COVID-19 impact shown in a plotly line graph.
 
 <ul class="actions">
-   <li><a href="https://cvanchieri.github.io/DSPortfolio/COVIDplotlylinegraph.html" class="button next">View Details</a></li>
+   <li><a href="https://cvanchieri.github.io/DSPortfolio/Post_COVID19PlotlyLineGraph.html" class="button next">View Details</a></li>
 </ul>
 
 ---
@@ -34,7 +34,7 @@ Data visualization gives us a clear idea of what the information means by giving
 ### The 2019 Australia bushfires displayed in a mapbox heatmap.
 
 <ul class="actions">
-   <li><a href="https://cvanchieri.github.io/DSPortfolio/bushfiresmapboxheatmap.html" class="button next">View Details</a></li>
+   <li><a href="https://cvanchieri.github.io/DSPortfolio/Post_AustraliaBushFiresMapboxHeatmap.html" class="button next">View Details</a></li>
 </ul>
 
 
