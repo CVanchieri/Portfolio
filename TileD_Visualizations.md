@@ -15,7 +15,7 @@ Data visualization gives us a clear idea of what the information means by giving
 
 ---
 
-### An interactive website displaying inmportant environmental issues with different data visualizations.
+### A website presenting Earth's environmental issues through interactive data visualizations.
 
 <ul class="actions">
    <li><a href="https://cvanchieri.github.io/DSPortfolio/Post_PlanetDataVisionLabs.html" class="button next">View Details</a></li>
