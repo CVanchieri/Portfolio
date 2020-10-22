@@ -153,13 +153,13 @@ Matplotlib is more creative and useful than I had first thought, the graph is fu
 surprisingly.  If you have overlooked Matplotlib I'd consider digging into a little bit there are some gems hidden in there.
 
 Any suggestions or feedback is greatly appreciated, I am still learning and am always open to suggestions and comments.
-
+e
 GitHub file 
-[Link]({{'https://github.com/CVanchieri/CVanchieri.github.io/blob/master/_data/MatplotlibCOVID19BarChartRacePost/MatplotlibCOVID19BarChartRace.ipynb'}})
+[Link]({{'https://github.com/CVanchieri/DSPortfolio/blob/master/posts/MatplotlibCOVID19BarChartRacePost/COVID19MatplotlibBarChartRace.ipynb'}})
 
 
 
 
 ---
-[[<< Back]](https://cvanchieri.github.io/DSPortfolio/d_visualizations.html)
+[[<< Back]](https://cvanchieri.github.io/DSPortfolio/TileD_Visualizations.html)
 
