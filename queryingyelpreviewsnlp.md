@@ -241,7 +241,7 @@ I was very happy with my first go at NLP and the overall experience, I would con
 Any suggestions or feedback is greatly appreciated, I am still learning and am always open to suggestions and comments.
 
 GitHub file
-[Link]({{'https://github.com/CVanchieri/CVanchieri.github.io/blob/master/_data/YelpNLPQueryReviewsPost/YelpNLPQueryReviewsPost.ipynb'}})
+[Link]({{'https://github.com/CVanchieri/DSPortfolio/blob/master/posts/YelpNLPQueryReviewsPost/YelpNLPQueryReviews.ipynb'}})
 
 
 
