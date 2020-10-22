@@ -15,7 +15,6 @@ This group project's team consisted of 3 data scientists and 2 web developers.  
 
 #### The home page.
 ![PlanetData](/assets/images/PDV1.png) <br>
-<img src=DSPortfolio/assets/images/PDV1.png" alt="PVD1" width="200">
 
 #### COVID-19 deceased totals by country in a barchart race.
 ![PlanetData](/assets/images/PDV2.png) <br>
