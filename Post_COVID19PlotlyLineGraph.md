@@ -144,11 +144,11 @@ plenty more complex beautiful charts and graphs but it also can present some of 
 Any suggestions or feedback is greatly appreciated, I am still learning and am always open to suggestions and comments.
 
 GitHub file 
-[Link]({{'https://github.com/CVanchieri/CVanchieri.github.io/blob/master/_data/PlotlyCOVID19LineGraphPost/PlotlyCovid19LineGraphPost.ipynb'}})
+[Link]({{'https://github.com/CVanchieri/DSPortfolio/blob/master/posts/PlotlyCOVID19LineGraphPost/PlotlyCovid19LineGraph.ipynb'}})
 
 
 
 
 ---
-[[<< Back]](https://cvanchieri.github.io/DSPortfolio/d_visualizations.html)
+[[<< Back]](https://cvanchieri.github.io/DSPortfolio/Tile_DVisualizations.html)
 
