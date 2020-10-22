@@ -18,7 +18,7 @@ Machine Learning is the core subarea of artificial intelligence. It makes comput
 ### Querying simlar Yelp reviews with natural language processing.
 
 <ul class="actions">
-   <li><a href="https://cvanchieri.github.io/DSPortfolio/queryingyelpreviewsnlp.html" class="button next">View Details</a></li>
+   <li><a href="https://cvanchieri.github.io/DSPortfolio/Post_YelpNLPQuerySimilarReviews.html" class="button next">View Details</a></li>
 </ul>
 
 ---
@@ -26,7 +26,7 @@ Machine Learning is the core subarea of artificial intelligence. It makes comput
 ### Creating a decision tree model from scratch.
 
 <ul class="actions">
-   <li><a href="https://cvanchieri.github.io/DSPortfolio/decisiontreefromscratch.html" class="button next">View Details</a></li>
+   <li><a href="https://cvanchieri.github.io/DSPortfolio/Post_DecisionTreeFromScratch.html" class="button next">View Details</a></li>
 </ul>
 
 ---
@@ -34,7 +34,7 @@ Machine Learning is the core subarea of artificial intelligence. It makes comput
 ### Using a randomforest classifier to make game predictions for Liverpool's 2020 English Premier League season.
 
 <ul class="actions">
-   <li><a href="https://cvanchieri.github.io/DSPortfolio/liverpoolrandomforestprediction.html" class="button next">View Details</a></li>
+   <li><a href="https://cvanchieri.github.io/DSPortfolio/Post_Liverpool2020EPLpredictions.html" class="button next">View Details</a></li>
 </ul>
 
 
