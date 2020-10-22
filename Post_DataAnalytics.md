@@ -17,4 +17,5 @@ show_tile: false
 
 
 ---
-[[<< Back]](https://github.com/CVanchieri/DSPortfolio/blob/master/TileB_DataAnalytics.html)
+[[<< Back]](https://cvanchieri.github.io/DSPortfolio/TileB_DataAnalytics.html)
+
