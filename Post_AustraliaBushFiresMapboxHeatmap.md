@@ -103,7 +103,7 @@ I had never used Mapbox prior to this prjoect and I only have a little experienc
 Any suggestions or feedback is greatly appreciated, I am still learning and am always open to suggestions and comments.
 
 GitHub file
-[Link]({{'https://github.com/CVanchieri/DSPortfolio/blob/master/posts/AustraliaBushFiresMapBox/AustraliaBushFiresMapBoxHeatMap.ipynb'}})
+[Link]({{'https://github.com/CVanchieri/DSPortfolio/blob/master/posts/AustraliaBushFiresMapBoxPost/AustraliaBushFiresMapBoxHeatMap.ipynb'}})
 
 
 
