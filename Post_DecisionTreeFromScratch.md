@@ -323,7 +323,7 @@ learned the ins and outs of a Decision Tree's inner workings and have a better u
 Any suggestions or feedback is greatly appreciated, I am still learning and am always open to suggestions and comments.
 
 GitHub link
-[Link]({{'https://github.com/CVanchieri/DSPortfolio/blob/master/posts/DecisionTreeFromScratchPost/DecisionTree/DecisionTreeFromScratch.ipynb'}})
+[Link]({{'https://github.com/CVanchieri/DSPortfolio/blob/master/posts/DecisionTreeFromScratchPost/DecisionTree/DecisionTreeNotebook.ipynb'}})
 
 
 
