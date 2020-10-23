@@ -30,6 +30,8 @@ Github
 
 ##### World deforestation prediction trends by country.
 ![PlanetData](/assets/images/PDV4.png) <br>
+Github
+[Link]({{'https://github.com/CVanchieri/DSPortfolio/blob/master/posts/DeforestationPredictionsTrendsPost/DeforestationPredictionTrends.ipynb'}})
 
 ##### World deforestation prediction trends by country income level.
 ![PlanetData](/assets/images/PDV5.png) <br>
