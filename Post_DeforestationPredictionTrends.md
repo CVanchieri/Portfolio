@@ -8,7 +8,7 @@ show_tile: false
 ---
 
 ![Deforestation](/assets/images/DFTHeader.jpg) <br>
-## Making deforestation prediction trends with a random forest regressor model.
+## Using a randomforest regressor model to make deforestation predictions by country.
 
 ---
 
