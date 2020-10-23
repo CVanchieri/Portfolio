@@ -28,8 +28,10 @@ Github
 Github
 [Link]({{https://cvanchieri.github.io/DSPortfolio/Post_COVID19PlotlyLineGraph.html'}})
 
-##### World deforestation prediction trends in line graphs.
+##### World deforestation prediction trends by country.
 ![PlanetData](/assets/images/PDV4.png) <br>
+
+##### World deforestation prediction trends by country income level.
 ![PlanetData](/assets/images/PDV5.png) <br>
 Github
 [Link]({{'https://github.com/CVanchieri/DSPortfolio/blob/master/posts/DeforestationPredictionsTrendsPost/DeforestationPredictionTrends.ipynb'}})
