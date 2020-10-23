@@ -1,7 +1,7 @@
 ---
 layout: page
-title:
-image: 
+title: Liverpool English Premier League 2020 Game Predictions
+image: null
 nav-menu: false
 description: null
 show_tile: false
