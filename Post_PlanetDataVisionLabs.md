@@ -16,7 +16,7 @@ This group project's team consisted of 3 data scientists and 2 web developers.  
 #### The landing page was designed to be engaging and inteactive for the user.
 ![PlanetData](/assets/images/PDV1.jpg) <br>
 
-#### A few of the visualizations a produced for this project are: 
+#### A few of the visualizations I produced for this project were: 
 
 ##### COVID-19 barchart race for deaths by country.
 ![PlanetData](/assets/images/PDV2.png) <br>
