@@ -14,7 +14,7 @@ show_tile: false
 This group project's team consisted of 3 data scientists and 2 web developers.  The idea came to us because we had all experienced how the majority of data visualization sites are targeted towards a general older population or those in that field of interest.  We saw an opportunity to teach younger students about environmental issues and data visualizations by creating a website that is targeted towards these younger ages that is more interactive and engaging for them.  The DS teams focus was sourcing, aggregating, and pushing the manipulated data to the web team with a few data visualization mock up ideas to go with each data set provided to web.  The tools used by the DS team was AWS, Docker, Postman, Flask, Heroku, PostgreSQL, all developed in Python.  There were 2 visualizations that included predictions and the predictive models used were, Facebook Prophet and a Random Forest Regressor.  There was a 6 week time period given to work on the project, there is no 'finished' or 'complete' for the project as there will be future groups that will keep adding and working on the project, it is on going.
 
 #### The home page.
-![PlanetData](/assets/images/PDV1.png) <br>
+![PlanetData](/assets/images/PDV1.jpg) <br>
 
 #### COVID-19 deceased totals by country in a barchart race.
 ![PlanetData](/assets/images/PDV2.png) <br>
