@@ -7,7 +7,7 @@ description: null
 show_tile: false
 ---
 
-![Deforestation](/assets/images/DFTHeader.png) <br>
+![Deforestation](/assets/images/DFTHeader.jpg) <br>
 ## Making deforestation prediction trends with a random forest regressor model.
 
 ---
