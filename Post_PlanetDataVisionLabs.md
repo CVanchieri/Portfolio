@@ -25,7 +25,7 @@ Website
 Github
 [Link]({{'https://cvanchieri.github.io/DSPortfolio/Post_COVID19BarChartRace.html'}})
 
-##### Covid-19 USA confirmed new cases in a time series heatmap. 
+##### Covid-19 USA confirmed new cases in a heatmap. 
 ![PlanetData](/assets/images/PDV3.png) <br>
 Github
 [Link]({{https://cvanchieri.github.io/DSPortfolio/Post_COVID19PlotlyLineGraph.html'}})
