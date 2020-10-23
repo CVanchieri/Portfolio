@@ -15,6 +15,8 @@ This group project's team consisted of 3 data scientists and 2 web developers.  
 
 #### The landing page was designed to be engaging and inteactive for the user.
 ![PlanetData](/assets/images/PDV1.jpg) <br>
+Website
+[Link]({{'https://planetdata.vision'}})
 
 #### A few of the visualizations I produced for this project were: 
 
