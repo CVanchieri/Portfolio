@@ -31,7 +31,8 @@ pd.set_option('display.float_format', lambda x: '%.2f' % x)
 
 #### Read in the train data set from the World Bank.
 ```
-df_tr = pd.read_csv('https://raw.githubusercontent.com/CVanchieri/DataSets/master/WorldBankDeforestation/WorldBank_1990_2018.csv')
+df_tr = pd.read_csv('https://raw.githubusercontent.com/CVanchieri/DataSets/master
+                     /WorldBankDeforestation/WorldBank_1990_2018.csv')
 ```
 ```
 train = df_tr.copy()
@@ -53,7 +54,8 @@ y = train[target]
 ```
 X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=1)
 X_train, X_val, y_train, y_val = train_test_split(X_train, y_train, test_size=0.2, random_state=1)
-print('X_train =', X_train.shape, 'y_train =', y_train.shape, 'X_val =', X_val.shape, 'y_val =', y_val.shape, 'X_test =', X_test.shape, 'y_test =', y_test.shape)
+print('X_train =', X_train.shape, 'y_train =', y_train.shape, 'X_val =', X_val.shape, 'y_val =', y_val.shape, 
+'X_test =', X_test.shape, 'y_test =', y_test.shape)
 ```
 ![Deforestation](/assets/images/DFM2.png) <br>
 
@@ -75,7 +77,8 @@ y_pred = pipeline.predict(X_val)
 #### Read in the test predictions data frame.
 ##### Pandas 
 ```
-df_te = pd.read_csv('https://raw.githubusercontent.com/CVanchieri/DataSets/master/WorldBankDeforestation/WorldBank_2019_2120.csv')
+df_te = pd.read_csv('https://raw.githubusercontent.com/CVanchieri/DataSets/master/WorldBankDeforestation
+                     /WorldBank_2019_2120.csv')
 ```
 ```
 test = df_te.copy()
