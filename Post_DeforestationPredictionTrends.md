@@ -39,7 +39,7 @@ train = train.drop(columns=['Unnamed: 0'])
 print(train.shape)
 train.head()
 ```
-![Deforestation](/assets/images/DFM12.png) <br>
+![Deforestation](/assets/images/DFM1.png) <br>
 
 #### Set the target and features, split the data into train, val, test.
 ##### train_test_split
@@ -70,7 +70,7 @@ print ('Training Accuracy', pipeline.score(X_train, y_train))
 print('Validation Accuracy', pipeline.score(X_val, y_val))
 y_pred = pipeline.predict(X_val)
 ```
-![Deforestation](/assets/images/DFM3.jpg) <br>
+![Deforestation](/assets/images/DFM3.png) <br>
 
 #### Read in the test predictions data frame.
 ##### Pandas 
