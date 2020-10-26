@@ -48,6 +48,9 @@ Any suggestions or feedback is greatly appreciated, I am still learning and am a
 Website
 [Link]({{'https://planetdata.vision'}})
 
+Presentation
+[Link]({{'https://www.youtube.com/watch?v=ge4I4dDznEc&feature=emb_logo'}})
+
 GitHub file 
 [Link]({{'https://github.com/CVanchieri/PlanetData.Vision'}})
 
