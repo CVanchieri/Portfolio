@@ -10,7 +10,7 @@ show_tile: false
 
 ![NLP](/assets/images/nlp.jpg) <br>
 
-## Using natural language processing to query similar Yelp reviews by reviews text.
+## Automating a Tweepy Twitterbot that pulls and stores data science related tweets.
 
 ---
 
