@@ -8,13 +8,13 @@ show_tile: false
 
 ---
 
-![NLP](/assets/images/nlp.jpg) <br>
+![twitter](/assets/images/TwitterBotHeader.png) <br>
 
-## Automating a Tweepy Twitterbot that pulls and stores data science related tweets.
+## Automating a Tweepy Twitterbot that searches and stores data science related tweets.
 
 ---
 
-The goal here is to use create a fake review and then use Natural Language Processing on the text of the reivew to query similar reviews within the given Yelp data set. 
+I enjoy using Twitter for fun and to find information.  I thought that I would try to create a Twitterbot that will automate the collection and storage of data science information by searching, collecting, and storing tweets on the subject.
 
 #### Necessary imports.
 ```
