@@ -10,11 +10,11 @@ show_tile: false
 
 ![twitter](/assets/images/TwitterBotHeader.png) <br>
 
-## Automating a Tweepy Twitterbot that searches and stores data science related tweets.
+## Using a AWS Lambda Function to automate a Twitterbot that searches and stores data science related tweets.
 
 ---
 
-I enjoy using Twitter for fun and to find information.  I thought that I would try to create a Twitterbot that will automate the collection and storage of data science information by searching, collecting, and storing tweets on the subject.
+I enjoy using Twitter for fun and to find information.  I thought that I would try to create a Twitterbot that will automate the collection and storage of data science information by searching, collecting, and storing tweets on the subject.  
 
 #### Necessary imports.
 ```
