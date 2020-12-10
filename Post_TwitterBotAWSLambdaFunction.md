@@ -170,8 +170,10 @@ Any suggestions or feedback is greatly appreciated, I am still learning and am a
 
 LambdaFunction file
 [Link]({{'https://github.com/CVanchieri/DSPortfolio/blob/master/posts/TwitterBotAWSLambdaFunctionPost/lambda_function.py'}})
+
 GitHub repo
 [Link]({{'https://github.com/CVanchieri/DSPortfolio'}})
+
 Tweepy/AWS connection support
 [Link]({{'https://dylancastillo.co/how-to-make-a-twitter-bot-for-free/'}})
 
