@@ -11,7 +11,7 @@ nav-menu: true
 
 ---
 
-## Collecting and storing data science information with an automated Twitterbot.
+## Collecting and storing data science related tweets with an automated Twitterbot.
 
 <ul class="actions">
    <li><a href="https://cvanchieri.github.io/DSPortfolio/Post_TwitterBotAWSLambdaFunction.html" class="button next">View Details</a></li>
