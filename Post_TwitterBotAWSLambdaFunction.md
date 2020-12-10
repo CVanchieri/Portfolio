@@ -18,231 +18,156 @@ I enjoy using Twitter for fun and to find information.  I thought that I would t
 
 #### Necessary imports.
 ```
-import pandas as pd
-import re
-import spacy 
-from spacy.tokenizer import Tokenizer
-from collections import Counter
-import squarify
-import matplotlib.pyplot as plt
-from sklearn.neighbors import NearestNeighbors
-from sklearn.pipeline import Pipeline
-from sklearn.feature_extraction.text import TfidfVectorizer
-from sklearn.ensemble import RandomForestClassifier
-from sklearn.model_selection import GridSearchCV
-from gensim.models import LdaMulticore
-from gensim.corpora import Dictionary
-from gensim import corpora
-import pyLDAvis
-import pyLDAvis.gensim
-import seaborn as sns
-from gensim.models.coherencemodel import CoherenceModel
+import os
+from pathlib import Path
+from datetime import datetime, timedelta
+import pandas
+from pandas import DataFrame 
+import regex as re
+import tweepy
+import psycopg2
+from sqlalchemy import create_engine
 ```
 
-#### Step 1: Read in the JSON file and got a visual of the data frame being worked with.
-##### Pandas 
+#### Step 1: Collect the environmental variables and build connection to Tweepy.
+##### .env | Tweepy 
 ```
-yelp = pd.read_json('review_sample.json', lines=True)
-yelp = yelp[['business_id', 'review_id', 'text', 'cool', 'funny', 'useful', 'stars']]
+TWITconsumer_key = os.getenv("TWITCONSUMER_KEY")
+TWITconsumer_secret = os.getenv("TWITCONSUMER_SECRET")
+TWITaccess_token = os.getenv("TWITACCESS_TOKEN")
+TWITaccess_token_secret = os.getenv("TWITACCESS_TOKEN_SECRET")
+print("---> authenticate Twitter connection")
+auth = tweepy.OAuthHandler(TWITconsumer_key, TWITconsumer_secret)
+auth.set_access_token(TWITaccess_token, TWITaccess_token_secret)
+api = tweepy.API(auth, wait_on_rate_limit=True,
+wait_on_rate_limit_notify=True)
 ```
-```
-print(yelp.shape)
-yelp.head()
-```
-![yelp](/assets/images/yelp1.png) <br>
-(Yelp data frame.)
 
-#### Step 2: Clean up the text from the data frame reviews.
+#### Step 2: Create the dictionary for storage and the start + end dates to be used.
+##### Datetime
+```
+tweets = {} # store all ids and tweets
+days = 3 # set the # of 'past' days to pull tweets from, end date
+today = datetime.utcnow() # get todays date
+end_date = today - timedelta(days=days) # <-- set the end date
+end_str = end_date.strftime('%m/%d/%Y') # set the end date as str
+start = datetime.now() # set the start date 
+```
+
+#### Step 3: Using Tweepy's Cursor api, loop through and search each hashtag storing tweets that pass the parameters.
+##### Tweepy | Cursor
+```
+tags = ['datascience', 'machinelearning', 'artificialintelligence']
+for tag in tags: # loop through hashtags
+  try:
+    print(f'---> hashtag: {tag}')
+    for status in tweepy.Cursor(api.search,q=tag,
+                                since=end_str,   
+                                exclude_replies=True,    
+                                lang='en', 
+                                tweet_mode='extended').items(100):
+      if status.full_text is not None:
+        text = status.full_text.lower()
+
+        id_s = status.id # store the tweet id 
+        date = status.created_at # store the date created 
+        name = status.user.name # store the user name 
+        tweets[id_s] = [date, name, text] # add elements to dict
+
+  ### handle errors ###
+  except tweepy.TweepError as e: 
+    print("Tweepy Error: {}".format(e))
+```
+#### Step 4: Locate and add a value to the dictionary that contains all the #hashtags used in the tweet.
 ##### Regex
 ```
-yelp['text'] = yelp['text'].apply(lambda x: re.sub(r'[^a-zA-Z ^0-9]', '', x))
-yelp['text'] = yelp['text'].apply(lambda x: re.sub(r'(x.[0-9])', '', x))
-yelp['text'] = yelp['text'].replace('/', ' ') 
-yelp['text'] = yelp['text'].apply(lambda x: re.sub('  ', ' ', x))
-yelp['text'] = yelp['text'].apply(lambda x: x.lower())
+for key, val in tweets.items(): # loop through dictionary key/values
+  val0, val1, val2 = val # unpack all variables 
+  tags = re.findall("[#]\w+", val2) # get all words starting with '#'.
+  tweets[key] = [val0, val1, val2, tags] # add elements to the dictionary
 ```
 
-#### Step 3: Create a list of tokens from the reviews text and add to the data frame.
-##### Spacy | Tokenizer | Stop Words | Lemmatize
+#### Step 5: Convert the dictionary to a dataframe, remove duplicates, filter unwanted tweets.
+##### Dataframe
 ```
-df = yelp.copy()
+df1 = DataFrame.from_dict(tweets, orient='index', columns=['date', 'name', 'text',  'tags']) # create a dataframe from for the tweets dict
+df1.reset_index(inplace=True) # reset the index 
+df1 = df1.rename(columns = {'index':'id'}) # rename columns 
+df1 = df1.drop_duplicates(subset=['id'], keep='last') # drop duplicates
+df1[['First','Last']] = df1.text.str.split(n=1, expand=True)  # split the text column into 2 
+df1 = df1.drop_duplicates(subset=['First']) # drop duplicates ofr First column
+df1 = df1.drop(columns=['First', 'Last']) # drop First and Last columns 
+df1['retweet'] = 'NO' # add a retweet column, set to 'NO'
+strings = ['rt', '@', 'trial', 'free', 'register', 'subscription'] # list of substrings 
+df1 = df1[~df1.text.str.contains('|'.join(strings))] # remove any text values that contain a string from strings 
 ```
-```
-nlp = spacy.load("en_core_web_lg")
-# set the tokenizer on nlp.vocab.
-tokenizer = Tokenizer(nlp.vocab)
-```
-```
-STOP_WORDS = nlp.Defaults.stop_words
-```
-```
-tokens = []
-for doc in tokenizer.pipe(df['text'], batch_size=500):
-    doc_tokens = []
-    for token in doc:
-        if (token.lemma_ not in STOP_WORDS) & (token.text != ' '):
-            doc_tokens.append(token.lemma_)
-    tokens.append(doc_tokens)
-```
-```
-df['tokens'] = tokens
-df['tokens'].head()
-```
-![yelp](/assets/images/yelp2.png) <br>
-(Review tokens.)
 
-#### Step 4: Find the top words in the tokens.
-##### Counter | Squarify
+#### Step 6: Collect environmental variables and connect to the database.
+##### Psycopg2 | AWS 
 ```
-def count(docs):
-        word_counts = Counter()
-        appears_in = Counter()
-        total_docs = len(docs)
+AWSdatabase = os.getenv("AWSDATABASE")
+AWSuser = os.getenv("AWSUSER")
+AWSpassword = os.getenv("AWSPASSWORD")
+AWShost = os.getenv("AWSHOST")
+AWSport = os.getenv("AWSPORT")
+sql_AWS = os.getenv("AWSSQL")
 
-        for doc in docs:
-            word_counts.update(doc)
-            appears_in.update(set(doc))
-            
-        temp = zip(word_counts.keys(), word_counts.values())       
-        wc = pd.DataFrame(temp, columns = ['word', 'count'])
-        wc['rank'] = wc['count'].rank(method='first', ascending=False)
-        total = wc['count'].sum()
-        wc['pct_total'] = wc['count'].apply(lambda x: x / total)       
-        wc = wc.sort_values(by='rank')
-        wc['cul_pct_total'] = wc['pct_total'].cumsum()
-        t2 = zip(appears_in.keys(), appears_in.values())
-        ac = pd.DataFrame(t2, columns=['word', 'appears_in'])
-        wc = ac.merge(wc, on='word')
-        wc['appears_in_pct'] = wc['appears_in'].apply(lambda x: x / total_docs)
-        
-        return wc.sort_values(by='rank')
-```
-```
-wordcount = count(df['tokens'])
-wordcount.head(10)
-```
-![yelp](/assets/images/yelp3.png) <br>
-(Top 10 used words.)
+## connect to AWS database ###
+connection = psycopg2.connect(database=AWSdatabase,
+                              user=AWSuser,
+                              password=AWSpassword,
+                              host=AWShost,
+                              port=AWSport)
 
-``` 
-wordcount_top40 = wordcount[wordcount['rank'] <= 40]
-squarify.plot(sizes=wordcount_top40['pct_total'], label=wordcount_top40['word'], alpha=.8 )
-plt.axis('off')
-plt.show()
+cur = connection.cursor()
 ```
-![yelp](/assets/images/yelp4.png) <br>
-(Squarify plot top 40 used words.)
 
-#### Step 5: Find the 10 most simliar reviews to a fake review.
-##### Vector | Nearest Neighbors
+#### Step 7: SQL query all of the database and convert to a dataframe.
+##### SQL | Dataframe 
 ```
-vects = [nlp(doc).vector for doc in df['text']]
-nn = NearestNeighbors(n_neighbors=10, algorithm='ball_tree')
-nn.fit(vects)
+sql_select_Query = "select * from tweets_storage" # query all of database 
+cur.execute(sql_select_Query)
+records = cur.fetchall()
+df2 = DataFrame(records)  # set as dataframe 
+df2.columns = ['id', 'date', 'name', 'text', 'tags', 'retweet'] # label the columns 
 ```
-```
-created_review = '''
-I love the gluten free food options and the service was really quick too!
-'''
-```
-```
-created_review_vect = nlp(created_review).vector
-most_similiar = nn.kneighbors([created_review_vect])
-```
-```
-yelp.iloc[most_similiar[1][0]]['text']
-```
-![yelp](/assets/images/yelp5.png) <br>
-(10 similar reviews.)
 
-#### Step 6: Create a star with a prediction model on the reviews text.
-##### TfidVectorizer | RandomForestClassifier | GridSearchCV
+#### Step 8: Merge to newly pulled tweets with the current SQL database and drop any duplicates.
+##### Pandas | Concat
 ```
-vect = TfidfVectorizer(stop_words=STOP_WORDS)
-rfc = RandomForestClassifier()
+df3 = pandas.concat([df1, df2], axis = 0) # merge the old and new dataframes
+df3 = df3.reset_index(drop=True) # reset the index 
+df3 = df3.drop_duplicates(subset=['id'], keep='last') # drop duplicates
+df3[['First','Last']] = df3.text.str.split(n=1, expand=True) # split the text value into 2 
+df3 = df3.drop_duplicates(subset=['First']) # drop duplicates 
+df3 = df3.drop(columns=['First', 'Last']) # remove First and Last columns 
 ```
-```
-pipe = Pipeline([
-                 ('vect', vect),
-                 ('clf', rfc)                
-                ])
-```
-```
-parameters = {
-    'vect__max_df': ( 0.5, 0.75, 1.0, 1.25, 1.50),
-    'vect__min_df': (.01, .03, .05, .07, .09)
-    }
-grid_search = GridSearchCV(pipe, parameters, cv=5, n_jobs=-1, verbose=1)
-grid_search.fit(df['text'], df['stars'])
-```
-```
-grid_search.best_score_
-```
-![yelp](/assets/images/yelp6.png) <br>
-(The goal was 51% and above.)
 
-#### Step 7: Create a data frame of topics genereated the review tokens.
-##### Corpora | ldaaMulticore 
+#### Step 9: Push the updated tweets dataframe back to the AWS database.
+##### SQL 
 ```
-id2word = corpora.Dictionary(tokens)
-id2word.filter_extremes(no_below=5, no_above=0.95)
+engine = create_engine(sql_AWS) # create engine
+df3.to_sql('tweets_storage', con=engine, index=False, if_exists='replace') # push the dataframe to the database
+```
 
+#### Step 10: To check that its been updated SQL query the entire database again.
+##### SQL | Dataframe
 ```
+sql_select_Query = "select * from tweets_storage"  # query the whole database 
+cur.execute(sql_select_Query)
+records = cur.fetchall()
+tweets_database = DataFrame(records) # set data as dataframe 
+tweets_database.columns = ['id', 'date', 'name', 'text',  'tags', 'retweet'] # set the column names 
+cur.close()
 ```
-corpus = [id2word.doc2bow(text) for text in tokens]
-lda = LdaMulticore(corpus=corpus,
-                   id2word=id2word,
-                   iterations=5,
-                   workers=4,
-                   num_topics = 20
-                  )
-words = [re.findall(r'"([^"]*)"',t[1]) for t in lda.print_topics()]
-titles = df['text']
-topics = [' '.join(t[0:5]).strip().replace('\n', '') for t in words]                  
-```
-```
-print(topics)
-```
-![yelp](/assets/images/yelp8.png) <br>
-(Created topics.)
-
-```
-distro = [lda[d] for d in corpus]
-def update(doc):
-        d_dist = {k:0 for k in range(0,14)}
-        for t in doc:
-            d_dist[t[0]] = t[1]
-        return d_dist
-new_distro = [update(d) for d in distro]
-```
-```
-new_df = pd.DataFrame.from_records(new_distro, index=yelp.index)
-new_df.columns = topics
-new_df['stars'] = yelp['stars']
-```
-```
-new_df.head()
-```
-![yelp](/assets/images/yelp9.png) <br>
-(Topics data frame.)
-
-#### Step 8: Visualize the most relevent terms in each topic.
-##### pyLDAvis
-```
-pyLDAvis.enable_notebook()
-pyLDAvis.gensim.prepare(lda, corpus, id2word)
-```
-![yelp](/assets/images/yelp10.png) <br>
-(Most relevent terms in each topic.)
 
 #### Summary
-The goal was to tokenize the yelp review data, query the most similar yelp reviews to the fake review created, create a classification model to give the fake review a star rating, and implement topic modeling.
-I was very happy with my first go at NLP and the overall experience, I would consider it a success. I look forward to digging deeper and learning more.
+There was a lot of research and time that went into this project, connecting to tweepy and searching tweets was not very difficult and there is quite a bit of options for the api which is fun to mess around with.  I had never used AWS Lambda Functions before so setting the Lambda Function up properly with the connection to the AWS database took quite a bit of time, now that I have completed this one I am very happy to know how to use these automated functions.   I hope to in the future add on to this project with some analysis on the tweets but this was a great start and learning experience.
 
 Any suggestions or feedback is greatly appreciated, I am still learning and am always open to suggestions and comments.
 
 GitHub file
-[Link]({{'https://github.com/CVanchieri/DSPortfolio/blob/master/posts/YelpNLPQueryReviewsPost/YelpNLPQueryReviews.ipynb'}})
+[Link]({{'https://github.com/CVanchieri/DSPortfolio/blob/master/posts/TwitterBotAWSLambdaFunctionPost/lambda_function.py'}})
 
 
 
