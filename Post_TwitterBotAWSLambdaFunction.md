@@ -55,7 +55,7 @@ end_str = end_date.strftime('%m/%d/%Y')
 start = datetime.now()
 ```
 
-#### Step 3: Using Tweepy's Cursor api, loop through and search each hashtag storing tweets that pass the parameters.
+#### Step 3: Using Tweepy's Cursor api to loop through and search each hashtag while storing tweets that pass the parameters.
 ##### Tweepy | Cursor
 ```
 tags = ['datascience', 'machinelearning', 'artificialintelligence']
@@ -75,7 +75,6 @@ for tag in tags:
         name = status.user.name 
         tweets[id_s] = [date, name, text]
 
-
   except tweepy.TweepError as e: 
     print("Tweepy Error: {}".format(e))
     
@@ -91,7 +90,10 @@ for key, val in tweets.items():
 val0, val1, val2 = val
 tags = re.findall("[#]\w+", val2)
 tweets[key] = [val0, val1, val2, tags]
+
+tweets
 ```
+![twitter](/assets/images/TwitterBot2.png) <br>
 
 #### Step 5: Convert the dictionary to a dataframe, remove duplicates, filter unwanted tweets.
 ##### Dataframe
@@ -109,7 +111,7 @@ df1 = df1[~df1.text.str.contains('|'.join(strings))]
 
 df1['text'].values
 ```
-![twitter](/assets/images/TwitterBot2.png) <br>
+![twitter](/assets/images/TwitterBot3.png) <br>
 
 #### Step 6: Collect environmental variables and connect to the database.
 ##### Psycopg2 | AWS 
@@ -138,8 +140,6 @@ cur.execute(sql_select_Query)
 records = cur.fetchall()
 df2 = DataFrame(records)
 df2.columns = ['id', 'date', 'name', 'text', 'tags', 'retweet']
-
-df2.head()
 ```
 
 #### Step 8: Merge to newly pulled tweets with the current SQL database and drop any duplicates.
@@ -154,7 +154,7 @@ df3 = df3.drop(columns=['First', 'Last'])
 
 df3.head()
 ```
-![twitter](/assets/images/TwitterBot3.png) <br>
+![twitter](/assets/images/TwitterBot4.png) <br>
 
 #### Step 9: Push the updated tweets dataframe back to the AWS database.
 ##### SQL 
@@ -162,19 +162,6 @@ df3.head()
 engine = create_engine(sql_AWS)
 df3.to_sql('tweets_storage', con=engine, index=False, if_exists='replace')
 ```
-
-#### Step 10: To check that its been updated SQL query the entire database again.
-##### SQL | Dataframe
-```
-sql_select_Query = "select * from tweets_storage"
-cur.execute(sql_select_Query)
-records = cur.fetchall()
-tweets_database = DataFrame(records) 
-tweets_database.columns = ['id', 'date', 'name', 'text',  'tags', 'retweet']
-cur.close()
-```
-![twitter](/assets/images/TwitterBot3.png) <br>
-
 
 #### Summary
 There was a lot of research and time that went into this project a little more than expected, connecting to Tweepy and searching for tweets was not very difficult and there is quite a bit of options for the api which is fun to mess around with.  I had never used AWS Lambda Functions before so setting the Lambda Function up with proper triggers and properly connection to the AWS database took quite a bit of time, but now that I have completed this I am very happy to know how to use these Lambda Functions which are great for automation.   I hope to in the future add on to this project with some analysis on the tweets but this was a great start and learning experience.
