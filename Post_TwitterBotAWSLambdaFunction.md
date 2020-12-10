@@ -16,6 +16,9 @@ show_tile: false
 
 I enjoy using Twitter for fun and to find information.  I thought that I would try to create a Twitterbot that will automate the collection and storage of data science information by searching, collecting, and storing tweets on the subject.  
 
+If you need assistance getting started with Tweepy api or AWS Lambda Function connections, this is the blog I followed for those connections. --> [Link]({{'https://dylancastillo.co/how-to-make-a-twitter-bot-for-free/'}})
+
+
 #### Necessary imports.
 ```
 import os
@@ -75,7 +78,12 @@ for tag in tags:
 
   except tweepy.TweepError as e: 
     print("Tweepy Error: {}".format(e))
+    
+print('--- hashtags tweets ---')
+print(f'pulled tweets count: {len(tweets)}')
 ```
+![twitter](/assets/images/TwitterBot1.png) <br>
+
 #### Step 4: Locate and add a value to the dictionary that contains all the #hashtags used in the tweet.
 ##### Regex
 ```
@@ -98,7 +106,10 @@ df1 = df1.drop(columns=['First', 'Last'])
 df1['retweet'] = 'NO' # add a retweet column, set to 'NO'
 strings = ['rt', '@', 'trial', 'free', 'register', 'subscription'] 
 df1 = df1[~df1.text.str.contains('|'.join(strings))]
+
+df1['text'].values
 ```
+![twitter](/assets/images/TwitterBot2.png) <br>
 
 #### Step 6: Collect environmental variables and connect to the database.
 ##### Psycopg2 | AWS 
@@ -127,6 +138,8 @@ cur.execute(sql_select_Query)
 records = cur.fetchall()
 df2 = DataFrame(records)
 df2.columns = ['id', 'date', 'name', 'text', 'tags', 'retweet']
+
+df2.head()
 ```
 
 #### Step 8: Merge to newly pulled tweets with the current SQL database and drop any duplicates.
@@ -138,7 +151,10 @@ df3 = df3.drop_duplicates(subset=['id'], keep='last')
 df3[['First','Last']] = df3.text.str.split(n=1, expand=True)
 df3 = df3.drop_duplicates(subset=['First'])
 df3 = df3.drop(columns=['First', 'Last'])
+
+df3.head()
 ```
+![twitter](/assets/images/TwitterBot3.png) <br>
 
 #### Step 9: Push the updated tweets dataframe back to the AWS database.
 ##### SQL 
@@ -157,14 +173,23 @@ tweets_database = DataFrame(records)
 tweets_database.columns = ['id', 'date', 'name', 'text',  'tags', 'retweet']
 cur.close()
 ```
+![twitter](/assets/images/TwitterBot3.png) <br>
+
 
 #### Summary
 There was a lot of research and time that went into this project a little more than expected, connecting to Tweepy and searching for tweets was not very difficult and there is quite a bit of options for the api which is fun to mess around with.  I had never used AWS Lambda Functions before so setting the Lambda Function up with proper triggers and properly connection to the AWS database took quite a bit of time, but now that I have completed this I am very happy to know how to use these Lambda Functions which are great for automation.   I hope to in the future add on to this project with some analysis on the tweets but this was a great start and learning experience.
 
 Any suggestions or feedback is greatly appreciated, I am still learning and am always open to suggestions and comments.
 
-GitHub file
+LambdaFunction file
 [Link]({{'https://github.com/CVanchieri/DSPortfolio/blob/master/posts/TwitterBotAWSLambdaFunctionPost/lambda_function.py'}})
+
+GitHub repo
+[Link]({{'https://github.com/CVanchieri/DSPortfolio'}})
+
+Tweepy/AWS connection support
+[Link]({{'https://dylancastillo.co/how-to-make-a-twitter-bot-for-free/'}})
+
 
 
 
