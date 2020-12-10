@@ -142,7 +142,7 @@ df2 = DataFrame(records)
 df2.columns = ['id', 'date', 'name', 'text', 'tags', 'retweet']
 ```
 
-#### Step 8: Merge to newly pulled tweets with the current SQL database and drop any duplicates.
+#### Step 8: Merge the newly pulled tweets with the current SQL database and drop any duplicates.
 ##### Pandas | Concat
 ```
 df3 = pandas.concat([df1, df2], axis = 0)
