@@ -48,6 +48,5 @@ Data visualization gives us a clear idea of what the information means by giving
 
 
 
-COVIDplotlylinegraph.md
 ---
 [[<< Back]](https://cvanchieri.github.io/DSPortfolio)
