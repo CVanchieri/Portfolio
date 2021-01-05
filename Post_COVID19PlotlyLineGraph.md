@@ -143,6 +143,8 @@ plenty more complex beautiful charts and graphs but it also can present some of 
 
 Any suggestions or feedback is greatly appreciated, I am still learning and am always open to suggestions and comments.
 
+Live
+[Link]({{'https://portfolioprojects.herokuapp.com/covid19us'}})
 GitHub file 
 [Link]({{'https://github.com/CVanchieri/DSPortfolio/blob/master/posts/PlotlyCOVID19LineGraphPost/PlotlyCovid19LineGraph.ipynb'}})
 
