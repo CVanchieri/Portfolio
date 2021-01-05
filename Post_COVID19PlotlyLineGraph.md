@@ -145,6 +145,7 @@ Any suggestions or feedback is greatly appreciated, I am still learning and am a
 
 Live
 [Link]({{'https://portfolioprojects.herokuapp.com/covid19us'}})
+
 GitHub file 
 [Link]({{'https://github.com/CVanchieri/DSPortfolio/blob/master/posts/PlotlyCOVID19LineGraphPost/PlotlyCovid19LineGraph.ipynb'}})
 
