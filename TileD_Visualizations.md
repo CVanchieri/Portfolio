@@ -1,9 +1,10 @@
 ---
 layout: page
-title: Visualizations
+title: Projects
 description:
 image: assets/images/General/visualizations.jpg
 nav-menu: true
+show_tile: true
 
 ---
 
