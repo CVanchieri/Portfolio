@@ -8,7 +8,7 @@ show_tile: false
 
 ---
 
-![NLP](/assets/images/nlp.jpg) <br>
+![NLP](/assets/images/QuerySimilarYelpReviews/nlp.jpg) <br>
 
 ## Using natural language processing to query similar Yelp reviews by reviews text.
 
@@ -49,7 +49,7 @@ yelp = yelp[['business_id', 'review_id', 'text', 'cool', 'funny', 'useful', 'sta
 print(yelp.shape)
 yelp.head()
 ```
-![yelp](/assets/images/yelp1.png) <br>
+![yelp](/assets/images/QuerySimilarYelpReviews/yelp1.png) <br>
 (Yelp data frame.)
 
 #### Step 2: Clean up the text from the data frame reviews.
@@ -88,7 +88,7 @@ for doc in tokenizer.pipe(df['text'], batch_size=500):
 df['tokens'] = tokens
 df['tokens'].head()
 ```
-![yelp](/assets/images/yelp2.png) <br>
+![yelp](/assets/images/QuerySimilarYelpReviews/yelp2.png) <br>
 (Review tokens.)
 
 #### Step 4: Find the top words in the tokens.
@@ -121,7 +121,7 @@ def count(docs):
 wordcount = count(df['tokens'])
 wordcount.head(10)
 ```
-![yelp](/assets/images/yelp3.png) <br>
+![yelp](/assets/images/QuerySimilarYelpReviews/yelp3.png) <br>
 (Top 10 used words.)
 
 ``` 
@@ -130,7 +130,7 @@ squarify.plot(sizes=wordcount_top40['pct_total'], label=wordcount_top40['word'],
 plt.axis('off')
 plt.show()
 ```
-![yelp](/assets/images/yelp4.png) <br>
+![yelp](/assets/images/QuerySimilarYelpReviews/yelp4.png) <br>
 (Squarify plot top 40 used words.)
 
 #### Step 5: Find the 10 most simliar reviews to a fake review.
@@ -152,7 +152,7 @@ most_similiar = nn.kneighbors([created_review_vect])
 ```
 yelp.iloc[most_similiar[1][0]]['text']
 ```
-![yelp](/assets/images/yelp5.png) <br>
+![yelp](/assets/images/QuerySimilarYelpReviews/yelp5.png) <br>
 (10 similar reviews.)
 
 #### Step 6: Create a star with a prediction model on the reviews text.
@@ -178,7 +178,7 @@ grid_search.fit(df['text'], df['stars'])
 ```
 grid_search.best_score_
 ```
-![yelp](/assets/images/yelp6.png) <br>
+![yelp](/assets/images/QuerySimilarYelpReviews/yelp6.png) <br>
 (The goal was 51% and above.)
 
 #### Step 7: Create a data frame of topics genereated the review tokens.
@@ -203,7 +203,7 @@ topics = [' '.join(t[0:5]).strip().replace('\n', '') for t in words]
 ```
 print(topics)
 ```
-![yelp](/assets/images/yelp8.png) <br>
+![yelp](/assets/images/QuerySimilarYelpReviews/yelp8.png) <br>
 (Created topics.)
 
 ```
@@ -223,7 +223,7 @@ new_df['stars'] = yelp['stars']
 ```
 new_df.head()
 ```
-![yelp](/assets/images/yelp9.png) <br>
+![yelp](/assets/images/QuerySimilarYelpReviews/yelp9.png) <br>
 (Topics data frame.)
 
 #### Step 8: Visualize the most relevent terms in each topic.
@@ -232,7 +232,7 @@ new_df.head()
 pyLDAvis.enable_notebook()
 pyLDAvis.gensim.prepare(lda, corpus, id2word)
 ```
-![yelp](/assets/images/yelp10.png) <br>
+![yelp](/assets/images/QuerySimilarYelpReviews/yelp10.png) <br>
 (Most relevent terms in each topic.)
 
 #### Summary

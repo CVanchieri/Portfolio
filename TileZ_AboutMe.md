@@ -6,7 +6,7 @@ nav-menu: true
 show_tile: false
 ---
 
-![ProfilePic](/assets/images/aboutme.jpg)
+![ProfilePic](/assets/images/General/aboutme.jpg)
 
 ### Aspiring Data Scientist trying to make a positive impact on others health & wellness and the environment.
  My name is Charles Vanchieri and for the past 13 years I have been working in the health & wellness industry both corporate and privately in many different deparments.  Health & wellness was always natural and second nature for me, and so with a few great opportunities that is where I began my professional career in 2008.  I have always had a passion for technology and a desire to get involved with programming and software developement. In early 2019 I decided I was going to pursue a career change and get involved with datasScience by enrolling in Lambda School's part-time data science program. 

@@ -8,7 +8,7 @@ show_tile: false
 
 ---
 
-![Covid19Header2](/assets/images/PLGCovidHeader2.jpg) <br>
+![Covid19Header2](/assets/images/Covid19USALineGraph/PLGCovidHeader2.jpg) <br>
 
 ## Visualizing the COVID-19 virus impact on the USA in a plotly line graph.
 
@@ -41,7 +41,7 @@ covid_countriessummary = pd.json_normalize(covid_cs)
 print(covid_countriessummary.shape)
 covid_countriessummary.head()
 ```
-![Covid19LineGraph](/assets/images/PLG1.png) <br>
+![Covid19LineGraph](/assets/images/Covid19USALineGraph/PLG1.png) <br>
 (COVID-19 daily dataframe.)
 
 #### Step 2: Clean and filter the data for USA.
@@ -69,7 +69,7 @@ df['RecDiff'] = df['RecDiff'].astype(int)
 print(df.shape)
 df.head()
 ```
-![Covid19LineGraph](/assets/images/PLG2.png) <br>
+![Covid19LineGraph](/assets/images/Covid19USALineGraph/PLG2.png) <br>
 (Reworked data frame.)
 
 #### Step 3: Function to configure the browser to display plotly charts properly.
@@ -133,7 +133,7 @@ layout = go.Layout(title='USA COVID19 Numbers',
 fig = go.Figure(data=data, layout=layout)
 fig.show()
 ```
-![Covid19LineGraph](/assets/images/PLG3.png) <br>
+![Covid19LineGraph](/assets/images/Covid19USALineGraph/PLG3.png) <br>
 (Image of the graph.)
 
 #### Summary

@@ -7,7 +7,7 @@ description: null
 show_tile: false
 ---
 
-![Deforestation](/assets/images/DFTHeader.jpg) <br>
+![Deforestation](/assets/images/WorldDeforestationPredictions/DFTHeader.jpg) <br>
 ## Using a randomforest regressor model to make deforestation predictions by country.
 
 
@@ -40,7 +40,7 @@ train = train.drop(columns=['Unnamed: 0'])
 print(train.shape)
 train.head()
 ```
-![Deforestation](/assets/images/DFM1.png) <br>
+![Deforestation](/assets/images/WorldDeforestationPredictions/DFM1.png) <br>
 
 #### Set the target and features, split the data into train, val, test.
 ##### train_test_split
@@ -57,7 +57,7 @@ X_train, X_val, y_train, y_val = train_test_split(X_train, y_train, test_size=0.
 print('X_train =', X_train.shape, 'y_train =', y_train.shape, 'X_val =', X_val.shape, 'y_val =', y_val.shape, 
 'X_test =', X_test.shape, 'y_test =', y_test.shape)
 ```
-![Deforestation](/assets/images/DFM2.png) <br>
+![Deforestation](/assets/images/WorldDeforestationPredictions/DFM2.png) <br>
 
 #### Create a pipeline for the randomforest regressor model.
 ##### Pipeline, OneHotEncoder, Randomforest Regressor
@@ -86,7 +86,7 @@ test = test.drop(columns=['Unnamed: 0'])
 print(test.shape)
 test.head()
 ```
-![Deforestation](/assets/images/DFM4.png) <br>
+![Deforestation](/assets/images/WorldDeforestationPredictions/DFM4.png) <br>
 
 #### Use the pipeline to make predictions on the test data.
 ##### Pipeline
@@ -103,7 +103,7 @@ y_pred = pipeline.predict(X_test)
 print ('Test Accuracy', pipeline.score(X_test, y_test))
 y_pred
 ```
-![Deforestation](/assets/images/DFM5.png) <br>
+![Deforestation](/assets/images/WorldDeforestationPredictions/DFM5.png) <br>
 
 #### Step 6: Add the test predictions to the test data frame.
 ##### Concat
@@ -114,7 +114,7 @@ predictions = pd.concat([train, test])
 print(predictions.shape)
 predictions.head()
 ```
-![Deforestation](/assets/images/DFM6.png) <br>
+![Deforestation](/assets/images/WorldDeforestationPredictions/DFM6.png) <br>
 
 #### Create a function to add in the country names.
 ```
@@ -200,14 +200,14 @@ final['Forest area (% of land area)'] = final['Forest area (% of land area)'].cl
 print(final.shape)
 final.tail()
 ```
-![Deforestation](/assets/images/DFM7.png) <br>
+![Deforestation](/assets/images/WorldDeforestationPredictions/DFM7.png) <br>
 
 #### Deforestation prediction visualizations, % of forest area coverage.
 ##### Predictions by country.
-![Deforestation](/assets/images/DFT3.png) <br>
+![Deforestation](/assets/images/WorldDeforestationPredictions/DFT3.png) <br>
 
 ##### Predictions by country income.
-![Deforestation](/assets/images/DFT4.png) <br>
+![Deforestation](/assets/images/WorldDeforestationPredictions/DFT4.png) <br>
 
 #### Summary
 Since I had done my college studies in Environmental Studies working on deforestaion data sparked a lot of interest.  I found the toughest part of this project was collecting the different data and getting them all together is a clean data set to that could be used by the model.  I believe I used 6-8 different data set on different topics that all had some relation to deforestation in hopes that this additional info could help the models predictions.  Overall I think it all went well, with this project I state that we are predicting trends because the % of change in deforestation year by year is typically incredibly small, whether its going up or down.  I selected just a few countries so the graph is not overkill on the data but there are many more countries in the model notebook to view, I found that the income of the country low/med/high also graphed can typically determine which diretion the deforestation change trending.

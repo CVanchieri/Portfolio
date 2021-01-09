@@ -8,7 +8,7 @@ show_tile: false
 
 ---
 
-![twitter](/assets/images/TwitterBotHeader.png) <br>
+![twitter](/assets/images/TwitterBot/TwitterBotHeader.png) <br>
 
 ## Using a AWS Lambda Function to automate a Twitterbot that searches and stores data science related tweets.
 
@@ -81,7 +81,7 @@ for tag in tags:
 print('--- hashtags tweets ---')
 print(f'pulled tweets count: {len(tweets)}')
 ```
-![twitter](/assets/images/TwitterBot1.png) <br>
+![twitter](/assets/images/TwitterBot/TwitterBot1.png) <br>
 
 #### Step 4: Locate and add a value to the dictionary that contains all the #hashtags used in the tweet.
 ##### Regex
@@ -93,7 +93,7 @@ tweets[key] = [val0, val1, val2, tags]
 
 tweets
 ```
-![twitter](/assets/images/TwitterBot2.png) <br>
+![twitter](/assets/images/TwitterBot/TwitterBot2.png) <br>
 
 #### Step 5: Convert the dictionary to a dataframe, remove duplicates, filter unwanted tweets.
 ##### Dataframe
@@ -111,7 +111,7 @@ df1 = df1[~df1.text.str.contains('|'.join(strings))]
 
 df1['text'].values
 ```
-![twitter](/assets/images/TwitterBot3.png) <br>
+![twitter](/assets/images/TwitterBot/TwitterBot3.png) <br>
 
 #### Step 6: Collect environmental variables and connect to the database.
 ##### Psycopg2 | AWS 
@@ -154,7 +154,7 @@ df3 = df3.drop(columns=['First', 'Last'])
 
 df3.head()
 ```
-![twitter](/assets/images/TwitterBot4.png) <br>
+![twitter](/assets/images/TwitterBot/TwitterBot4.png) <br>
 
 #### Step 9: Push the updated tweets dataframe back to the AWS database.
 ##### SQL 

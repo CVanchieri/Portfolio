@@ -8,7 +8,7 @@ show_tile: false
 
 ---
 
-![LiverpoolFootballClub](/assets/images/LPFCTeam.png) <br>
+![LiverpoolFootballClub](/assets/images/LiverPoolFCPredictions/LPFCTeam.png) <br>
 ## Making game predictions for the Liverpool Premier League 2020 season with a Random Forest Classifier.
 
 Soccer has always been a predominant piece of my life whether it has been playing competitively or just watching 
@@ -47,7 +47,7 @@ LPFC = pd.read_csv('https://raw.githubusercontent.com/CVanchieri/LSDS-DataSets/m
 print(LPFC.shape)
 LPFC.head()
 ```
-![LiverpoolFootballClub](/assets/images/LPFC1.png){: .center-block :}
+![LiverpoolFootballClub](/assets/images/LiverPoolFCPredictions/LPFC1.png){: .center-block :}
 
 #### Step 2: Clean and rework the data to what is needed.
 ```
@@ -68,7 +68,7 @@ LPFC = LPFC.rename(columns={"Div": "Division", "Date": "GameDate", "FTHG": "Full
 print(LPFC.shape)
 LPFC.head()
 ```
-![LiverpoolFootballClub](/assets/images/LPFC2.png) <br>
+![LiverpoolFootballClub](/assets/images/LiverPoolFCPredictions/LPFC2.png) <br>
 (1993-2019 premier league dataframe.)
 
 #### Step 3: Find the majority baseline to get started.
@@ -82,7 +82,7 @@ ac = accuracy_score(target, y_pred)
 ```
 print("'Majority Baseline' Accuracy Score =", ac)
 ```
-![LiverpoolFootballClub](/assets/images/LPFC3.png) <br>
+![LiverpoolFootballClub](/assets/images/LiverPoolFCPredictions/LPFC3.png) <br>
 (Baseline accuracy score)
 
 #### Step 4: import 2019-2020 premier league schedule for test data.
@@ -98,7 +98,7 @@ test['FullTimeResult'] = test['FullTimeResult'].astype(object)
 ```
 print(test)
 ```
-![LiverpoolFootballClub](/assets/images/LPFC4.png) <br>
+![LiverpoolFootballClub](/assets/images/LiverPoolFCPredictions/LPFC4.png) <br>
 
 #### Step 5: Train val split for train data.
 ##### Train Test Split
@@ -110,7 +110,7 @@ train, val = train_test_split(train, train_size=0.80, test_size=0.20,
 ```
 print("train =", train.shape, "val =", val.shape, "test =", test.shape)
 ```
-![LiverpoolFootballClub](/assets/images/LPFC5.png) <br>
+![LiverpoolFootballClub](/assets/images/LiverPoolFCPredictions/LPFC5.png) <br>
 
 #### Step 6: Wrangle function to adjust data.
 ##### Datetime
@@ -171,7 +171,7 @@ model.fit(X_train_transformed, y_train)
 print ('Train Accuracy', model.score(X_train_transformed, y_train))
 print ('Validation Accuracy', model.score(X_val_transformed, y_val))
 ```
-![LiverpoolFootballClub](/assets/images/LPFC6.png) <br>
+![LiverpoolFootballClub](/assets/images/LiverPoolFCPredictions/LPFC6.png) <br>
 
 #### Step 9: Check the features importance and remove below 0.
 #### Permutation Importance
@@ -190,7 +190,7 @@ eli5.show_weights(
     top=None,
     feature_names = feature_names)
 ```
-![LiverpoolFootballClub](/assets/images/LPFC7.png) <br>
+![LiverpoolFootballClub](/assets/images/LiverPoolFCPredictions/LPFC7.png) <br>
 
 #### Step 10: 2nd RandomForestClassifier Model.
 ```
@@ -207,7 +207,7 @@ test_pred = model.predict(X_test)
 print ('Train Accuracy', model.score(X_train, y_train))
 print ('Validation Accuracy', model.score(X_val, y_val))
 ```
-![LiverpoolFootballClub](/assets/images/LPFC8.png) <br>
+![LiverpoolFootballClub](/assets/images/LiverPoolFCPredictions/LPFC8.png) <br>
 
 #### Step 11: Check multiple scores.
 #### Classification Report
@@ -229,7 +229,7 @@ plt.title(f'Top Features')
 ```
 importances.sort_values()[-n:].plot.barh(color='red');
 ```
-![LiverpoolFootballClub](/assets/images/LPFC10.png) <br>
+![LiverpoolFootballClub](/assets/images/LiverPoolFCPredictions/LPFC10.png) <br>
 
 #### Step 13: Merge the train and test data sets.
 ```
@@ -245,7 +245,7 @@ val_predictions = val_predictions.merge(
 print(val_predictions.shape)
 val_predictions.head()
 ```
-![LiverpoolFootballClub](/assets/images/LPFC11.png) <br>
+![LiverpoolFootballClub](/assets/images/LiverPoolFCPredictions/LPFC11.png) <br>
 
 #### Step 14: A confusion matrix heatmap for overall predictions.
 ```
@@ -261,7 +261,7 @@ def plot_confusion_matrix(y_true, y_pred):
 plot_confusion_matrix(y_val, val_pred);
 plt.figure(figsize=(40,20))
 ```
-![LiverpoolFootballClub](/assets/images/LPFC12.png) <br>
+![LiverpoolFootballClub](/assets/images/LiverPoolFCPredictions/LPFC12.png) <br>
 (Confusion matrix for predictions.)
 
 #### Step 15: Final predictions for the 2020 season.
@@ -278,10 +278,10 @@ test_predictions = test_predictions.merge(
 test_final = test_predictions.sort_values('GameDate')
 test_final.head(30)
 ```
-![LiverpoolFootballClub](/assets/images/LPFC13.png) <br>
+![LiverpoolFootballClub](/assets/images/LiverPoolFCPredictions/LPFC13.png) <br>
 
 #### Adding actual results for 2020 season, updated on 10/20/2020.
-![LiverpoolFootballClub](/assets/images/LPFC14.png) <br>
+![LiverpoolFootballClub](/assets/images/LiverPoolFCPredictions/LPFC14.png) <br>
 
 #### Summary
 In all I believe feature engineering is the most important part to this specific data set and model. With only having in-match 
