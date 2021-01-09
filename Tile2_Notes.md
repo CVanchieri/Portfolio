@@ -8,7 +8,7 @@ show_tile: true
 
 ---
 
-# Useful Notes...More to come.
+# Useful Notes...more to come.
 
 ---
 
