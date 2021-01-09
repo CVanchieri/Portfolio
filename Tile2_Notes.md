@@ -2,7 +2,7 @@
 layout: page
 title: Notes
 description:
-image: assets/images/General/projects.jpg
+image: assets/images/General/notes.jpg
 nav-menu: true
 show_tile: true
 
