@@ -4,6 +4,7 @@ title: Machine Learning
 description:
 image: assets/images/General/machinelearning.jpg
 nav-menu: false
+show_tile: false
 
 ---
 
