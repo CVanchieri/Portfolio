@@ -22,8 +22,7 @@ import plotly.graph_objects as go
 
 #### Step 1: Read in the data on the 2019 bushfires in Australia.
 ```
-fires = pd.read_csv('https://raw.githubusercontent.com/CVanchieri/DataSets/master/Labs/AustraliaBushFires
-                    /australiabushfires.csv')
+fires = pd.read_csv("https://raw.githubusercontent.com/CVanchieri/DataSets/master/AustraliaBushFires/australiabushfires.csv", index_col=0)
 ```
 ```
 print(fires.shape)
@@ -35,36 +34,35 @@ fires.head()
 #### Step 2: Set up the data for the heatmap.
 ##### Times Series | Frames Data | Controls 
 ```
-times = fires.groupby(['acq_date'])['acq_date'].count().index.tolist()
-frames_data = [fires.loc[fires['acq_date'] == t] for t in times]
-frames = [go.Frame(data=[go.Densitymapbox(lat=f['latitude'], lon=f['longitude'], 
-         z=f['brightness'], radius=10)], name=str(f.iloc[0]['acq_date'])) for f in frames_data]
+times = fires.groupby(['Date'])['Date'].count().index.tolist()
+frames_data = [fires.loc[fires['Date'] == t] for t in times]
+
+frames = [go.Frame(data=[go.Densitymapbox(lat=f['Lat'], lon=f['Lon'], z=f['Brightness'], radius=10)], name=str(f.iloc[0]['Date'])) for f in frames_data]
+
 buttons=[
-         dict(label='Play',method='animate',args=[None, {'fromcurrent':True, 'transition': 
-                                                        {'duration': 20, 'easing': 'quadratic-in-out'}}]),
-         dict(label='Pause',method='animate',args=[[None], {'frame': {'duration': 0, 'redraw':False},
-                                                            'mode': 'immediate', 'transition': {'duration': 0}}])
-        ]
-```
-```
+         dict(label="Play",method="animate",args=[None, {'fromcurrent':True, "transition": {"duration": 20, "easing": "quadratic-in-out"}}]),
+         dict(label="Pause",method="animate",args=[[None], {"frame": {"duration": 0, "redraw": False},"mode": "immediate", "transition": {"duration": 0}}])
+]
+
 sliders_dict = {
     'active':0,
     'currentvalue': dict(font=dict(size=15), prefix='Time: ', visible=True),
-    'transition': {'duration': 300, 'easing': 'cubic-in-out'},
+    "transition": {"duration": 300, "easing": "cubic-in-out"},
     'x': 0,
     'steps': []
-               }
+}
 
 for i,t in enumerate(times):
     slider_step = {"args": [
                         [t],
-                        {'frame': {'duration': 300, 'redraw': False},    
-                         'transition': {'duration': 30, 'easing': 'quadratic-in-out'}}
+                        {"frame": {"duration": 300, "redraw": False},
+                         #"mode": "immediate",
+                         "transition": {"duration": 30, "easing": "quadratic-in-out"}}
                     ],
-            'label': t,
-            'method': 'animate',
-            'value': t
-                   }
+            "label": t,
+            "method": "animate",
+            "value": t
+    }
     sliders_dict['steps'].append(slider_step)
 ```
 
@@ -74,21 +72,17 @@ mapbox_style = 'style here'
 mapbox_token = 'token here'
 ```
 ```
-fig = go.Figure(data = [go.Densitymapbox(lat=fires['latitude'], 
-                        lon=fires['longitude'],                              
-                        z=fires['brightness'], 
-                        radius=5, colorscale='Hot', zmax=300, zmin=0)],
-                        
-               layout=go.Layout(updatemenus[dict(type='buttons',buttons=buttons,showactive=True)] ), 
-               frames=frames
-                )
-fig.update_layout(mapbox_style=mapbox_style, 
-                  mapbox_accesstoken=mapbox_style,
+fig = go.Figure(data = [go.Densitymapbox(lat=fires['Lat'], lon=fires['Lon'], z=fires['Brightness'], 
+                       radius=5, colorscale='Hot', zmax=300, zmin=0)],
+                       layout=go.Layout(updatemenus=[dict(type="buttons", buttons=buttons,showactive=True)] ), 
+                       frames=frames)
+fig.update_layout(mapbox_style=MAPBOX_STYLE, 
+                  mapbox_accesstoken=MAPBOX_TOKEN,
                   mapbox_center_lon=135,
                   mapbox_center_lat=-25.34,
                   mapbox_zoom=3.5)
 fig.update_layout(sliders=[sliders_dict],
-                 title='Australia bush fires 09/01/2019 - 01/30/2020')
+                 title='2019 Australia Bush Fires')
 fig.update_layout(height=1000)
 ```
 ```
@@ -102,8 +96,13 @@ I had never used Mapbox prior to this prjoect and I only have a little experienc
 
 Any suggestions or feedback is greatly appreciated, I am still learning and am always open to suggestions and comments.
 
-GitHub file
+Video
+[Link]({{'https://youtu.be/i0zQEVda7i8'}})
+
+Notebook
 [Link]({{'https://github.com/CVanchieri/DSPortfolio/blob/master/posts/AustraliaBushFiresMapBoxPost/AustraliaBushFiresMapBoxHeatMap.ipynb'}})
+
+
 
 
 
