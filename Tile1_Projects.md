@@ -2,7 +2,7 @@
 layout: page
 title: Projects
 description:
-image: assets/images/General/visualizations.jpg
+image: assets/images/General/projects.jpg
 nav-menu: true
 show_tile: true
 
