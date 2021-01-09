@@ -3,7 +3,7 @@ layout: page
 title: Machine Learning
 description:
 image: assets/images/General/machinelearning.jpg
-nav-menu: true
+nav-menu: false
 
 ---
 
