@@ -3,7 +3,7 @@ layout: page
 title: Data Sourcing
 description:
 image: assets/images/General/datamining.jpg
-nav-menu: true
+nav-menu:
 
 ---
 
