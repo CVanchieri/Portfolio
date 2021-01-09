@@ -8,11 +8,35 @@ show_tile: true
 
 ---
 
-# Visualizations
+### Making deforestation prediction trends by country with a randomforest regressor model.
+
+<ul class="actions">
+   <li><a href="https://cvanchieri.github.io/DSPortfolio/Post_DeforestationPredictionTrends.html" class="button next">View Details</a></li>
+</ul>
 
 ---
 
-Data visualization gives us a clear idea of what the information means by giving it visual context through maps or graphs. This makes the data more natural for the human mind to comprehend and therefore makes it easier to identify trends, patterns, and outliers within large data sets. these displays use visual data to communicate information in a manner that is universal, fast, and effective.
+### Querying simlar Yelp reviews with natural language processing.
+
+<ul class="actions">
+   <li><a href="https://cvanchieri.github.io/DSPortfolio/Post_YelpNLPQuerySimilarReviews.html" class="button next">View Details</a></li>
+</ul>
+
+---
+
+### Creating a decision tree model from scratch with numpy.
+
+<ul class="actions">
+   <li><a href="https://cvanchieri.github.io/DSPortfolio/Post_DecisionTreeFromScratch.html" class="button next">View Details</a></li>
+</ul>
+
+---
+
+### Using a randomforest classifier model to make game predictions for Liverpool's 2020 English Premier League season.
+
+<ul class="actions">
+   <li><a href="https://cvanchieri.github.io/DSPortfolio/Post_Liverpool2020EPLPredictions.html" class="button next">View Details</a></li>
+</ul>
 
 ---
 
