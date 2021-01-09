@@ -1,10 +1,10 @@
 ---
 layout: page
-title: Machine Learning
+title: Notes
 description:
 image: assets/images/General/machinelearning.jpg
-nav-menu: false
-show_tile: false
+nav-menu: true
+show_tile: true
 
 ---
 
