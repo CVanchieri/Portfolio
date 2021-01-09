@@ -3,8 +3,8 @@ layout: page
 title: Data Analytics
 description:
 image: assets/images/General/analytics.jpg
-nav-menu: true
-show_tile: true
+nav-menu: false
+show_tile: false
 ---
 
 # Data Analytics
