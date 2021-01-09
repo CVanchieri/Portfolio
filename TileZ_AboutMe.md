@@ -1,7 +1,7 @@
 ---
 layout: about
 title: About Me
-image: /assets/images/aboutme.jpg
+image: /assets/images/General/aboutme.jpg
 nav-menu: true
 show_tile: false
 ---
