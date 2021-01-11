@@ -11,7 +11,7 @@ show_tile: false
 ![AustraliaBushFiresHeader1](/assets/images/AustraliaBushFiresHeatMap/ABFHeader.jpg) <br>
 ## Using mapbox to display the 2019 Australia bush fires in a time series heatmap.
 
-The massive fires that have been devastating Australia are of a big concern to everyone right now.  I saw an example of a heatmap the other day and I decided that I would give it a try to produce a heatmap using Mapbox to represents the bush fires in Australia.
+The massive fires that have been devastating Australia are of a big concern to everyone right now.  I saw an example of a heatmap the other day and I decided that I would give it a try to produce a heatmap using Mapbox to represents the bush fires in Australia.  The data used was collected from satelite imagery and represented the size of the fire through its 'brightness'.
 
 #### Necessary imports.
 ```
