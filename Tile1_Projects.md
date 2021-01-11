@@ -8,7 +8,7 @@ show_tile: true
 
 ---
 
-### Making deforestation prediction trends by country with a randomforest regressor model.
+### Deforestation prediction trends by country with a random forest regressor model.
 
 <ul class="actions">
    <li><a href="https://cvanchieri.github.io/DSPortfolio/Post_DeforestationPredictionTrends.html" class="button next">View Details</a></li>
@@ -32,7 +32,7 @@ show_tile: true
 
 ---
 
-### Using a randomforest classifier model to make game predictions for Liverpool's 2020 English Premier League season.
+### Predicting Liverpool's 2020 English Premier League season with a randomforest classifier model.
 
 <ul class="actions">
    <li><a href="https://cvanchieri.github.io/DSPortfolio/Post_Liverpool2020EPLPredictions.html" class="button next">View Details</a></li>
@@ -40,7 +40,7 @@ show_tile: true
 
 ---
 
-### A website presenting Earth's environmental issues through interactive data visualizations.
+### Educational website presenting Earth's environmental issues through interactive data visualizations.
 
 <ul class="actions">
    <li><a href="https://cvanchieri.github.io/DSPortfolio/Post_PlanetDataVisionLabs.html" class="button next">View Details</a></li>
@@ -48,7 +48,7 @@ show_tile: true
 
 ---
 
-### World deceased counts for the COVID-19 virus in a matplotlib bar chart race.
+### Matplotlib bar chart race representing the top countries death counts from the COVID-19 virus.
 
 <ul class="actions">
    <li><a href="https://cvanchieri.github.io/DSPortfolio/Post_COVID19BarChartRace.html" class="button next">View Details</a></li>
@@ -56,7 +56,7 @@ show_tile: true
 
 ---
 
-### USA COVID-19 impact shown in a plotly line graph.
+### Plotly line graph of the COVID-19 virus's impact on the USA.
 
 <ul class="actions">
    <li><a href="https://cvanchieri.github.io/DSPortfolio/Post_COVID19PlotlyLineGraph.html" class="button next">View Details</a></li>
@@ -64,7 +64,7 @@ show_tile: true
 
 ---
 
-### The 2019 Australia bushfires displayed in a mapbox heatmap.
+### 2019 Australia bushfires displayed with a Mapbox heatmap.
 
 <ul class="actions">
    <li><a href="https://cvanchieri.github.io/DSPortfolio/Post_AustraliaBushFiresMapboxHeatmap.html" class="button next">View Details</a></li>
