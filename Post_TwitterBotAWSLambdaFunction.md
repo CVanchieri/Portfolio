@@ -111,7 +111,7 @@ df1 = df1[~df1.text.str.contains('|'.join(strings))]
 
 df1['text'].values
 ```
-![twitter](/assets/images/TwitterBot/TwitterBot3.png) <br>
+![twitter](/assets/images/twitterBot/TwitterBot3.png) <br>
 
 #### Step 6: Collect environmental variables and connect to the database.
 ##### Psycopg2 | AWS 
