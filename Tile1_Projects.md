@@ -8,7 +8,7 @@ show_tile: true
 
 ---
 
-### Twitter bot pulling and storing data science related tweets.
+### Twitterbot pulling and storing Data Science related tweets from hashtags.
 
 <ul class="actions">
    <li><a href="https://cvanchieri.github.io/DSPortfolio/Post_TwitterBotAWSLambdaFunction.html" class="button next">View Details</a></li>
