@@ -8,6 +8,13 @@ show_tile: true
 
 ---
 
+### Twitter bot pulling and storing data science related tweets.
+
+<ul class="actions">
+   <li><a href="https://cvanchieri.github.io/DSPortfolio/Post_TwitterBotAWSLambdaFunction.html" class="button next">View Details</a></li>
+</ul>
+---
+
 ### Deforestation prediction trends by country with a random forest regressor model.
 
 <ul class="actions">
