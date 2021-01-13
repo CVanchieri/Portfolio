@@ -3,7 +3,7 @@ layout: page
 title: Resume
 description:
 image: false
-nav-menu: false
+nav-menu: true
 show_tile: false
 ---
 
