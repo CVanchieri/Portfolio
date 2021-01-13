@@ -18,15 +18,17 @@ Besides the constant indepth education what I really felt was important and usef
 The website is the start to an educational platform for middle school students to learn about Earth's environmental topics through interactive data visualizations.  Along with the rest of the team in assisting with ideas, I was able to produce 4 data visualizations for the project that were used on the site and assisted in the data science backend development that fed our collected data to the web development team.  You can check the website out [HERE](https://planetdata.vision).
 
 ---
-This webiste is a collection of my data science projects and notes.
 
 #### Favorite Quotes 
 
 "You don't have to see the whole staircase, jsut take the first step." - Martin Luthar King Jr
+
 "The greatness of a man is not in how much wealth he acquires, but in his integrity and his ability to affect those around him positively." - Bob Marley
+
 "May your choices reflect your hopes, not your fears." - Nelson Mandela
+
+---
 
 Please feel free to get in touch through the contact form below.  I will do my best to respond as quickly as possbile, thank you.
 
----
 
