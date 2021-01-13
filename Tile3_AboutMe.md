@@ -8,6 +8,10 @@ show_tile: false
 
 ![ProfilePic](/assets/images/General/aboutme.jpg)
 
+### Charles Vanchieri ---> [Resume](https://gist.github.com/CVanchieri/4d19b2df6c95c1b7c96de3d5fed31c54)
+
+---
+
 I am a passionate Data Scientist in search of a company where I will have opportunity for career growth as well as growth in education and knowledge.  I am eager to join team where I am able to use my software engineering and data science skills to assist in exploring data, making predictions, and discovering data-based soltions while learning from the others around me.
 
  For the past 13 years I have been working in the health & wellness industry both corporate and privately in many different deparments.  Health & wellness and working with people was always natural and second-nature for me, so with a few great opportunities that is where I began my professional career in 2008.  I have always had a passion for technology and a desire to get involved with software engineering & developement but with no education in computer science I had little success finding any opportunities that were not sales. In early 2019 I decided I was going to pursue a career change and get involved with software engineering & data science by enrolling in Lambda School's part-time data science program.  Since June 2019 I have been taking online daily courses that covered the most important and commonly used computer science, software engineering, and data science techniques.  
