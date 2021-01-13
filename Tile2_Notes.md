@@ -17,7 +17,7 @@ These are useful notes and templates I have created for information and future u
 ---
 
 ## Flask App.
-A template to create a Flask app for local development & live deployment. ---> [GitHub](https://github.com/CVanchieri/FlaskApp_Template)
+A template repository to create a Flask app for local development & live deployment. ---> [[GitHub]](https://github.com/CVanchieri/FlaskApp_Template)
 
 ---
 
