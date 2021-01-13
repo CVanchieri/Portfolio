@@ -16,42 +16,42 @@ These are useful notes and templates I have created for information and future u
 
 ---
 
-# Flask App.
+## Flask App.
 A template to create a Flask app for local development & live deployment. ---> [GitHub](https://github.com/CVanchieri/FlaskApp_Template)
 
 ---
 
-# Random Forest.
+## Random Forest.
 ...
 
 ---
 
-# Neural Networks.
+## Neural Networks.
 ...
 
 ---
 
-# Gradient Descent.
+## Gradient Descent.
 ...
 
 ---
 
-# XGBoost.
+## XGBoost.
 ...
 
 ---
 
-# Support Vector Machines.
+## Support Vector Machines.
 ...
 
 ---
 
-# Bayesian Methods.
+## Bayesian Methods.
 ...
 
 ---
 
-# Optimzation.
+## Optimzation.
 ...
 ---
 
