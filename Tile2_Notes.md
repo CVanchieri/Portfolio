@@ -21,6 +21,11 @@ A template repository to create a Flask app for local development & live deploym
 
 ---
 
+## AWS Lambda Function.
+A template repository to create a AWS Lambda Function with trigger. ---> [GitHub](https://github.com/CVanchieri/AWSLambdaFunction_Template)
+
+---
+
 ## Random Forest.
 ...
 
