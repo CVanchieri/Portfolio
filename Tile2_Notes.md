@@ -17,12 +17,12 @@ These are useful notes and templates I have created for information and future u
 ---
 
 ## Flask App.
-A template repository to create a Flask app for local development & live deployment. ---> [GitHub](https://github.com/CVanchieri/FlaskApp_Template)
+Template repository to create a Flask app for local development & live deployment. ---> [GitHub](https://github.com/CVanchieri/FlaskApp_Template)
 
 ---
 
 ## AWS Lambda Function.
-A template repository to create a AWS Lambda Function with trigger. ---> [GitHub](https://github.com/CVanchieri/AWSLambdaFunction_Template)
+Template repository to create a AWS Lambda Function with trigger. ---> [GitHub](https://github.com/CVanchieri/AWSLambdaFunction_Template)
 
 ---
 
