@@ -26,6 +26,11 @@ Template repository to create a AWS Lambda Function with trigger. ---> [GitHub](
 
 ---
 
+## SQL Notes.
+Notes on important SQL commands. ---> [GitHub](https://github.com/CVanchieri/CS_Notes/blob/main/SQL_Notes/SQL_notes)
+
+---
+
 ## Random Forest.
 ...
 
