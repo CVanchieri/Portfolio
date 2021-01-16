@@ -16,37 +16,39 @@ Line graphs are not always very engaging or eye catching on their own, I have be
 little bit of engagement with the user.  Plotly gives you easy ability to add data information into the graph that a 
 user can find themselves and locate by engaging with the visualization.
 
+#### Necessary installs.
+```
+!pip install chart_studio  
+```
+
 #### Necessary imports.
 ```
 import pandas as pd
-import numpy as np
 import requests
-import json
-import matplotlib.pyplot as plt
+from pandas import DataFrame
 import plotly.graph_objs as go
 import chart_studio.plotly as py
 import plotly.offline
 from plotly.offline import iplot, init_notebook_mode
 ```
 
-#### Step 1: Pull in the COVID19.com API daily counts for world countries.
+#### Step 1: Pull in the COVID19.com API daily counts for USA.
 ##### Requests | Json
 ```
-response = requests.get'https://api.covid19api.com/all')
-print(response.status_code)
+response = requests.get("https://covidtracking.com/api/us/daily")
 covid_cs = response.json()
-covid_countriessummary = pd.json_normalize(covid_cs)
+data = pd.json_normalize(covid_cs)
 ```
 ```
-print(covid_countriessummary.shape)
-covid_countriessummary.head()
+print(data.shape)
+data.head()
 ```
 ![Covid19LineGraph](/assets/images/Covid19USALineGraph/PLG1.png) <br>
 (COVID-19 daily dataframe.)
 
 #### Step 2: Clean and filter the data for USA.
 ```
-df = covid_countriessummary.copy()
+df = data.copy()
 ```
 ```
 df['Date'] = df['Date'].str[:10]
@@ -95,39 +97,43 @@ def configure_plotly_browser_state():
 ```
 configure_plotly_browser_state()
 init_notebook_mode(connected=True)
-trace0 = go.Scatter(
-    x=df['Date'],
-    y=list(df['ConDiff']),
-    name='Daily New Cases',
-    mode='lines+markers',
-    line=dict(color='#5cb8e6', width = 3, dash= 'dot')
-)
 trace1 = go.Scatter(
     x=df['Date'],
-    y=list(df['DeaDiff']),
-    name='Daily Death Cases',
+    y=list(df['TotalHospitalized']),
+    name="TotalHospitalized",
     mode='lines+markers',
-    line=dict(color='#eb4034', width = 3, dash = 'dot'),
-)
+    line=dict(color="#f4fc03", width = 1, dash = 'dash'),
+    )
 trace2 = go.Scatter(
     x=df['Date'],
-    y=list(df['RecDiff']),
-    name='Daily Recovered Cases',
+    y=list(df['TotalIcu']),
+    name="Total ICU",
     mode='lines+markers',
-    line=dict(color='#42d65d', width = 3, dash = 'dot')
-)
-data = [trace0,trace1,trace2]
-layout = go.Layout(title='USA COVID19 Numbers',
-                  yaxis=dict(title='Daily Count', 
+    line=dict(color="#fca503", width = 1, dash = 'dash')
+    )
+trace3 = go.Scatter(
+    x=df['Date'],
+    y=list(df['TotalVentilators']),
+    name="Total Ventilators",
+    mode='lines+markers',
+    line=dict(color="#c603fc", width = 1, dash = 'dash')
+    )
+trace4 = go.Scatter(
+    x=df['Date'], 
+    y=list(df['TotalDeaths']),
+    name="Total Deaths",
+    mode='lines+markers',
+    line=dict(color="#fc0303", width = 1, dash = 'dash')
+    )
+data = [trace1,trace2, trace3, trace4]
+layout = go.Layout(title="USA COVID19 Numbers",
+                  yaxis=dict(title="# Count", 
                               zeroline=False),
                   xaxis=dict(title="Date",
                               ),
                   margin=dict(l=20, r=20, t=75, b=20),
-                  paper_bgcolor='whitesmoke',
-                  autosize=False,
-                  width=1000,
-                  height=500                                    
-                )                            
+                  paper_bgcolor="whitesmoke",
+                  autosize=True)                         
 ```
 ```
 fig = go.Figure(data=data, layout=layout)
@@ -143,6 +149,7 @@ plenty more complex beautiful charts and graphs but it also can present some of 
 
 Any suggestions or feedback is greatly appreciated, I am still learning and am always open to suggestions and comments.
 
+Using an AWS Lambda Function, RDS Database, FalconIO, and Ploty Chart Studio, I created a live graph that updates daily.
 Live
 [Link]({{'https://portfolioprojects.herokuapp.com/covid19us'}})
 
