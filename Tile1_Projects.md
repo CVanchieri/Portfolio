@@ -8,7 +8,7 @@ show_tile: true
 
 ---
 
-### Twitterbot pulling and storing Data Science related tweets from hashtags.
+### A Twitterbot pulling and storing Data Science related tweets from hashtags using a AWS Lambda Function.
 
 <ul class="actions">
    <li><a href="https://cvanchieri.github.io/DSPortfolio/Post_TwitterBotAWSLambdaFunction.html" class="button next">View Details</a></li>
@@ -16,7 +16,7 @@ show_tile: true
 
 ---
 
-### Deforestation prediction trends by country with a random forest regressor model.
+### Generating deforestation prediction trends by country with a RandomForest Regression model.
 
 <ul class="actions">
    <li><a href="https://cvanchieri.github.io/DSPortfolio/Post_DeforestationPredictionTrends.html" class="button next">View Details</a></li>
@@ -24,7 +24,7 @@ show_tile: true
 
 ---
 
-### Querying simlar Yelp reviews with natural language processing.
+### Using Natural Language Processing and NearestNeighbors to query similar Yelp reviews.
 
 <ul class="actions">
    <li><a href="https://cvanchieri.github.io/DSPortfolio/Post_YelpNLPQuerySimilarReviews.html" class="button next">View Details</a></li>
@@ -32,7 +32,7 @@ show_tile: true
 
 ---
 
-### Creating a decision tree model from scratch with numpy.
+### Creating a Decision Tree model from scratch with numpy.
 
 <ul class="actions">
    <li><a href="https://cvanchieri.github.io/DSPortfolio/Post_DecisionTreeFromScratch.html" class="button next">View Details</a></li>
@@ -40,7 +40,7 @@ show_tile: true
 
 ---
 
-### Predicting Liverpool's 2020 English Premier League season with a randomforest classifier model.
+### Making predictions for Liverpool's 2020 English Premier League season with a RandomForest Classifier model.
 
 <ul class="actions">
    <li><a href="https://cvanchieri.github.io/DSPortfolio/Post_Liverpool2020EPLPredictions.html" class="button next">View Details</a></li>
@@ -48,7 +48,7 @@ show_tile: true
 
 ---
 
-### Educational website presenting Earth's environmental issues through interactive data visualizations.
+### An educational website presenting Earth's environmental issues through interactive data visualizations.
 
 <ul class="actions">
    <li><a href="https://cvanchieri.github.io/DSPortfolio/Post_PlanetDataVisionLabs.html" class="button next">View Details</a></li>
@@ -64,7 +64,7 @@ show_tile: true
 
 ---
 
-### Plotly line graph of the COVID-19 virus's impact on the USA.
+### A live Plotly line graph of the COVID-19 virus's impact on the USA.
 
 <ul class="actions">
    <li><a href="https://cvanchieri.github.io/DSPortfolio/Post_COVID19PlotlyLineGraph.html" class="button next">View Details</a></li>
@@ -72,7 +72,7 @@ show_tile: true
 
 ---
 
-### 2019 Australia bushfires displayed with a Mapbox heatmap.
+### The 2019 Australia bushfires displayed with Mapbox and a Plotly heatmap.
 
 <ul class="actions">
    <li><a href="https://cvanchieri.github.io/DSPortfolio/Post_AustraliaBushFiresMapboxHeatmap.html" class="button next">View Details</a></li>
