@@ -14,7 +14,7 @@ show_tile: false
 
 ---
 
-The goal here is to use create a fake review and then use Natural Language Processing on the text of the reivew to query similar reviews within the given Yelp data set. 
+The goal here is to use create a fake review and then use Natural Language Processing on the text to query similar reviews within the given Yelp data set. 
 
 #### Necessary imports.
 ```
@@ -39,7 +39,7 @@ import seaborn as sns
 from gensim.models.coherencemodel import CoherenceModel
 ```
 
-#### Step 1: Read in the JSON file and got a visual of the data frame being worked with.
+#### Step 1: Read in the JSON file and got a visual of the data.
 ##### Pandas 
 ```
 yelp = pd.read_json('review_sample.json', lines=True)
@@ -64,7 +64,7 @@ yelp['text'] = yelp['text'].apply(lambda x: x.lower())
 ![yelp](/assets/images/QuerySimilarYelpReviews/yelp2.png) <br>
 (Cleaned text.)
 
-#### Step 3: Create a list of tokens from the reviews text and add to the dataframe.
+#### Step 3: Create a list of tokens from the reviews and add to the dataframe.
 ##### Spacy | Tokenizer | Stop Words | Lemmatize
 ```
 df = yelp.copy()
@@ -93,7 +93,7 @@ df['tokens'].head()
 ![yelp](/assets/images/QuerySimilarYelpReviews/yelp3.png) <br>
 (Review tokens.)
 
-#### Step 4: Create a vectors and fit nearest neighbors model.
+#### Step 4: Create vectors from the text and fit nearest neighbors model.
 ##### .vector | NearestNeighbors
 ```
 vects = [nlp(doc).vector for doc in df['text']]
@@ -105,7 +105,7 @@ nn.fit(vects)
 ![yelp](/assets/images/QuerySimilarYelpReviews/yelp4.png) <br>
 (Nearest neighbors model.)
 
-#### Step 5: Create a fake review, vector, and use the nn model.
+#### Step 5: Create a fake review, create a vector, and use the nearest neighbors model.
 ##### .vector | .kneighbors
 ```
 created_review = """
@@ -123,7 +123,7 @@ most_similiar = nn.kneighbors([created_review_vect])
 yelp.iloc[most_similiar[1][0]]['text']
 ```
 ![yelp](/assets/images/QuerySimilarYelpReviews/yelp5.png) <br>
-(most similar reviews.)
+(Similar reviews.)
 
 #### Step 6: Use Vectorizer, RandomForest, and GridSearch for the prediction model.
 ##### TfidVectorizer | RandomForestClassifier | GridSearchCV
@@ -149,9 +149,9 @@ grid_search.fit(df['text'], df['stars'])
 grid_search.best_score_
 ```
 ![yelp](/assets/images/QuerySimilarYelpReviews/yelp6.png) <br>
-(The goal was 51% and above.)
+(The goal was 51%.)
 
-#### Step 7: Use the prediction model on the created reviews to predict star rating.
+#### Step 7: Use the prediction model on the created review to predict a star rating.
 ##### .predict 
 ```
 created_review = [created_review]
