@@ -32,7 +32,7 @@ show_tile: true
 
 ---
 
-### Creating a Decision Tree model from scratch with numpy.
+### Creating a Decision Tree model from scratch with Numpy.
 
 <ul class="actions">
    <li><a href="https://cvanchieri.github.io/DSPortfolio/Post_DecisionTreeFromScratch.html" class="button next">View Details</a></li>
