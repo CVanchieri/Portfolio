@@ -10,11 +10,11 @@ show_tile: false
 
 ![NLP](/assets/images/QuerySimilarYelpReviews/nlp.jpg) <br>
 
-## Using natural language processing to query similar Yelp reviews by reviews text.
+## Using natural language processing to query similar Yelp reviews and Nearest Neighbors to predict a star rating.
 
 ---
 
-The goal here is to use create a fake review and then use Natural Language Processing on the text to query similar reviews within the given Yelp data set. 
+The goal here is to use create a fake review, use Natural Language Processing on the text to query similar reviews within the given Yelp data set and generate a predicted star review. 
 
 #### Necessary imports.
 ```
