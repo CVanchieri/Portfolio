@@ -61,8 +61,10 @@ yelp['text'] = yelp['text'].replace('/', ' ')
 yelp['text'] = yelp['text'].apply(lambda x: re.sub('  ', ' ', x))
 yelp['text'] = yelp['text'].apply(lambda x: x.lower())
 ```
+![yelp](/assets/images/QuerySimilarYelpReviews/yelp2.png) <br>
+(Cleaned text.)
 
-#### Step 3: Create a list of tokens from the reviews text and add to the data frame.
+#### Step 3: Create a list of tokens from the reviews text and add to the dataframe.
 ##### Spacy | Tokenizer | Stop Words | Lemmatize
 ```
 df = yelp.copy()
@@ -88,57 +90,28 @@ for doc in tokenizer.pipe(df['text'], batch_size=500):
 df['tokens'] = tokens
 df['tokens'].head()
 ```
-![yelp](/assets/images/QuerySimilarYelpReviews/yelp2.png) <br>
+![yelp](/assets/images/QuerySimilarYelpReviews/yelp3.png) <br>
 (Review tokens.)
 
-#### Step 4: Find the top words in the tokens.
-##### Counter | Squarify
-```
-def count(docs):
-        word_counts = Counter()
-        appears_in = Counter()
-        total_docs = len(docs)
-
-        for doc in docs:
-            word_counts.update(doc)
-            appears_in.update(set(doc))
-            
-        temp = zip(word_counts.keys(), word_counts.values())       
-        wc = pd.DataFrame(temp, columns = ['word', 'count'])
-        wc['rank'] = wc['count'].rank(method='first', ascending=False)
-        total = wc['count'].sum()
-        wc['pct_total'] = wc['count'].apply(lambda x: x / total)       
-        wc = wc.sort_values(by='rank')
-        wc['cul_pct_total'] = wc['pct_total'].cumsum()
-        t2 = zip(appears_in.keys(), appears_in.values())
-        ac = pd.DataFrame(t2, columns=['word', 'appears_in'])
-        wc = ac.merge(wc, on='word')
-        wc['appears_in_pct'] = wc['appears_in'].apply(lambda x: x / total_docs)
-        
-        return wc.sort_values(by='rank')
-```
-```
-wordcount = count(df['tokens'])
-wordcount.head(10)
-```
-![yelp](/assets/images/QuerySimilarYelpReviews/yelp3.png) <br>
-(Top 10 used words.)
-
-``` 
-wordcount_top40 = wordcount[wordcount['rank'] <= 40]
-squarify.plot(sizes=wordcount_top40['pct_total'], label=wordcount_top40['word'], alpha=.8 )
-plt.axis('off')
-plt.show()
-```
-![yelp](/assets/images/QuerySimilarYelpReviews/yelp4.png) <br>
-(Squarify plot top 40 used words.)
-
-#### Step 5: Find the 10 most simliar reviews to a fake review.
-##### Vector | Nearest Neighbors
+#### Step 4: Create a vectors and fit nearest neighbors model.
+##### .vector | NearestNeighbors
 ```
 vects = [nlp(doc).vector for doc in df['text']]
+```
+```
 nn = NearestNeighbors(n_neighbors=10, algorithm='ball_tree')
 nn.fit(vects)
+```
+![yelp](/assets/images/QuerySimilarYelpReviews/yelp4.png) <br>
+(Nearest neighbors model.)
+
+#### Step 5: Create a fake review, vector, and use the nn model.
+##### .vector | .kneighbors
+```
+created_review = """
+The indian food was magnificent! We will come back.
+"""
+created_review_vect = nlp(created_review).vector
 ```
 ```
 created_review = '''
@@ -146,16 +119,13 @@ I love the gluten free food options and the service was really quick too!
 '''
 ```
 ```
-created_review_vect = nlp(created_review).vector
 most_similiar = nn.kneighbors([created_review_vect])
-```
-```
 yelp.iloc[most_similiar[1][0]]['text']
 ```
 ![yelp](/assets/images/QuerySimilarYelpReviews/yelp5.png) <br>
-(10 similar reviews.)
+(most similar reviews.)
 
-#### Step 6: Create a star with a prediction model on the reviews text.
+#### Step 6: Use Vectorizer, RandomForest, and GridSearch for the prediction model.
 ##### TfidVectorizer | RandomForestClassifier | GridSearchCV
 ```
 vect = TfidfVectorizer(stop_words=STOP_WORDS)
@@ -181,59 +151,18 @@ grid_search.best_score_
 ![yelp](/assets/images/QuerySimilarYelpReviews/yelp6.png) <br>
 (The goal was 51% and above.)
 
-#### Step 7: Create a data frame of topics genereated the review tokens.
-##### Corpora | ldaaMulticore 
+#### Step 7: Use the prediction model on the created reviews to predict star rating.
+##### .predict 
 ```
-id2word = corpora.Dictionary(tokens)
-id2word.filter_extremes(no_below=5, no_above=0.95)
-
+created_review = [created_review]
+pred = grid_search.predict(created_review)
+created_review_stars = pd.DataFrame({'text': created_review, 'stars':pred})
+created_review_stars['stars'] = created_review_stars['stars'].astype('int64')
+created_review_stars['text'] = created_review_stars.text.replace('\n':'')
+created_review_stars.head()                 
 ```
-```
-corpus = [id2word.doc2bow(text) for text in tokens]
-lda = LdaMulticore(corpus=corpus,
-                   id2word=id2word,
-                   iterations=5,
-                   workers=4,
-                   num_topics = 20
-                  )
-words = [re.findall(r'"([^"]*)"',t[1]) for t in lda.print_topics()]
-titles = df['text']
-topics = [' '.join(t[0:5]).strip().replace('\n', '') for t in words]                  
-```
-```
-print(topics)
-```
-![yelp](/assets/images/QuerySimilarYelpReviews/yelp8.png) <br>
-(Created topics.)
-
-```
-distro = [lda[d] for d in corpus]
-def update(doc):
-        d_dist = {k:0 for k in range(0,14)}
-        for t in doc:
-            d_dist[t[0]] = t[1]
-        return d_dist
-new_distro = [update(d) for d in distro]
-```
-```
-new_df = pd.DataFrame.from_records(new_distro, index=yelp.index)
-new_df.columns = topics
-new_df['stars'] = yelp['stars']
-```
-```
-new_df.head()
-```
-![yelp](/assets/images/QuerySimilarYelpReviews/yelp9.png) <br>
-(Topics data frame.)
-
-#### Step 8: Visualize the most relevent terms in each topic.
-##### pyLDAvis
-```
-pyLDAvis.enable_notebook()
-pyLDAvis.gensim.prepare(lda, corpus, id2word)
-```
-![yelp](/assets/images/QuerySimilarYelpReviews/yelp10.png) <br>
-(Most relevent terms in each topic.)
+![yelp](/assets/images/QuerySimilarYelpReviews/yelp7.png) <br>
+(created review with star review.)
 
 #### Summary
 The goal was to tokenize the yelp review data, query the most similar yelp reviews to the fake review created, create a classification model to give the fake review a star rating, and implement topic modeling.
