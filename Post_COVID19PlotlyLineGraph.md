@@ -168,10 +168,6 @@ plenty more complex beautiful charts and graphs but it also can present some of 
 
 Any suggestions or feedback is greatly appreciated, I am still learning and am always open to suggestions and comments.
 
-Using an AWS Lambda Function, RDS Database, FalconIO, and Ploty Chart Studio, I created a live graph that updates daily.
-
-Live[Link]({{'https://portfolioprojects.herokuapp.com/covid19us'}})
-
 GitHub file 
 [Link]({{'https://github.com/CVanchieri/DSPortfolio/blob/master/posts/PlotlyCOVID19LineGraphPost/PlotlyCovid19LineGraph.ipynb'}})
 
