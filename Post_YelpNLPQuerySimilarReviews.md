@@ -10,7 +10,7 @@ show_tile: false
 
 ![NLP](/assets/images/QuerySimilarYelpReviews/nlp.jpg) <br>
 
-## Using natural language processing to query similar Yelp reviews and Nearest Neighbors to predict a star rating.
+## Using Natural Language Processing and NearestNeighbors to query similar Yelp reviews and a RandomForest Classification model to predict the reviews star rating.
 
 ---
 
@@ -114,11 +114,6 @@ The indian food was magnificent! We will come back.
 created_review_vect = nlp(created_review).vector
 ```
 ```
-created_review = '''
-I love the gluten free food options and the service was really quick too!
-'''
-```
-```
 most_similiar = nn.kneighbors([created_review_vect])
 yelp.iloc[most_similiar[1][0]]['text']
 ```
@@ -165,7 +160,7 @@ created_review_stars.head()
 (created review with star review.)
 
 #### Summary
-The goal was to tokenize the yelp review data, query the most similar yelp reviews to the fake review created, create a classification model to give the fake review a star rating, and implement topic modeling.
+The goal was to use natural language processing to tokenize the yelp review data, query the most similar yelp reviews to the fake review created, and then create a classification prediction model to give the fake review a star rating.
 I was very happy with my first go at NLP and the overall experience, I would consider it a success. I look forward to digging deeper and learning more.
 
 Any suggestions or feedback is greatly appreciated, I am still learning and am always open to suggestions and comments.
