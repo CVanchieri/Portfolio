@@ -10,7 +10,7 @@ show_tile: false
 
 ![NLP](/assets/images/QuerySimilarYelpReviews/nlp.jpg) <br>
 
-## Using Natural Language Processing and NearestNeighbors to query similar Yelp reviews and a RandomForest Classification model to predict the reviews star rating.
+## Using Natural Language Processing and NearestNeighbors to query similar Yelp reviews and a RandomForest Classification model to predict the review's star rating.
 
 ---
 
