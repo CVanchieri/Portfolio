@@ -158,7 +158,7 @@ fig.show()
 ```
 ![Covid19LineGraph](/assets/images/Covid19USALineGraph/PLG3.png) <br>
 (Image of the graph.)
-Using an AWS Lambda Function, RDS Database, FalconIO, and Ploty Chart Studio, I created a live graph that updates daily.  [Link]({{'https://portfolioprojects.herokuapp.com/covid19us'}})
+Using an AWS Lambda Function, RDS Database, FalconIO, and Ploty Chart Studio, I created a live graph that updates daily.  [Link]({{'https://portfolioprojects.herokuapp.com/covid19usagraph'}})
 
 #### Summary
 Just because its a 'line graph' does not mean its not useful and  or engaging.  A static graph may not be the best route 
