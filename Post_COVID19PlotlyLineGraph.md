@@ -46,7 +46,7 @@ data.head()
 ![Covid19LineGraph](/assets/images/Covid19USALineGraph/PLG1.png) <br>
 (COVID-19 daily dataframe.)
 
-#### Step 2: Clean, filter, organize, add to the data.
+#### Step 2: Clean, filter and organize data.
 ##### Pandas
 ```
 df = data.copy()
