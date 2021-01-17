@@ -46,26 +46,43 @@ data.head()
 ![Covid19LineGraph](/assets/images/Covid19USALineGraph/PLG1.png) <br>
 (COVID-19 daily dataframe.)
 
-#### Step 2: Clean and filter the data for USA.
+#### Step 2: Clean, filter, organize, add to the data.
+##### Pandas
 ```
 df = data.copy()
 ```
 ```
-df['Date'] = df['Date'].str[:10]
-df = df.rename(columns={"CountryCode": "Code"})
-df = df.drop(columns=['Province', 'City', 'CityCode', 'Active', 'Lat', 'Lon'])
-df = df[['Date', 'Country', 'Code', 'Confirmed', 'Recovered', 'Deaths']]
-df = df.groupby(['Date', 'Country', 'Code']).agg({'Confirmed':'sum', 
-                                                  'Deaths': 'sum', 
-                                                  'Recovered': 'sum'}).reset_index()
-df = df[df['Country'] == 'United States of America']
-df['ConDiff'] = df['Confirmed'].diff()
-df['DeaDiff'] = df['Deaths'].diff()
-df['RecDiff'] = df['Recovered'].diff()
+df = df.drop(columns=['hash', 'pending', 'dateChecked', 'lastModified', 'total', 'posNeg', 'hospitalized'])
+df = df.rename(columns={'date' : 'Date', 'states' : 'States', 'positive' : 'TotalPositives', 
+'positiveIncrease' : 'PositivesToday', 'negative' : 'TotalNegatives', 'negativeIncrease' : 'NegativesToday', 'hospitalizedCurrently' : 'HospitalizedCurrently', 'hospitalizedIncrease' : 'HospitalizedToday', 'hospitalizedCumulative' : 'TotalHospitalized', 'inIcuCurrently' : 'IcuCurrently', 
+'inIcuCumulative': 'TotalIcu', 'onVentilatorCurrently' : 'VentilatorsCurrently', 'onVentilatorCumulative' : 'TotalVentilators', 'death' : 'TotalDeaths', 'deathIncrease' : 'DeathsToday', 'recovered' : 'TotalRecovered', 'totalTestResults' : 'TotalTests', 'totalTestResultsIncrease' : 'TestsToday'})
+df['Date'] = pd.to_datetime(df['Date'].astype(str), format='%Y%m%d')
+df['Date'] = df.Date.astype(str)
+df = df.sort_values('Date')
 df = df.fillna(0)
-df['ConDiff'] = df['ConDiff'].astype(int)
-df['DeaDiff'] = df['DeaDiff'].astype(int)
-df['RecDiff'] = df['RecDiff'].astype(int)
+df['IcuToday'] = df['IcuCurrently'].diff()
+df['VentilatorsToday'] = df['VentilatorsCurrently'].diff()
+df['RecoveredToday'] = df['TotalRecovered'].diff()
+df['TestsDailyChange'] = df['TestsToday'].diff()
+df['PostiviesDailyChange'] = df['PositivesToday'].diff()
+df['NegativesDailyChange'] = df['NegativesToday'].diff()
+df['HospitalizedDailyChange'] = df['HospitalizedToday'].diff()
+df['IcuDailyChange'] = df['IcuToday'].diff()
+df['VentilatorsDailyChange'] = df['VentilatorsToday'].diff()
+df['DeathsDailyChange'] = df['DeathsToday'].diff()
+df['RecoveredDailyChange'] = df['RecoveredToday'].diff()
+df = df[['Date', 'States', 'TestsToday', 'TestsDailyChange', 'TotalTests', 'PositivesToday', 'PostiviesDailyChange', 'TotalPositives', 'NegativesToday', 'NegativesDailyChange', 'TotalNegatives',
+'HospitalizedToday', 'HospitalizedDailyChange', 'HospitalizedCurrently', 'TotalHospitalized', 
+'IcuToday', 'IcuDailyChange', 'IcuCurrently', 'TotalIcu', 'VentilatorsToday', 'VentilatorsDailyChange',                           'VentilatorsCurrently', 'TotalVentilators', 'DeathsToday', 'DeathsDailyChange', 'TotalDeaths', 'RecoveredToday', 'RecoveredDailyChange', 'TotalRecovered']]
+df = df.sort_values('Date', ascending=False)
+df.loc[df.Date == '2020-05-01', 'HospitalizedToday'] = 4000
+df.loc[df.Date == '2020-05-08', 'HospitalizedToday'] = 3000
+df.loc[df.Date == '2020-05-26', 'HospitalizedToday'] = 3000
+df.loc[df.Date == '2020-06-04', 'HospitalizedToday'] = 700
+df.loc[df.Date == '2020-07-11', 'HospitalizedToday'] = 2500
+df.loc[df.Date == '2020-08-07', 'HospitalizedToday'] = 4000
+df.loc[df.Date == '2020-10-06', 'HospitalizedToday'] = 650
+df.loc[df.Date == '2020-10-23', 'HospitalizedToday'] = 2000
 ```
 ```
 print(df.shape)
@@ -141,6 +158,7 @@ fig.show()
 ```
 ![Covid19LineGraph](/assets/images/Covid19USALineGraph/PLG3.png) <br>
 (Image of the graph.)
+Using an AWS Lambda Function, RDS Database, FalconIO, and Ploty Chart Studio, I created a live graph that updates daily.  [Link]({{'https://portfolioprojects.herokuapp.com/covid19us'}})
 
 #### Summary
 Just because its a 'line graph' does not mean its not useful and  or engaging.  A static graph may not be the best route 
@@ -150,8 +168,8 @@ plenty more complex beautiful charts and graphs but it also can present some of 
 Any suggestions or feedback is greatly appreciated, I am still learning and am always open to suggestions and comments.
 
 Using an AWS Lambda Function, RDS Database, FalconIO, and Ploty Chart Studio, I created a live graph that updates daily.
-Live
-[Link]({{'https://portfolioprojects.herokuapp.com/covid19us'}})
+
+Live[Link]({{'https://portfolioprojects.herokuapp.com/covid19us'}})
 
 GitHub file 
 [Link]({{'https://github.com/CVanchieri/DSPortfolio/blob/master/posts/PlotlyCOVID19LineGraphPost/PlotlyCovid19LineGraph.ipynb'}})
