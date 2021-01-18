@@ -16,33 +16,28 @@ show_tile: false
 
 The goal here is to use create a fake review, use Natural Language Processing on the text to query similar reviews within the given Yelp data set and generate a predicted star review. 
 
+#### Necesary installs.
+```
+!python -m spacy download en_core_web_lg
+```
+
 #### Necessary imports.
 ```
 import pandas as pd
 import re
 import spacy 
 from spacy.tokenizer import Tokenizer
-from collections import Counter
-import squarify
-import matplotlib.pyplot as plt
 from sklearn.neighbors import NearestNeighbors
 from sklearn.pipeline import Pipeline
 from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.ensemble import RandomForestClassifier
 from sklearn.model_selection import GridSearchCV
-from gensim.models import LdaMulticore
-from gensim.corpora import Dictionary
-from gensim import corpora
-import pyLDAvis
-import pyLDAvis.gensim
-import seaborn as sns
-from gensim.models.coherencemodel import CoherenceModel
 ```
 
 #### Step 1: Read in the JSON file and got a visual of the data.
 ##### Pandas 
 ```
-yelp = pd.read_json('review_sample.json', lines=True)
+yelp = pd.read_json('https://raw.githubusercontent.com/CVanchieri/DSPortfolio/master/posts/YelpNLPQueryReviewsPost/review_sample.json', lines=True)
 yelp = yelp[['business_id', 'review_id', 'text', 'cool', 'funny', 'useful', 'stars']]
 ```
 ```
