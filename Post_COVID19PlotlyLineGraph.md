@@ -32,7 +32,7 @@ import plotly.offline
 from plotly.offline import iplot, init_notebook_mode
 ```
 
-#### Step 1: Pull in the COVID19.com API daily counts for USA.
+#### Step 1: Pull in the API daily counts for USA.
 ##### Requests | Json
 ```
 response = requests.get("https://covidtracking.com/api/us/daily")
