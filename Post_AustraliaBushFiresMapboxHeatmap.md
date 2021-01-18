@@ -22,7 +22,7 @@ import plotly.graph_objects as go
 
 #### Step 1: Read in the data on the 2019 bushfires in Australia.
 ```
-fires = pd.read_csv("https://raw.githubusercontent.com/CVanchieri/DataSets/master/AustraliaBushFires/australiabushfires.csv", index_col=0)
+fires = pd.read_csv("https://raw.githubusercontent.com/CVanchieri/DSPortfolio/master/posts/AustraliaBushFiresMapBoxPost/australiabushfires.csv", index_col=0)
 ```
 ```
 print(fires.shape)
