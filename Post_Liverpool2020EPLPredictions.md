@@ -11,10 +11,6 @@ show_tile: false
 ![LiverpoolFootballClub](/assets/images/LiverPoolFCPredictions/LPFCTeam.png) <br>
 ## Making game predictions for the Liverpool Premier League 2020 season with a Random Forest Classifier.
 
-Soccer has always been a predominant piece of my life whether it has been playing competitively or just watching 
-and following my favorite football club Liverpool.  The English Premier League is where Liverpool Football Club competes 
-and is one of the most reputable football leagues in the world spanning nearly 9 months starting in August and ending in May.
-
 #### Necessary imports.
 ```
 %matplotlib inline
@@ -38,10 +34,9 @@ from sklearn.metrics import accuracy_score
 ```
 
 #### Step 1: Read in the 27 seasons of Liverpool FC data.
-#### Pandas 
 ```
-LPFC = pd.read_csv('https://raw.githubusercontent.com/CVanchieri/LSDS-DataSets/master/
-                    EnglishPremierLeagueData/LiverpoolFootballClubData_EPL.csv')
+LPFC = pd.read_csv('''https://raw.githubusercontent.com/CVanchieri/LSDS-DataSets/master/
+                    EnglishPremierLeagueData/LiverpoolFootballClubData_EPL.csv''')
 ```
 ```
 print(LPFC.shape)
@@ -49,7 +44,7 @@ LPFC.head()
 ```
 ![LiverpoolFootballClub](/assets/images/LiverPoolFCPredictions/LPFC1.png){: .center-block :}
 
-#### Step 2: Clean and rework the data to what is needed.
+#### Step 2: Clean, organize, and rework the data .
 ```
 columns = ["Div", "Date", "HomeTeam", "AwayTeam", "FTHG", "FTAG", "FTR", 
            "HTHG", "HTAG", "HTR", "HS", "AS", "HST", "AST", "HHW", "AHW", 
@@ -85,12 +80,11 @@ print("'Majority Baseline' Accuracy Score =", ac)
 ![LiverpoolFootballClub](/assets/images/LiverPoolFCPredictions/LPFC3.png) <br>
 (Baseline accuracy score)
 
-#### Step 4: import 2019-2020 premier league schedule for test data.
-#### Pandas
+#### Step 4: Read in the 2019-2020 Premier League Schedule for test data.
 ```
 train = LPFC.copy()
-test = pd.read_csv('https://raw.githubusercontent.com/CVanchieri/LSDS-DataSets/master/EnglishPremierLeagueData
-                    /LiverpoolFootballClubEPL_Schedule.csv')
+test = pd.read_csv('''https://raw.githubusercontent.com/CVanchieri/LSDS-DataSets/master/EnglishPremierLeagueData
+                    /LiverpoolFootballClubEPL_Schedule.csv''')
 test['Division'] = test['Division'].astype(object)
 test['HalfTimeResult'] = test['HalfTimeResult'].astype(object)
 test['FullTimeResult'] = test['FullTimeResult'].astype(object)
@@ -100,9 +94,7 @@ print(test)
 ```
 ![LiverpoolFootballClub](/assets/images/LiverPoolFCPredictions/LPFC4.png) <br>
 
-#### Step 5: Train val split for train data.
-##### Train Test Split
-
+#### Step 5: Split the data with train, val, test split.
 ```
 train, val = train_test_split(train, train_size=0.80, test_size=0.20,
                               random_state=42)
@@ -112,8 +104,7 @@ print("train =", train.shape, "val =", val.shape, "test =", test.shape)
 ```
 ![LiverpoolFootballClub](/assets/images/LiverPoolFCPredictions/LPFC5.png) <br>
 
-#### Step 6: Wrangle function to adjust data.
-##### Datetime
+#### Step 6: A wrangle function to adjust the datasets.
 ```
 def wrangle(X):
     """Wrangle train, validate, and test sets in the same way"""
@@ -134,7 +125,7 @@ train = wrangle(train)
 val = wrangle(val)
 test = wrangle(test)
 ```
-#### Step 7: Apply some feature engineering.
+#### Step 7: Apply feature engineering.
 ```
 train_id = train['GameDate']
 val_id = val['GameDate']
@@ -155,7 +146,7 @@ X_test = test[features]
 y_test = test[target]
 ```
 
-#### Step 8: 1st RandomForestClassifier Model.
+#### Step 8: Run the 1st RandomForestClassifier model.
 ```
 transformers = make_pipeline(
     ce.OrdinalEncoder(),
@@ -173,8 +164,7 @@ print ('Validation Accuracy', model.score(X_val_transformed, y_val))
 ```
 ![LiverpoolFootballClub](/assets/images/LiverPoolFCPredictions/LPFC6.png) <br>
 
-#### Step 9: Check the features importance and remove below 0.
-#### Permutation Importance
+#### Step 9: Check the features importance and remove any below 0.
 ```
 permuter = PermutationImportance(
     model, 
@@ -192,7 +182,7 @@ eli5.show_weights(
 ```
 ![LiverpoolFootballClub](/assets/images/LiverPoolFCPredictions/LPFC7.png) <br>
 
-#### Step 10: 2nd RandomForestClassifier Model.
+#### Step 10: Run the 2nd RandomForestClassifier model.
 ```
 model = make_pipeline(
     ce.OrdinalEncoder(), 
@@ -209,16 +199,14 @@ print ('Validation Accuracy', model.score(X_val, y_val))
 ```
 ![LiverpoolFootballClub](/assets/images/LiverPoolFCPredictions/LPFC8.png) <br>
 
-#### Step 11: Check multiple scores.
-#### Classification Report
+#### Step 11: Check multiple scoreso on the report.
 ```
 print(classification_report(y_val, val_pred))
 ```
 ![LiverpoolFootballClub]/assets/images/LPFC9.png) <br>
 (Precision, recall, f1 scores.)
 
-#### Step 12: Check the importances of the features.
-##### Pandas
+#### Step 12: Visualize the importances of the features.
 ```
 rf = model.named_steps['randomforestclassifier']
 importances = pd.Series(rf.feature_importances_, X_val.columns)
@@ -247,7 +235,7 @@ val_predictions.head()
 ```
 ![LiverpoolFootballClub](/assets/images/LiverPoolFCPredictions/LPFC11.png) <br>
 
-#### Step 14: A confusion matrix heatmap for overall predictions.
+#### Step 14: Craete a confusion matrix to view overall predictions.
 ```
 def plot_confusion_matrix(y_true, y_pred):
     labels = unique_labels(y_true)
@@ -264,7 +252,7 @@ plt.figure(figsize=(40,20))
 ![LiverpoolFootballClub](/assets/images/LiverPoolFCPredictions/LPFC12.png) <br>
 (Confusion matrix for predictions.)
 
-#### Step 15: Final predictions for the 2020 season.
+#### Step 15: The final predictions for the 2020 season.
 ```
 test_predictions = pd.DataFrame({
     'GameDate': test_id, 
