@@ -8,8 +8,7 @@ show_tile: false
 ---
 
 ![Deforestation](/assets/images/WorldDeforestationPredictions/DFTHeader.jpg) <br>
-## Using a randomforest regressor model to make deforestation predictions by country.
-
+## Using a RandomForest Regression model to make deforestation predictions by country.
 
 ### Necessary installs.
 ```
@@ -31,19 +30,17 @@ pd.set_option('display.float_format', lambda x: '%.2f' % x)
 
 #### Read in the train data set from the World Bank.
 ```
-df_tr = pd.read_csv('https://raw.githubusercontent.com/CVanchieri/DataSets/master
-                     /WorldBankDeforestation/WorldBank_1990_2018.csv')
+df = pd.read_csv('''https://raw.githubusercontent.com/CVanchieri/DataSets/master
+                       /WorldBankDeforestation/WorldBank_1990_2018.csv, index_col=0''')
 ```
 ```
-train = df_tr.copy()
-train = train.drop(columns=['Unnamed: 0'])
+train = df.copy()
 print(train.shape)
 train.head()
 ```
 ![Deforestation](/assets/images/WorldDeforestationPredictions/DFM1.png) <br>
 
 #### Set the target and features, split the data into train, val, test.
-##### train_test_split
 ```
 features = train.columns[:-1].tolist()
 target = 'Forest area (% of land area)'
@@ -59,8 +56,7 @@ print('X_train =', X_train.shape, 'y_train =', y_train.shape, 'X_val =', X_val.s
 ```
 ![Deforestation](/assets/images/WorldDeforestationPredictions/DFM2.png) <br>
 
-#### Create a pipeline for the randomforest regressor model.
-##### Pipeline, OneHotEncoder, Randomforest Regressor
+#### Create a pipeline for the RandomForest Regression model.
 ```
 pipeline = make_pipeline(
     ce.OneHotEncoder(), 
@@ -75,21 +71,18 @@ y_pred = pipeline.predict(X_val)
 ![Deforestation](/assets/images/DFM3.png) <br>
 
 #### Read in the test predictions data frame.
-##### Pandas 
 ```
-df_te = pd.read_csv('https://raw.githubusercontent.com/CVanchieri/DataSets/master/WorldBankDeforestation
-                     /WorldBank_2019_2120.csv')
+df1 = pd.read_csv('''https://raw.githubusercontent.com/CVanchieri/DataSets/master/WorldBankDeforestation
+                       /WorldBank_2019_2120.csv''', index_col=0)
 ```
 ```
-test = df_te.copy()
-test = test.drop(columns=['Unnamed: 0'])
+test = df1.copy()
 print(test.shape)
 test.head()
 ```
 ![Deforestation](/assets/images/WorldDeforestationPredictions/DFM4.png) <br>
 
-#### Use the pipeline to make predictions on the test data.
-##### Pipeline
+#### Use the pipeline to fit the test data and make the predictions.
 ```
 features = test.columns[:-1].tolist()
 target = 'Forest area (% of land area)'
@@ -106,7 +99,6 @@ y_pred
 ![Deforestation](/assets/images/WorldDeforestationPredictions/DFM5.png) <br>
 
 #### Step 6: Add the test predictions to the test data frame.
-##### Concat
 ```
 test['Forest area (% of land area)'] = pd.Series(y_pred)
 predictions = pd.concat([train, test])
@@ -160,8 +152,7 @@ def label_race(row):
    return 'Other'
 ```
 
-#### Apply the country names to the dataframe with the function.
-##### Lambda 
+#### Apply the country names to the dataframe with the label function.
 ```
 final.apply (lambda row: label_race(row), axis=1)
 final['Country Name'] = final.apply (lambda row: label_race(row), axis=1)
