@@ -14,10 +14,7 @@ show_tile: false
 
 ---
 
-I enjoy using Twitter for fun and to find information.  I thought that I would try to create a Twitterbot that will automate the collection and storage of data science information by searching, collecting, and storing tweets on the subject.  
-
 If you need assistance getting started with Tweepy api or AWS Lambda Function connections, this is the blog I followed for those connections. --> [Link]({{'https://dylancastillo.co/how-to-make-a-twitter-bot-for-free/'}})
-
 
 #### Necessary imports.
 ```
@@ -32,8 +29,7 @@ import psycopg2
 from sqlalchemy import create_engine
 ```
 
-#### Step 1: Collect the environmental variables and build connection to Tweepy.
-##### .env | Tweepy 
+#### Step 1: Collect the variables and build the connection.
 ```
 TWITconsumer_key = os.getenv("TWITCONSUMER_KEY")
 TWITconsumer_secret = os.getenv("TWITCONSUMER_SECRET")
@@ -44,8 +40,7 @@ auth.set_access_token(TWITaccess_token, TWITaccess_token_secret)
 api = tweepy.API(auth, wait_on_rate_limit=True, wait_on_rate_limit_notify=True)
 ```
 
-#### Step 2: Create the dictionary for storage and the start + end dates to be used.
-##### Datetime
+#### Step 2: Create the storage dictionary and the start & end dates.
 ```
 tweets = {}
 days = 3
@@ -55,8 +50,7 @@ end_str = end_date.strftime('%m/%d/%Y')
 start = datetime.now()
 ```
 
-#### Step 3: Using Tweepy's Cursor api to loop through and search each hashtag while storing tweets that pass the parameters.
-##### Tweepy | Cursor
+#### Step 3: Use the cursor to search each hashtag while storing tweets.
 ```
 tags = ['datascience', 'machinelearning', 'artificialintelligence']
 for tag in tags:
@@ -83,8 +77,7 @@ print(f'pulled tweets count: {len(tweets)}')
 ```
 ![twitter](/assets/images/TwitterBot/TwitterBot1.png) <br>
 
-#### Step 4: Locate and add a value to the dictionary that contains all the #hashtags used in the tweet.
-##### Regex
+#### Step 4: Store all the hashtags used in the dictionary.
 ```
 for key, val in tweets.items():
 val0, val1, val2 = val
@@ -95,8 +88,7 @@ tweets
 ```
 ![twitter](/assets/images/TwitterBot/TwitterBot2.png) <br>
 
-#### Step 5: Convert the dictionary to a dataframe, remove duplicates, filter unwanted tweets.
-##### Dataframe
+#### Step 5: Convert the dictionary to a dataframe, clean and filter the data.
 ```
 df1 = DataFrame.from_dict(tweets, orient='index', columns=['date', 'name', 'text',  'tags'])
 df1.reset_index(inplace=True)
@@ -113,8 +105,7 @@ df1['text'].values
 ```
 ![twitter](/assets/images/TwitterBot/twitterbot3.png) <br>
 
-#### Step 6: Collect environmental variables and connect to the database.
-##### Psycopg2 | AWS 
+#### Step 6: Collect variables and connect to the database.
 ```
 AWSdatabase = os.getenv("AWSDATABASE")
 AWSuser = os.getenv("AWSUSER")
@@ -133,7 +124,6 @@ cur = connection.cursor()
 ```
 
 #### Step 7: SQL query all of the database and convert to a dataframe.
-##### SQL | Dataframe 
 ```
 sql_select_Query = "select * from tweets_storage"
 cur.execute(sql_select_Query)
@@ -142,8 +132,7 @@ df2 = DataFrame(records)
 df2.columns = ['id', 'date', 'name', 'text', 'tags', 'retweet']
 ```
 
-#### Step 8: Merge the newly pulled tweets with the current SQL database and drop any duplicates.
-##### Pandas | Concat
+#### Step 8: Merge the pulled tweets with the current database.
 ```
 df3 = pandas.concat([df1, df2], axis = 0)
 df3 = df3.reset_index(drop=True)
@@ -156,8 +145,7 @@ df3.head()
 ```
 ![twitter](/assets/images/TwitterBot/TwitterBot4.png) <br>
 
-#### Step 9: Push the updated tweets dataframe back to the AWS database.
-##### SQL 
+#### Step 9: Update the AWS database.
 ```
 engine = create_engine(sql_AWS)
 df3.to_sql('tweets_storage', con=engine, index=False, if_exists='replace')
