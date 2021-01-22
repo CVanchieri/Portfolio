@@ -10,9 +10,7 @@ show_tile: false
 
 ![DecisionTree](/assets/images/DecisionTreeFromScratch/DTDecisionTreeHeader.png) <br>
 
-## Create a decision tree model with only the numpy package.
-
-If your involved with Data Science then you most likely have worked with or have come across a Decision Trees.  Decision Trees are regularly used algorithms that take on a 'tree' like form to assist in making predictions for both regression and classification, the models are decently simple, easy to visualize, and in more advanced models they can show great performance on complex data.  SKlearn has one of the more commonly used Decision Trees and makes it pretty simple to set up and run with the correct data.  
+## Create a DecisionTree model with only the Numpy package.
 
 ![DecisionTree](/assets/images/DecisionTreeFromScratch/DTDecisionTreeStructure.png) <br>
 (Decision Trees example.)
@@ -20,9 +18,6 @@ If your involved with Data Science then you most likely have worked with or have
 Decision Trees split data sets into smaller subsets while simultaneously making calculations and predictions on the data. The final product 
 is a 'tree' looking structure that containing different types of 'nodes'.  The top node is the 'root' node, the bottom nodes are the 'leaf/terminal' nodes,
 and the nodes in-between are 'decision' nodes.
-
-I myself enjoy learning about how things work and how they are built so to create a Decision Tree from scratch in Python and not use the prebuilt SKlearn model 
-seemed quite challenging but also very interesting.  My goal is not to beat the SKlearn model but to learn and understand how it all works behind the scene.
 
 #### Necessary installs.
 ```
