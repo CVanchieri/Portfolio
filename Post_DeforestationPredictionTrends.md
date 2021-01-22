@@ -10,6 +10,8 @@ show_tile: false
 ![Deforestation](/assets/images/WorldDeforestationPredictions/DFTHeader.jpg) <br>
 ## Using a RandomForest Regression model to make deforestation predictions by country.
 
+---
+
 ### Necessary installs.
 ```
 !pip install category_encoders
