@@ -12,13 +12,7 @@ show_tile: false
 
 ## Visualizing the COVID-19 virus in a matplotlib barchart race.
 
-
-With a little more downtime during the lockdown I decided to see if I could make one of these bar chart races I have seen.  With COVID-19 
-being such a hot topic I figured that finding and API to pull some good data from shouldn't be to tough so thats how the project began, a bar chart race on 
-COVID-19.  I was not sure how or which programs or libraries were used to create this type of graph, not surprising there are a few out there.  
-I found a couple websites that would generate a bar chart race with the right data, but I was more interested in the full development being all 
-in Python, to my surprise I found that Matplotlib was a capable source and so it was an easy decision to try something new that I was not considering 
-an option.
+---
 
 #### Necessary imports.
 ```
