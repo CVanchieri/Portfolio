@@ -14,8 +14,6 @@ show_tile: false
 
 ---
 
-The goal here is to use create a fake review, use Natural Language Processing on the text to query similar reviews within the given Yelp data set and generate a predicted star review. 
-
 #### Necesary installs.
 ```
 !python -m spacy download en_core_web_lg
@@ -34,10 +32,10 @@ from sklearn.ensemble import RandomForestClassifier
 from sklearn.model_selection import GridSearchCV
 ```
 
-#### Step 1: Read in the JSON file and got a visual of the data.
-##### Pandas 
+#### Step 1: Read in the JSON data file.
 ```
-yelp = pd.read_json('https://raw.githubusercontent.com/CVanchieri/DSPortfolio/master/posts/YelpNLPQueryReviewsPost/review_sample.json', lines=True)
+yelp = pd.read_json('''https://raw.githubusercontent.com/CVanchieri/DSPortfolio/master/posts
+                        /YelpNLPQueryReviewsPost/review_sample.json''', lines=True)
 yelp = yelp[['business_id', 'review_id', 'text', 'cool', 'funny', 'useful', 'stars']]
 ```
 ```
@@ -47,8 +45,7 @@ yelp.head()
 ![yelp](/assets/images/QuerySimilarYelpReviews/yelp1.png) <br>
 (Yelp data frame.)
 
-#### Step 2: Clean up the text from the data frame reviews.
-##### Regex
+#### Step 2: Clean the text review data.
 ```
 yelp['text'] = yelp['text'].apply(lambda x: re.sub(r'[^a-zA-Z ^0-9]', '', x))
 yelp['text'] = yelp['text'].apply(lambda x: re.sub(r'(x.[0-9])', '', x))
@@ -59,14 +56,12 @@ yelp['text'] = yelp['text'].apply(lambda x: x.lower())
 ![yelp](/assets/images/QuerySimilarYelpReviews/yelp2.png) <br>
 (Cleaned text.)
 
-#### Step 3: Create a list of tokens from the reviews and add to the dataframe.
-##### Spacy | Tokenizer | Stop Words | Lemmatize
+#### Step 3: Create a list of tokens, add to the dataframe.
 ```
 df = yelp.copy()
 ```
 ```
 nlp = spacy.load("en_core_web_lg")
-# set the tokenizer on nlp.vocab.
 tokenizer = Tokenizer(nlp.vocab)
 ```
 ```
@@ -88,8 +83,7 @@ df['tokens'].head()
 ![yelp](/assets/images/QuerySimilarYelpReviews/yelp3.png) <br>
 (Review tokens.)
 
-#### Step 4: Create vectors from the text and fit nearest neighbors model.
-##### .vector | NearestNeighbors
+#### Step 4: Use the vectors from the text and fit on the NearestNeighbors model.
 ```
 vects = [nlp(doc).vector for doc in df['text']]
 ```
@@ -100,8 +94,7 @@ nn.fit(vects)
 ![yelp](/assets/images/QuerySimilarYelpReviews/yelp4.png) <br>
 (Nearest neighbors model.)
 
-#### Step 5: Create a fake review, create a vector, and use the nearest neighbors model.
-##### .vector | .kneighbors
+#### Step 5: Create the fake review, create a vector, and run through the NearestNeighbors model.
 ```
 created_review = """
 The indian food was magnificent! We will come back.
@@ -115,8 +108,7 @@ yelp.iloc[most_similiar[1][0]]['text']
 ![yelp](/assets/images/QuerySimilarYelpReviews/yelp5.png) <br>
 (Similar reviews.)
 
-#### Step 6: Use Vectorizer, RandomForest, and GridSearch for the prediction model.
-##### TfidVectorizer | RandomForestClassifier | GridSearchCV
+#### Step 6: Run a GridSearchCV for a RandomForest Classifier prediction model to find the best score.
 ```
 vect = TfidfVectorizer(stop_words=STOP_WORDS)
 rfc = RandomForestClassifier()
@@ -141,8 +133,7 @@ grid_search.best_score_
 ![yelp](/assets/images/QuerySimilarYelpReviews/yelp6.png) <br>
 (The goal was 51%.)
 
-#### Step 7: Use the prediction model on the created review to predict a star rating.
-##### .predict 
+#### Step 7: Use the prediction model on the created review to predict its star rating.
 ```
 created_review = [created_review]
 pred = grid_search.predict(created_review)
