@@ -8,7 +8,7 @@ show_tile: true
 
 ---
 
-# Useful Notes...more to come.
+# Useful information, templates, and notes.
 
 ---
 
@@ -17,26 +17,26 @@ These are useful notes and templates I have created for information and future u
 ---
 
 ## Flask App.
-Template repository to create a Flask app for local development & live deployment. ---> [GitHub](https://github.com/CVanchieri/FlaskApp_Template)
+Flask app local and live. ---> [GitHub](https://github.com/CVanchieri/FlaskApp_Template)
 
 ---
 
 ## AWS Lambda Function.
-Template for AWS Lambda Function. ---> [GitHub](https://github.com/CVanchieri/AWSLambdaFunction_Template)
+AWS Lambda Function. ---> [GitHub](https://github.com/CVanchieri/AWSLambdaFunction_Template)
 
 ---
 
-## SQL Command Notes.
+## SQL Commands.
 SQL commands. ---> [GitHub](https://github.com/CVanchieri/CS_Notes/blob/main/SQL_Notes/SQL_notes.py)
 
 ---
 
-## Natural Language Processing Notes.
+## Natural Language Processing.
 spaCy NLP. ---> [GitHub](https://github.com/CVanchieri/CS_Notes/blob/main/NLP_Notes/SpacyNLPNotes.py)
 
 ---
 
-## RandomForest Model Notes.
+## RandomForest Models.
 Sklearn RandomForest. --> [GitHub](https://github.com/CVanchieri/CS_Notes/blob/main/RFM_Notes/RFMSklearn_RandomForestNotes.py)
 
 ---
