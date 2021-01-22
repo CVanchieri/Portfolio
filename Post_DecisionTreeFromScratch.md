@@ -12,6 +12,8 @@ show_tile: false
 
 ## Create a DecisionTree model with only the Numpy package.
 
+---
+
 ![DecisionTree](/assets/images/DecisionTreeFromScratch/DTDecisionTreeStructure.png) <br>
 (Decision Trees example.)
 
