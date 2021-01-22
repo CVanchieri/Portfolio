@@ -30,7 +30,6 @@ fires.head()
 (Bushfire data frame.)
 
 #### Step 2: Set up the data for the heatmap.
-##### Times list | Frames Data | Buttons
 ```
 times = fires.groupby(['Date'])['Date'].count().index.tolist()
 frames_data = [fires.loc[fires['Date'] == t] for t in times]
