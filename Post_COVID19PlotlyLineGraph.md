@@ -12,6 +12,8 @@ show_tile: false
 
 ## Visualizing the COVID-19 virus impact on the USA in a plotly line graph.
 
+---
+
 #### Necessary installs.
 ```
 !pip install chart_studio  
