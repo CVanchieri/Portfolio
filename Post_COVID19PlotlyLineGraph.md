@@ -12,10 +12,6 @@ show_tile: false
 
 ## Visualizing the COVID-19 virus impact on the USA in a plotly line graph.
 
-Line graphs are not always very engaging or eye catching on their own, I have been enjoying using Plotly to add a 
-little bit of engagement with the user.  Plotly gives you easy ability to add data information into the graph that a 
-user can find themselves and locate by engaging with the visualization.
-
 #### Necessary installs.
 ```
 !pip install chart_studio  
@@ -32,8 +28,7 @@ import plotly.offline
 from plotly.offline import iplot, init_notebook_mode
 ```
 
-#### Step 1: Pull in the API daily counts for USA.
-##### Requests | Json
+#### Step 1: Pull in the COVID-19 data from the API.
 ```
 response = requests.get("https://covidtracking.com/api/us/daily")
 covid_cs = response.json()
@@ -47,15 +42,17 @@ data.head()
 (COVID-19 daily dataframe.)
 
 #### Step 2: Clean, filter and organize data.
-##### Pandas
 ```
 df = data.copy()
 ```
 ```
 df = df.drop(columns=['hash', 'pending', 'dateChecked', 'lastModified', 'total', 'posNeg', 'hospitalized'])
-df = df.rename(columns={'date' : 'Date', 'states' : 'States', 'positive' : 'TotalPositives', 
-'positiveIncrease' : 'PositivesToday', 'negative' : 'TotalNegatives', 'negativeIncrease' : 'NegativesToday', 'hospitalizedCurrently' : 'HospitalizedCurrently', 'hospitalizedIncrease' : 'HospitalizedToday', 'hospitalizedCumulative' : 'TotalHospitalized', 'inIcuCurrently' : 'IcuCurrently', 
-'inIcuCumulative': 'TotalIcu', 'onVentilatorCurrently' : 'VentilatorsCurrently', 'onVentilatorCumulative' : 'TotalVentilators', 'death' : 'TotalDeaths', 'deathIncrease' : 'DeathsToday', 'recovered' : 'TotalRecovered', 'totalTestResults' : 'TotalTests', 'totalTestResultsIncrease' : 'TestsToday'})
+df = df.rename(columns={'date' : 'Date', 'states' : 'States', 'positive' : 'TotalPositives', 'positiveIncrease' : 'PositivesToday', 
+'negative' : 'TotalNegatives', 'negativeIncrease' : 'NegativesToday', 'hospitalizedCurrently' : 'HospitalizedCurrently', 
+'hospitalizedIncrease' : 'HospitalizedToday', 'hospitalizedCumulative' : 'TotalHospitalized', 'inIcuCurrently' : 'IcuCurrently', 
+'inIcuCumulative': 'TotalIcu', 'onVentilatorCurrently' : 'VentilatorsCurrently', 'onVentilatorCumulative' : 'TotalVentilators',
+'death' : 'TotalDeaths', 'deathIncrease' : 'DeathsToday', 'recovered' : 'TotalRecovered', 'totalTestResults' : 'TotalTests', 
+'totalTestResultsIncrease' : 'TestsToday'})
 df['Date'] = pd.to_datetime(df['Date'].astype(str), format='%Y%m%d')
 df['Date'] = df.Date.astype(str)
 df = df.sort_values('Date')
@@ -91,8 +88,7 @@ df.head()
 ![Covid19LineGraph](/assets/images/Covid19USALineGraph/PLG2.png) <br>
 (Reworked data frame.)
 
-#### Step 3: Function to configure the browser to display plotly charts properly.
-##### IPython | Plotly
+#### Step 3: Use function to configure the browser to display plotly charts properly.
 ```
 def configure_plotly_browser_state():
   import IPython
@@ -110,7 +106,6 @@ def configure_plotly_browser_state():
 ```
 
 #### Step 4: Configure the data, design, and layout for the graph.
-##### Scatter | Layout | Figure
 ```
 configure_plotly_browser_state()
 init_notebook_mode(connected=True)
