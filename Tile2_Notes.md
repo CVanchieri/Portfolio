@@ -22,23 +22,22 @@ Template repository to create a Flask app for local development & live deploymen
 ---
 
 ## AWS Lambda Function.
-Template repository to create a AWS Lambda Function with trigger. ---> [GitHub](https://github.com/CVanchieri/AWSLambdaFunction_Template)
+Template for AWS Lambda Function. ---> [GitHub](https://github.com/CVanchieri/AWSLambdaFunction_Template)
 
 ---
 
-## SQL Notes.
-Notes on important SQL commands. ---> [GitHub](https://github.com/CVanchieri/CS_Notes/blob/main/SQL_Notes/SQL_notes.py)
+## SQL Command Notes.
+SQL commands. ---> [GitHub](https://github.com/CVanchieri/CS_Notes/blob/main/SQL_Notes/SQL_notes.py)
 
 ---
 
-## NLP Notes.
-Notes on important NLP spaCy commands. ---> [GitHub](https://github.com/CVanchieri/CS_Notes/blob/main/NLP_Notes/SpacyNLPNotes.py)
+## Natural Language Processing Notes.
+spaCy NLP. ---> [GitHub](https://github.com/CVanchieri/CS_Notes/blob/main/NLP_Notes/SpacyNLPNotes.py)
 
 ---
 
-
-## Random Forest.
-...
+## RandomForest Model Notes.
+Sklearn RandomForest. --> [GitHub](https://github.com/CVanchieri/CS_Notes/blob/main/RFM_Notes/RFMSklearn_RandomForestNotes.py)
 
 ---
 
