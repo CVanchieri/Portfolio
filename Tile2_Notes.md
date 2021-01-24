@@ -36,12 +36,22 @@ spaCy NLP. ---> [GitHub](https://github.com/CVanchieri/CS_Notes/blob/main/NLP_No
 
 ---
 
-## RandomForest Models.
+## RandomForest.
 Sklearn RandomForest. --> [GitHub](https://github.com/CVanchieri/CS_Notes/blob/main/RFM_Notes/RFMSklearn_RandomForestNotes.py)
 
 ---
 
-## Neural Networks.
+## Linear Regression.
+...
+
+---
+
+## Logistic Regression.
+...
+
+---
+
+## XGBoost.
 ...
 
 ---
@@ -51,7 +61,7 @@ Sklearn RandomForest. --> [GitHub](https://github.com/CVanchieri/CS_Notes/blob/m
 
 ---
 
-## XGBoost.
+## Neural Networks.
 ...
 
 ---
