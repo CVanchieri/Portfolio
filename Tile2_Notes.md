@@ -41,7 +41,7 @@ Sklearn RandomForest. --> [GitHub](https://github.com/CVanchieri/CS_Notes/blob/m
 
 ---
 
-## Linear Regression.
+## Linear Regression. --> [GitHub](https://github.com/CVanchieri/CS_Notes/blob/main/LRM_Notes/LRMSklearn_LinearRegressionNotes.py)
 ...
 
 ---
