@@ -37,13 +37,12 @@ spaCy NLP.  ---> [GitHub](https://github.com/CVanchieri/CS_Notes/blob/main/NLP_N
 ---
 
 ## RandomForest.
-Sklearn RandomForest.  --> [GitHub](https://github.com/CVanchieri/CS_Notes/blob/main/RFM_Notes/RFMSklearn_RandomForestNotes.py)
+Sklearn RandomForest.  ---> [GitHub](https://github.com/CVanchieri/CS_Notes/blob/main/RFM_Notes/RFMSklearn_RandomForestNotes.py)
 
 ---
 
 ## Linear Regression. 
-SKlearn Linear Regression.  --> [GitHub](https://github.com/CVanchieri/CS_Notes/blob/main/LRM_Notes/LRMSklearnModels_Notes.ipynb)
-...
+SKlearn Linear Regression.  ---> [GitHub](https://github.com/CVanchieri/CS_Notes/blob/main/LRM_Notes/LRMSklearnModels_Notes.ipynb)
 
 ---
 
