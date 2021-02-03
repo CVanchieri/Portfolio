@@ -37,7 +37,7 @@ These are useful notes and templates I have created for information and future u
 ---
 
 ## Classification Models.
- - Sklearn RandomForest Classification.  ---> [GitHub](https://github.com/CVanchieri/CS_Notes/blob/main/RFM_Notes/RFMSklearnModels_Notes.ipynb)
+ - Sklearn RandomForest Classification.  ---> [GitHub](https://github.com/CVanchieri/CS_Notes/blob/main/RFM_Notes/SKlearn_RandomForest_Classification.ipynb)
 
 ---
 
