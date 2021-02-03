@@ -42,9 +42,11 @@ These are useful notes and templates I have created for information and future u
 ---
 
 ## Regressions Models. 
- - SKlearn Single+Mulit Linear Regression.  ---> [GitHub](https://github.com/CVanchieri/CS_Notes/blob/main/LRM_Notes/SKlearn_SingleMulti_LinearRegression.ipynb)
+ - SKlearn Single+Mulit Linear Regression.  ---> [GitHub](https://github.com/CVanchieri/CS_Notes/blob/main/LRM_Notes/SKlearn_SingleMultiLinear_Regression.ipynb)
 
- - SKlearn Polynomial Regression.  ---> [GitHub](https://github.com/CVanchieri/CS_Notes/blob/main/LRM_Notes/SKlearn_PolynomialRegression.ipynb)
+ - SKlearn Polynomial Regression.  ---> [GitHub](https://github.com/CVanchieri/CS_Notes/blob/main/LRM_Notes/SKlearn_Polynomial_Regression.ipynb)
+ 
+ - SKlearn Random Forest Regression.  ---> [GitHub](https://github.com/CVanchieri/CS_Notes/blob/main/LRM_Notes/SKLearn_RandomForest_Regression.ipynb)
 
 ---
 
