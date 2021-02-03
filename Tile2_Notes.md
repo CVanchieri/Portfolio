@@ -17,32 +17,34 @@ These are useful notes and templates I have created for information and future u
 ---
 
 ## Flask App.
-Flask app local and live. ---> [GitHub](https://github.com/CVanchieri/FlaskApp_Template)
+- Flask app local and live. ---> [GitHub](https://github.com/CVanchieri/FlaskApp_Template)
 
 ---
 
 ## AWS Lambda Function.
-AWS Lambda Function.  ---> [GitHub](https://github.com/CVanchieri/AWSLambdaFunction_Template)
+- AWS Lambda Function.  ---> [GitHub](https://github.com/CVanchieri/AWSLambdaFunction_Template)
 
 ---
 
 ## SQL Commands.
-SQL commands.  ---> [GitHub](https://github.com/CVanchieri/CS_Notes/blob/main/SQL_Notes/SQL_notes.py)
+ - SQL Notes.  ---> [GitHub](https://github.com/CVanchieri/CS_Notes/blob/main/SQL_Notes/SQL_notes.py)
 
 ---
 
 ## Natural Language Processing.
-spaCy NLP.  ---> [GitHub](https://github.com/CVanchieri/CS_Notes/blob/main/NLP_Notes/SpacyNLPNotes.py)
+ - spaCy NLP.  ---> [GitHub](https://github.com/CVanchieri/CS_Notes/blob/main/NLP_Notes/SpacyNLPNotes.py)
 
 ---
 
-## RandomForest.
-Sklearn RandomForest.  ---> [GitHub](https://github.com/CVanchieri/CS_Notes/blob/main/RFM_Notes/RFMSklearnModels_Notes.ipynb)
+## Classification Models.
+ - Sklearn RandomForest Classification.  ---> [GitHub](https://github.com/CVanchieri/CS_Notes/blob/main/RFM_Notes/RFMSklearnModels_Notes.ipynb)
 
 ---
 
-## Linear Regression. 
-SKlearn Linear Regression.  ---> [GitHub](https://github.com/CVanchieri/CS_Notes/blob/main/LRM_Notes/LRMSklearnModels_Notes.ipynb)
+## Regressions Models. 
+ - SKlearn Single+Mulit Linear Regression.  ---> [GitHub](https://github.com/CVanchieri/CS_Notes/blob/main/LRM_Notes/SKlearn_SingleMulti_LinearRegression.ipynb)
+
+ - SKlearn Polynomial Regression.  ---> [GitHub](https://github.com/CVanchieri/CS_Notes/blob/main/LRM_Notes/SKlearn_PolynomialRegression.ipynb)
 
 ---
 
