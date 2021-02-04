@@ -37,6 +37,8 @@ These are useful notes and templates I have created for information and future u
 ---
 
 ## Classification Models.
+ - Sklearn Logistic Regression.  ---> [GitHub](https://github.com/CVanchieri/CS_Notes/blob/main/RFM_Notes/SKlearn_LogisticRegression.ipynb)
+ 
  - Sklearn RandomForest Classification.  ---> [GitHub](https://github.com/CVanchieri/CS_Notes/blob/main/RFM_Notes/SKlearn_RandomForest_Classification.ipynb)
 
 ---
