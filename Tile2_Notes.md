@@ -37,18 +37,22 @@ These are useful notes and templates I have created for information and future u
 ---
 
 ## Classification Models.
- - Sklearn Logistic Regression.  ---> [GitHub](https://github.com/CVanchieri/CS_Notes/blob/main/RFM_Notes/SKlearn_LogisticRegression.ipynb)
+ - Sklearn Logistic Regression.  ---> [GitHub](https://github.com/CVanchieri/CS_Notes/blob/main/Classification_Notes/SKlearn_LogisticRegression.ipynb)
  
- - Sklearn RandomForest Classification.  ---> [GitHub](https://github.com/CVanchieri/CS_Notes/blob/main/RFM_Notes/SKlearn_RandomForest_Classification.ipynb)
+ - Sklearn RandomForest Classification.  ---> [GitHub](https://github.com/CVanchieri/CS_Notes/blob/main/Classification_Notes/SKlearn_RandomForest_Classification.ipynb)
+ 
+ - XGBoost Classification.  ---> [GitHub](https://github.com/CVanchieri/CS_Notes/blob/main/Classification_Notes/XGBoost_Classification.ipynb)
 
 ---
 
 ## Regressions Models. 
- - SKlearn Single+Mulit Linear Regression.  ---> [GitHub](https://github.com/CVanchieri/CS_Notes/blob/main/LRM_Notes/SKlearn_SingleMultiLinear_Regression.ipynb)
+ - SKlearn Single+Mulit Linear Regression.  ---> [GitHub](https://github.com/CVanchieri/CS_Notes/blob/main/Regression_Notes/SKlearn_SingleMulti_LinearRegression.ipynb)
 
- - SKlearn Polynomial Regression.  ---> [GitHub](https://github.com/CVanchieri/CS_Notes/blob/main/LRM_Notes/SKlearn_Polynomial_Regression.ipynb)
+ - SKlearn Polynomial Regression.  ---> [GitHub](https://github.com/CVanchieri/CS_Notes/blob/main/Regression_Notes/SKlearn_PolynomialRegression.ipynb)
  
- - SKlearn Random Forest Regression.  ---> [GitHub](https://github.com/CVanchieri/CS_Notes/blob/main/LRM_Notes/SKLearn_RandomForest_Regression.ipynb)
+ - SKlearn Random Forest Regression.  ---> [GitHub](https://github.com/CVanchieri/CS_Notes/blob/main/Regression_Notes/SKLearn_RandomForestRegression.ipynb)
+ 
+ - XGBoost Regression.  ---> [GitHub](https://github.com/CVanchieri/CS_Notes/blob/main/Regression_Notes/XGBoost_Regression.ipynb)
 
 ---
 
