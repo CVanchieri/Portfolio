@@ -56,16 +56,6 @@ These are useful notes and templates I have created for information and future u
 
 ---
 
-## Logistic Regression.
-...
-
----
-
-## XGBoost.
-...
-
----
-
 ## Gradient Descent.
 ...
 
