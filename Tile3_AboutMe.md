@@ -6,7 +6,7 @@ nav-menu: false
 show_tile: false
 ---
 
-![ProfilePic](/assets/images/General/aboutme.jpg) 
+![ProfilePic](/assets/images/General/aboutme.png) 
 <ul class="actions">
  <li><a href="https://cvanchieri.github.io/DSPortfolio/Post_Resume.html" class="button next">Charles Vanchieri Resume</a></li>
 </ul>
