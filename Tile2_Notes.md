@@ -56,12 +56,12 @@ These are useful notes and templates I have created for information and future u
 
 ---
 
-## Gradient Descent.
-...
+## Neural Networks.
+ - Keras Feed Forward (MLP) Neural Network. ---> [GitHub](https://github.com/CVanchieri/CS_Notes/blob/main/NeuralNetwork_Notes/Keras_FeedForward(MLP)_NeuralNetwork.ipynb)
 
 ---
 
-## Neural Networks.
+## Gradient Descent.
 ...
 
 ---
