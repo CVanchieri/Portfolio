@@ -60,6 +60,7 @@ These are useful notes and templates I have created for information and future u
  - Keras Feed Forward (MLP) Neural Network. ---> [GitHub](https://github.com/CVanchieri/CS_Notes/blob/main/NeuralNetwork_Notes/Keras_FeedForward(MLP)_NeuralNetwork.ipynb)
 
  - Keras Recurrenrt (RNN) Neural Network. ---> [GitHub](https://github.com/CVanchieri/CS_Notes/blob/main/NeuralNetwork_Notes/Keras_Recurrent(RNN)_NeuralNetwork.ipynb)
+ 
 ---
 
 ## Gradient Descent.
