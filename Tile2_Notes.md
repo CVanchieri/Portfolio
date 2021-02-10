@@ -63,8 +63,8 @@ These are useful notes and templates I have created for information and future u
  
 ---
 
-## Gradient Descent.
-...
+## Algorithm Analysis.
+- Big O Notation Notes. ---> [GitHub](https://github.com/CVanchieri/CS_Notes/blob/main/AlgorithmAnalysis_Notes/BigOAlgorithmAnalysis_Notes.ipynb)
 
 ---
 
