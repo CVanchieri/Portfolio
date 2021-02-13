@@ -280,7 +280,7 @@ state a few. I came across something called FeatureTools that supposedly assists
 deeper into and hopefully be able to incorporate into this project in the near future.
 
 GitHub file:
-[Link]({{'https://github.com/CVanchieri/DSPortfolio/blob/master/posts/LiverpoolEPL2019PredictionsPost/LiverpoolEPL2019Predictions_RandomForestModel.ipynb'}})
+[Link]({{'https://github.com/CVanchieri/DSPortfolio/blob/master/posts/LiverpoolEPLPredictionsPost/LiverpoolEPL2021Predictions_RandomForestModel.ipynb'}})
 
 
 
