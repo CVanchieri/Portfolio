@@ -43,7 +43,7 @@ show_tile: true
 ### Making predictions for Liverpool's English Premier League seasons with a RandomForest Classifier model.
 
 <ul class="actions">
-   <li><a href="https://cvanchieri.github.io/DSPortfolio/Post_Liverpool2021EPLPredictions.html" class="button next">View Details</a></li>
+   <li><a href="https://cvanchieri.github.io/DSPortfolio/Post_LiverpoolEPLPredictions.html" class="button next">View Details</a></li>
 </ul>
 
 ---
