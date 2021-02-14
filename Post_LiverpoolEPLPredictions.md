@@ -1,6 +1,6 @@
 ---
 layout: page
-title: Liverpool English Premier League 2020 Game Predictions
+title: Liverpool's English Premier League Game Predictions
 image: null
 nav-menu: false
 description: null
@@ -32,8 +32,7 @@ from sklearn.model_selection import train_test_split
 
 #### Step 1: Read in the data file.
 ```
-df = pd.read_csv('''https://raw.githubusercontent.com/CVanchieri/DataSets/master/EnglishPremierLeagueData/
-                    EPL_data.csv''')
+df = pd.read_csv('https://raw.githubusercontent.com/CVanchieri/DataSets/master/EnglishPremierLeagueData/EPL_data.csv')
 ```
 ```
 print('data frame shape:', df.shape)
@@ -74,10 +73,10 @@ def wrangle(X):
     dropped_columns = ['FullTimeHomeGoals', 'FullTimeAwayGoals']
     X = X.drop(columns=dropped_columns)
     columns = ['GameDate', 'HomeTeam', 'AwayTeam','HalfTimeHomeGoals', 'HalfTimeAwayGoals',
-       'HalfTimeResult', 'HomeShots', 'AwayShots', 'HomeShotsOnTarget',
-       'AwayShotsOnTarget', 'HomeCorners', 'AwayCorners', 'HomeFouls',
-       'AwayFouls', 'HomeYellowCards', 'AwayYellowCards', 'HomeRedCards',
-       'AwayRedCards', 'FullTimeResult']
+               'HalfTimeResult', 'HomeShots', 'AwayShots', 'HomeShotsOnTarget',
+               'AwayShotsOnTarget', 'HomeCorners', 'AwayCorners', 'HomeFouls',
+               'AwayFouls', 'HomeYellowCards', 'AwayYellowCards', 'HomeRedCards',
+               'AwayRedCards', 'FullTimeResult']
     X = X[columns]
     X = X.drop_duplicates()
     return X
@@ -86,7 +85,6 @@ df = wrangle(df)
 ```
 #### Step 4: Split the data by date, 2021 season for val data.
 ```
-### splitting data by date ### 
 X_train = df[df['GameDate'] < '2020-09-12']
 y_train = X_train['FullTimeResult']
 X_train = X_train.drop(columns=['FullTimeResult'])
@@ -107,7 +105,7 @@ print("y_val shape:", y_val.shape)
 train_id = X_train['GameDate']
 val_id = X_val['GameDate']
 ```
-#### Step 6: Build the Randomforest model.
+#### Step 6: Build the Randomforest model pipeline with an enocnder, imputer, and scalar.
 ```
 model = make_pipeline(
                       ce.OrdinalEncoder(), 
@@ -150,16 +148,15 @@ print('model accuracy score=', metrics.accuracy_score(y_val, val_pred))
 #### Step 8: Use the saved 'GameDate' values to create a predictions vs actuals data frame.
 ```
 val_predictions = pd.DataFrame({
-    'GameDate': val_id, 
-    'prediction': val_pred, 
-    'Actual': y_val
-})
+                              'GameDate': val_id, 
+                              'prediction': val_pred, 
+                              'Actual': y_val
+                              })
 val_predictions = val_predictions.drop_duplicates()
-# # merge the new data frame with necessary features from origninal.
 val_predictions = val_predictions.merge( 
-     X_val[['GameDate','HomeTeam', 'AwayTeam']],
-     how='left'
-)
+                                       X_val[['GameDate','HomeTeam', 'AwayTeam']],
+                                       how='left'
+                                       )
 val_predictions = val_predictions.drop_duplicates(subset=['GameDate', 'HomeTeam'])
 ```
 ```
@@ -199,7 +196,7 @@ plt.show()
 ```
 ![LiverpoolFootballClub](/assets/images/LiverPoolFCPredictions/LPFC6.png) <br>
 
-#### Step 11: Complete the English Premier League predictions final data frame.
+#### Step 11: Adding a 'Correct?' column to the data frame.
 ```
 val_predictions['Correct?'] = np.where(val_predictions['prediction'] == val_predictions['Actual'], 'Yes', 'No')
 val_predictions['Correct?'][val_predictions.Actual == 'Not Played'] = "Not Played"
@@ -214,13 +211,14 @@ EPL_predictions.head(50)
 ```
 ![LiverpoolFootballClub](/assets/images/LiverPoolFCPredictions/LPFC7.png) <br>
 
-#### Step 12: The final predictions for Liverpool English Premier League.
+#### Step 12: Filter just Liverpool to create its own data frame.
 ```
 LPFCH =  EPL_predictions[EPL_predictions['HomeTeam']=='Liverpool']
 LPFCA =  EPL_predictions[EPL_predictions['AwayTeam']=='Liverpool']
 liverpool_final = pd.concat([LPFCH, LPFCA], sort=False, ignore_index=True)
 liverpool_final['GameDate'] = pd.to_datetime(liverpool_final['GameDate']).dt.date
 ```
+#### Step 13: Show the final data frame for Liverpools game predictions vs actual results.
 ```
 print('data frame shape:', liverpool_final.shape) # show the shape
 print('--- predicted counts ---')
@@ -231,10 +229,7 @@ liverpool_final.sort_values('GameDate')
 ![LiverpoolFootballClub](/assets/images/LiverPoolFCPredictions/LPFC8.png) <br>
 
 #### Summary
-In all I believe feature engineering is the most important part to this specific data set and model. With only having in-match 
-statistics there are many important variables that are just not accounted for like, weather, team roster, injury reports just to 
-state a few. I came across something called FeatureTools that supposedly assists in automated feature engineering that I plan to dive 
-deeper into and hopefully be able to incorporate into this project in the near future.
+Getting the data organized and put together the 23 files was the most time consuming portion of this project, I would have liked to find more data as making predicitons on these games without, lineups, weather, injury reports etc. will not generate very good accuracy for the predictions but working with what I had found this was fun and a good learning experience overall. 
 
 GitHub file:
 [Link]({{'https://github.com/CVanchieri/DSPortfolio/blob/master/posts/LiverpoolEPLPredictionsPost/LiverpoolEPL2021Predictions_RandomForestModel.ipynb'}})
