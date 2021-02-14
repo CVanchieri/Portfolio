@@ -9,7 +9,7 @@ show_tile: false
 ---
 
 ![LiverpoolFootballClub](/assets/images/LiverPoolFCPredictions/LPFCTeam.png) <br>
-## Making game predictions for the Liverpool Premier League 2020 season with a Random Forest Classifier.
+## Making game predictions for the Liverpool using a Random Forest Classifier.
 
 ---
 
