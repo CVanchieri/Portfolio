@@ -20,54 +20,41 @@ import pandas as pd
 import numpy as np
 from datetime import datetime
 import matplotlib.pyplot as plt
-import seaborn as sns
-from sklearn.metrics import confusion_matrix
-from sklearn.utils.multiclass import unique_labels
-from sklearn.metrics import classification_report
-import eli5
-from eli5.sklearn import PermutationImportance
 from sklearn.pipeline import make_pipeline
 import category_encoders as ce
 from sklearn.impute import SimpleImputer
 from sklearn.ensemble import RandomForestClassifier
 from sklearn.preprocessing import StandardScaler
 from sklearn.model_selection import train_test_split
-from sklearn.metrics import accuracy_score
 ```
 
-#### Step 1: Read in the 27 seasons of Liverpool FC data.
+#### Step 1: Read in the data file.
 ```
-LPFC = pd.read_csv('''https://raw.githubusercontent.com/CVanchieri/LSDS-DataSets/master/
-                    EnglishPremierLeagueData/LiverpoolFootballClubData_EPL.csv''')
+df = pd.read_csv('''https://raw.githubusercontent.com/CVanchieri/DataSets/master/EnglishPremierLeagueData/
+                    EPL_data.csv''')
 ```
 ```
-print(LPFC.shape)
-LPFC.head()
+print('data frame shape:', df.shape)
+print('--- data frame ---')
+df.tail()
 ```
 ![LiverpoolFootballClub](/assets/images/LiverPoolFCPredictions/LPFC1.png){: .center-block :}
 
-#### Step 2: Clean, organize, and rework the data .
+#### Step 2: Organize the data .
 ```
-columns = ["Div", "Date", "HomeTeam", "AwayTeam", "FTHG", "FTAG", "FTR", 
-           "HTHG", "HTAG", "HTR", "HS", "AS", "HST", "AST", "HHW", "AHW", 
-           "HC", "AC", "HF", "AF", "HO", "AO", "HY", "AY", "HR", "AR", "HBP", "ABP"]
-LPFC = LPFC[columns]
-LPFC = LPFC.rename(columns={"Div": "Division", "Date": "GameDate", "FTHG": "FullTimeHomeGoals", "FTAG": "FullTimeAwayGoals", 
-                            "FTR": "FullTimeResult", "HTHG": "HalfTimeHomeGoals", "HTAG":"HalfTimeAwayGoals", "HTR": "HalfTimeResult", 
-                            "HS": "HomeShots", "AS": "AwayShots", "HST": "HomeShotsOnTarget", "AST": "AwayShotsOnTarget", 
-                            "HHW": "HomeShotsHitFrame", "AHW": "AwayShotsHitFrame", "HC": "HomeCorners", "AC": "AwayCorners", 
-                            "HF": "HomeFouls", "AF": "AwayFouls", "HO": "HomeOffSides", "AO": "AwayOffSides", "HY": "HomeYellowCards",
-                            "AY": "AwayYellowCards", "HR": "HomeRedCards", "AR": "AwayRedCards", "HBP":"HomeBookingPoints_Y5_R10",
-                            "HomeBookingPoints_Y5_R10","ABP": "AwayBookingPoints_Y5_R10"})
+columns = ["Div", "GameDate", "HomeTeam", "AwayTeam", "FTHG", "FTAG", 
+           "HTHG", "HTAG", "HTR", "HS", "AS", "HST", "AST", 
+           "HC", "AC", "HF", "AF", "HY", "AY", "HR", "AR", "FTR"] 
+df = df[columns]
+df = df.rename(columns={"Div": "Division", "FTHG": "FullTimeHomeGoals", "FTAG": "FullTimeAwayGoals", 
+                        "HTHG": "HalfTimeHomeGoals", "HTAG": "HalfTimeAwayGoals", "HTR": "HalfTimeResult", 
+                        "HS": "HomeShots", "AS": "AwayShots", "HST": "HomeShotsOnTarget", "AST": "AwayShotsOnTarget", 
+                        "HC": "HomeCorners", "AC": "AwayCorners", 
+                        "HF": "HomeFouls", "AF": "AwayFouls", "HY": "HomeYellowCards", 
+                        "AY": "AwayYellowCards", "HR": "HomeRedCards", "AR": "AwayRedCards", 
+                        "FTR": "FullTimeResult"})
 
 ```
-```
-print(LPFC.shape)
-LPFC.head()
-```
-![LiverpoolFootballClub](/assets/images/LiverPoolFCPredictions/LPFC2.png) <br>
-(1993-2019 premier league dataframe.)
-
 #### Step 3: Find the majority baseline to get started.
 #### Accuracy Score
 ```
@@ -82,162 +69,131 @@ print("'Majority Baseline' Accuracy Score =", ac)
 ![LiverpoolFootballClub](/assets/images/LiverPoolFCPredictions/LPFC3.png) <br>
 (Baseline accuracy score)
 
-#### Step 4: Read in the 2019-2020 Premier League Schedule for test data.
-```
-train = LPFC.copy()
-test = pd.read_csv('''https://raw.githubusercontent.com/CVanchieri/LSDS-DataSets/master/EnglishPremierLeagueData
-                    /LiverpoolFootballClubEPL_Schedule.csv''')
-test['Division'] = test['Division'].astype(object)
-test['HalfTimeResult'] = test['HalfTimeResult'].astype(object)
-test['FullTimeResult'] = test['FullTimeResult'].astype(object)
-```
-```
-print(test)
-```
-![LiverpoolFootballClub](/assets/images/LiverPoolFCPredictions/LPFC4.png) <br>
-
-#### Step 5: Split the data with train, val, test split.
-```
-train, val = train_test_split(train, train_size=0.80, test_size=0.20,
-                              random_state=42)
-```
-```
-print("train =", train.shape, "val =", val.shape, "test =", test.shape)
-```
-![LiverpoolFootballClub](/assets/images/LiverPoolFCPredictions/LPFC5.png) <br>
-
-#### Step 6: A wrangle function to adjust the datasets.
+#### Step 4: Clean and rework the data.
 ```
 def wrangle(X):
-    """Wrangle train, validate, and test sets in the same way"""
-
     X = X.copy()
-    X['HalfTimeResult'] = X['HalfTimeResult'].replace({'H':'Home', 'A': 'Away', 'D': 'Tied'})   
-    X['FullTimeResult'] = X['FullTimeResult'].replace({'H':'Home', 'A': 'Away', 'D': 'Tied'})   
+    ### fill target NA, relabel target values ###
+    X['FullTimeResult'] = X['FullTimeResult'].fillna('Not Played')    
+    X['FullTimeResult'] = X['FullTimeResult'].replace({'H':'Home', 'A': 'Away', 'D': 'Tied'}) 
+    X['HalfTimeResult'] = X['HalfTimeResult'].astype(object)
+    X['FullTimeResult'] = X['FullTimeResult'].astype(object)
     X['GameDate'] = pd.to_datetime(X['GameDate'], infer_datetime_format=True) 
-    X['YearOfGame'] = X['GameDate'].dt.year
-    X['MonthOfGame'] = X['GameDate'].dt.month
-    X['DayOfGame'] = X['GameDate'].dt.day
-    dropped_columns = ['FullTimeHomeGoals', 'FullTimeAwayGoals', 'Division']
+    X['Year'] = X['GameDate'].dt.year
+    X['Month'] = X['GameDate'].dt.month
+    X['Day'] = X['GameDate'].dt.day
+    X['GameDate'] = X.GameDate.astype(str)
+    dropped_columns = ['FullTimeHomeGoals', 'FullTimeAwayGoals']
     X = X.drop(columns=dropped_columns)
+    columns = ['GameDate', 'HomeTeam', 'AwayTeam','HalfTimeHomeGoals', 'HalfTimeAwayGoals',
+       'HalfTimeResult', 'HomeShots', 'AwayShots', 'HomeShotsOnTarget',
+       'AwayShotsOnTarget', 'HomeCorners', 'AwayCorners', 'HomeFouls',
+       'AwayFouls', 'HomeYellowCards', 'AwayYellowCards', 'HomeRedCards',
+       'AwayRedCards', 'FullTimeResult']
+    X = X[columns]
+    X = X.drop_duplicates()
     return X
-```
-```
-train = wrangle(train)
-val = wrangle(val)
-test = wrangle(test)
-```
-#### Step 7: Apply feature engineering.
-```
-train_id = train['GameDate']
-val_id = val['GameDate']
-test_id = test['GameDate']
-```
-```
-target = 'FullTimeResult'
-train_features = train.drop(columns=[target])
-numeric_features = train_features.select_dtypes(include='number').columns.tolist()
-cardinality = train_features.select_dtypes(exclude='number').nunique()
-categorical_features = cardinality[cardinality <= 300].index.tolist()
-features = numeric_features + categorical_features
-X_train = train[features]
-y_train = train[target]
-X_val = val[features]
-y_val = val[target]
-X_test = test[features]
-y_test = test[target]
-```
 
-#### Step 8: Run the 1st RandomForestClassifier model.
+df = wrangle(df)
 ```
-transformers = make_pipeline(
-    ce.OrdinalEncoder(),
-    SimpleImputer(strategy='median'), 
-    StandardScaler())   
-X_train_transformed = transformers.fit_transform(X_train)
-X_val_transformed = transformers.fit_transform(X_val)
-X_test_transformed = transformers.fit_transform(X_test)
-model = RandomForestClassifier(n_estimators=100, random_state=42, n_jobs=-1)
-model.fit(X_train_transformed, y_train)
+#### Step 5: Split the data by date, 2021 season for val data.
+```
+### splitting data by date ### 
+X_train = df[df['GameDate'] < '2020-09-12']
+y_train = X_train['FullTimeResult']
+X_train = X_train.drop(columns=['FullTimeResult'])
+X_val = df[df['GameDate'] > '2020-09-12']
+y_val = X_val['FullTimeResult']
+X_val = X_val.drop(columns=['FullTimeResult'])
 ```
 ```
-print ('Train Accuracy', model.score(X_train_transformed, y_train))
-print ('Validation Accuracy', model.score(X_val_transformed, y_val))
+print("X_train shape:", X_train.shape)
+print("y_train shape:", y_train.shape)
+print("X_val shape:", X_val.shape)
+print("y_val shape:", y_val.shape)
 ```
-![LiverpoolFootballClub](/assets/images/LiverPoolFCPredictions/LPFC6.png) <br>
+![LiverpoolFootballClub](/assets/images/LiverPoolFCPredictions/LPFC2.png) <br>
 
-#### Step 9: Check the features importance and remove any below 0.
+#### Step 6: Save the 'GameDate' values from the data.
 ```
-permuter = PermutationImportance(
-    model, 
-    scoring='accuracy',
-    n_iter=5,
-    random_state=42)
-permuter.fit(X_val_transformed, y_val)
-feature_names = X_val.columns.tolist()
+train_id = X_train['GameDate']
+val_id = X_val['GameDate']
 ```
-```
-eli5.show_weights(
-    permuter,
-    top=None,
-    feature_names = feature_names)
-```
-![LiverpoolFootballClub](/assets/images/LiverPoolFCPredictions/LPFC7.png) <br>
-
-#### Step 10: Run the 2nd RandomForestClassifier model.
+#### Step 7: Build the Randomforest model.
 ```
 model = make_pipeline(
-    ce.OrdinalEncoder(), 
-    SimpleImputer(strategy='median'),
-    StandardScaler(),
-    RandomForestClassifier(max_depth=9, n_estimators=300, random_state=42, n_jobs=-1))    
+                      ce.OrdinalEncoder(), 
+                      SimpleImputer(strategy='median'),
+                      StandardScaler(),
+                      RandomForestClassifier(random_state=42, n_jobs=-1)
+                      )
 model.fit(X_train, y_train)
 val_pred = model.predict(X_val)
-test_pred = model.predict(X_test)
 ```
-```
-print ('Train Accuracy', model.score(X_train, y_train))
-print ('Validation Accuracy', model.score(X_val, y_val))
-```
-![LiverpoolFootballClub](/assets/images/LiverPoolFCPredictions/LPFC8.png) <br>
 
-#### Step 11: Check multiple scoreso on the report.
+#### Step 8: Generate a prediction data frame and model evaluation metrics.
 ```
-print(classification_report(y_val, val_pred))
+val_pred_df = pd.DataFrame(val_pred, columns=["Predicted_Values" ])
+v_test_df = pd.DataFrame(np.array(y_val), columns=["Real_Values"])
+df_final = pd.concat([v_test_df , val_pred_df] , axis=1)
+print('--- real values vs predicted values ---')
+print(df_final.head())
+print('--- model metrics ---')
+print("model score:", model.score(X_val, y_val))
+print("Precision Score:",metrics.precision_score(y_val, val_pred, 
+                                           pos_label='positive',
+                                           average='micro'))
+print("Recall Score: ",metrics.recall_score(y_val, val_pred, 
+                                           pos_label='positive',
+                                           average='micro'))
+print("f1 score Score:",metrics.f1_score(y_val, val_pred, 
+                                           pos_label='positive',
+                                           average='micro'))
 ```
-![LiverpoolFootballClub]/assets/images/LPFC9.png) <br>
-(Precision, recall, f1 scores.)
+```
+print('--- confusion matrix ---')
+print(metrics.confusion_matrix(y_val,val_pred))
+print('--- classification report ---') 
+print(metrics.classification_report(y_val,val_pred))
+print('model accuracy score=', metrics.accuracy_score(y_val, val_pred))
+```
+![LiverpoolFootballClub](/assets/images/LiverPoolFCPredictions/LPFC3.png) <br>
 
-#### Step 12: Visualize the importances of the features.
-```
-rf = model.named_steps['randomforestclassifier']
-importances = pd.Series(rf.feature_importances_, X_val.columns)
-n = 20
-plt.figure(figsize=(10,n/2))
-plt.title(f'Top Features')
-```
-```
-importances.sort_values()[-n:].plot.barh(color='red');
-```
-![LiverpoolFootballClub](/assets/images/LiverPoolFCPredictions/LPFC10.png) <br>
-
-#### Step 13: Merge the train and test data sets.
+#### Step 9:Use the saved 'GameDate' values to create a predictions vs actuals data frame.
 ```
 val_predictions = pd.DataFrame({
     'GameDate': val_id, 
     'prediction': val_pred, 
-    'Actual': y_val})
+    'Actual': y_val
+})
+val_predictions = val_predictions.drop_duplicates()
+# # merge the new data frame with necessary features from origninal.
 val_predictions = val_predictions.merge( 
-     val[['GameDate', 'HomeTeam', 'AwayTeam']],
-     how='left')
+     X_val[['GameDate','HomeTeam', 'AwayTeam']],
+     how='left'
+)
+val_predictions = val_predictions.drop_duplicates(subset=['GameDate', 'HomeTeam'])
 ```
 ```
-print(val_predictions.shape)
-val_predictions.head()
+print('--- predictions vs actuals data frame ---')
+print('data frame shape:', val_predictions.shape)
+val_predictions.head(10)
 ```
-![LiverpoolFootballClub](/assets/images/LiverPoolFCPredictions/LPFC11.png) <br>
+![LiverpoolFootballClub](/assets/images/LiverPoolFCPredictions/LPFC4.png) <br>
 
-#### Step 14: Craete a confusion matrix to view overall predictions.
+#### Step 10: Check the importances of the features.
+```
+rf = model.named_steps['randomforestclassifier'] 
+importances = pd.Series(rf.feature_importances_, X_val.columns)
+n = 20
+plt.figure(figsize=(20, 14))
+plt.title(f'Top Features')
+print('--- top features ---')
+importances.sort_values()[-n:].plot.barh(color='red');
+```
+![LiverpoolFootballClub](/assets/images/LiverPoolFCPredictions/LPFC5.png) <br>
+
+#### Step 11: Visualize a heatmap matrix of the model predictions.
 ```
 def plot_confusion_matrix(y_true, y_pred):
     labels = unique_labels(y_true)
@@ -245,33 +201,46 @@ def plot_confusion_matrix(y_true, y_pred):
     index = [f'Actual {label}' for label in labels]
     table = pd.DataFrame(confusion_matrix(y_true, y_pred), 
                          columns=columns, index=index)
-    return sns.heatmap(table, annot=True, fmt='d', cmap='viridis')
+    return sns.heatmap(table, annot=True, fmt='d', cmap='Wistia')
 ```
 ```
+print('--- prediction matrix ---')
+plt.subplots(1, 1, figsize = (20, 14))
 plot_confusion_matrix(y_val, val_pred);
-plt.figure(figsize=(40,20))
+plt.show()
 ```
-![LiverpoolFootballClub](/assets/images/LiverPoolFCPredictions/LPFC12.png) <br>
-(Confusion matrix for predictions.)
+![LiverpoolFootballClub](/assets/images/LiverPoolFCPredictions/LPFC6.png) <br>
 
-#### Step 15: The final predictions for the 2020 season.
+#### Step 12: Complete the English Premier League predictions final data frame.
 ```
-test_predictions = pd.DataFrame({
-    'GameDate': test_id, 
-    'prediction': test_pred, 
-    'Actual': y_test})
-test_predictions = test_predictions.merge(
-     test[['GameDate', 'HomeTeam', 'AwayTeam']], 
-     how='left')
+val_predictions['Correct?'] = np.where(val_predictions['prediction'] == val_predictions['Actual'], 'Yes', 'No')
+val_predictions['Correct?'][val_predictions.Actual == 'Not Played'] = "Not Played"
+EPL_predictions = val_predictions.sort_values('GameDate')
 ```
 ```
-test_final = test_predictions.sort_values('GameDate')
-test_final.head(30)
+print('--- predicted counts ---')
+print(EPL_predictions['Correct?'].value_counts())
+print('--- final predictions ---')
+EPL_predictions = EPL_predictions.sort_values('GameDate')
+EPL_predictions.head(50)
 ```
-![LiverpoolFootballClub](/assets/images/LiverPoolFCPredictions/LPFC13.png) <br>
+![LiverpoolFootballClub](/assets/images/LiverPoolFCPredictions/LPFC7.png) <br>
 
-#### Adding actual results for 2020 season, updated on 10/20/2020.
-![LiverpoolFootballClub](/assets/images/LiverPoolFCPredictions/LPFC14.png) <br>
+#### Step 13: The final predictions for Liverpool English Premier League.
+```
+LPFCH =  EPL_predictions[EPL_predictions['HomeTeam']=='Liverpool']
+LPFCA =  EPL_predictions[EPL_predictions['AwayTeam']=='Liverpool']
+liverpool_final = pd.concat([LPFCH, LPFCA], sort=False, ignore_index=True)
+liverpool_final['GameDate'] = pd.to_datetime(liverpool_final['GameDate']).dt.date
+```
+```
+print('data frame shape:', liverpool_final.shape) # show the shape
+print('--- predicted counts ---')
+print(liverpool_final['Correct?'].value_counts())
+print('--- Liverpool predictions ---')
+liverpool_final.sort_values('GameDate')
+```
+![LiverpoolFootballClub](/assets/images/LiverPoolFCPredictions/LPFC8.png) <br>
 
 #### Summary
 In all I believe feature engineering is the most important part to this specific data set and model. With only having in-match 
