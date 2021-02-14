@@ -60,7 +60,6 @@ df = df.rename(columns={"Div": "Division", "FTHG": "FullTimeHomeGoals", "FTAG": 
 ```
 def wrangle(X):
     X = X.copy()
-    ### fill target NA, relabel target values ###
     X['FullTimeResult'] = X['FullTimeResult'].fillna('Not Played')    
     X['FullTimeResult'] = X['FullTimeResult'].replace({'H':'Home', 'A': 'Away', 'D': 'Tied'}) 
     X['HalfTimeResult'] = X['HalfTimeResult'].astype(object)
