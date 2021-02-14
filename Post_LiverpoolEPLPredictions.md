@@ -20,6 +20,8 @@ import pandas as pd
 import numpy as np
 from datetime import datetime
 import matplotlib.pyplot as plt
+import seaborn as sns 
+from sklearn.utils.multiclass import unique_labels
 from sklearn.pipeline import make_pipeline
 import category_encoders as ce
 from sklearn.impute import SimpleImputer
@@ -55,21 +57,7 @@ df = df.rename(columns={"Div": "Division", "FTHG": "FullTimeHomeGoals", "FTAG": 
                         "FTR": "FullTimeResult"})
 
 ```
-#### Step 3: Find the majority baseline to get started.
-#### Accuracy Score
-```
-target = LPFC['FullTimeResult']
-majority_class = target.mode()[0]
-y_pred = [majority_class] * len(target)
-ac = accuracy_score(target, y_pred)
-```
-```
-print("'Majority Baseline' Accuracy Score =", ac)
-```
-![LiverpoolFootballClub](/assets/images/LiverPoolFCPredictions/LPFC3.png) <br>
-(Baseline accuracy score)
-
-#### Step 4: Clean and rework the data.
+#### Step 3: Clean and rework the data.
 ```
 def wrangle(X):
     X = X.copy()
@@ -96,7 +84,7 @@ def wrangle(X):
 
 df = wrangle(df)
 ```
-#### Step 5: Split the data by date, 2021 season for val data.
+#### Step 4: Split the data by date, 2021 season for val data.
 ```
 ### splitting data by date ### 
 X_train = df[df['GameDate'] < '2020-09-12']
@@ -114,12 +102,12 @@ print("y_val shape:", y_val.shape)
 ```
 ![LiverpoolFootballClub](/assets/images/LiverPoolFCPredictions/LPFC2.png) <br>
 
-#### Step 6: Save the 'GameDate' values from the data.
+#### Step 5: Save the 'GameDate' values from the data.
 ```
 train_id = X_train['GameDate']
 val_id = X_val['GameDate']
 ```
-#### Step 7: Build the Randomforest model.
+#### Step 6: Build the Randomforest model.
 ```
 model = make_pipeline(
                       ce.OrdinalEncoder(), 
@@ -131,7 +119,7 @@ model.fit(X_train, y_train)
 val_pred = model.predict(X_val)
 ```
 
-#### Step 8: Generate a prediction data frame and model evaluation metrics.
+#### Step 7: Generate a prediction data frame and model evaluation metrics.
 ```
 val_pred_df = pd.DataFrame(val_pred, columns=["Predicted_Values" ])
 v_test_df = pd.DataFrame(np.array(y_val), columns=["Real_Values"])
@@ -159,7 +147,7 @@ print('model accuracy score=', metrics.accuracy_score(y_val, val_pred))
 ```
 ![LiverpoolFootballClub](/assets/images/LiverPoolFCPredictions/LPFC3.png) <br>
 
-#### Step 9:Use the saved 'GameDate' values to create a predictions vs actuals data frame.
+#### Step 8: Use the saved 'GameDate' values to create a predictions vs actuals data frame.
 ```
 val_predictions = pd.DataFrame({
     'GameDate': val_id, 
@@ -181,7 +169,7 @@ val_predictions.head(10)
 ```
 ![LiverpoolFootballClub](/assets/images/LiverPoolFCPredictions/LPFC4.png) <br>
 
-#### Step 10: Check the importances of the features.
+#### Step 9: Check the importances of the features.
 ```
 rf = model.named_steps['randomforestclassifier'] 
 importances = pd.Series(rf.feature_importances_, X_val.columns)
@@ -193,7 +181,7 @@ importances.sort_values()[-n:].plot.barh(color='red');
 ```
 ![LiverpoolFootballClub](/assets/images/LiverPoolFCPredictions/LPFC5.png) <br>
 
-#### Step 11: Visualize a heatmap matrix of the model predictions.
+#### Step 10: Visualize a heatmap matrix of the model predictions.
 ```
 def plot_confusion_matrix(y_true, y_pred):
     labels = unique_labels(y_true)
@@ -211,7 +199,7 @@ plt.show()
 ```
 ![LiverpoolFootballClub](/assets/images/LiverPoolFCPredictions/LPFC6.png) <br>
 
-#### Step 12: Complete the English Premier League predictions final data frame.
+#### Step 11: Complete the English Premier League predictions final data frame.
 ```
 val_predictions['Correct?'] = np.where(val_predictions['prediction'] == val_predictions['Actual'], 'Yes', 'No')
 val_predictions['Correct?'][val_predictions.Actual == 'Not Played'] = "Not Played"
@@ -226,7 +214,7 @@ EPL_predictions.head(50)
 ```
 ![LiverpoolFootballClub](/assets/images/LiverPoolFCPredictions/LPFC7.png) <br>
 
-#### Step 13: The final predictions for Liverpool English Premier League.
+#### Step 12: The final predictions for Liverpool English Premier League.
 ```
 LPFCH =  EPL_predictions[EPL_predictions['HomeTeam']=='Liverpool']
 LPFCA =  EPL_predictions[EPL_predictions['AwayTeam']=='Liverpool']
