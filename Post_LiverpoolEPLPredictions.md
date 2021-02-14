@@ -210,14 +210,14 @@ EPL_predictions.head(50)
 ```
 ![LiverpoolFootballClub](/assets/images/LiverPoolFCPredictions/LPFC7.png) <br>
 
-#### Step 12: Filter just Liverpool to create its own data frame.
+#### Step 12: Filter just Liverpool games and create a data frame.
 ```
 LPFCH =  EPL_predictions[EPL_predictions['HomeTeam']=='Liverpool']
 LPFCA =  EPL_predictions[EPL_predictions['AwayTeam']=='Liverpool']
 liverpool_final = pd.concat([LPFCH, LPFCA], sort=False, ignore_index=True)
 liverpool_final['GameDate'] = pd.to_datetime(liverpool_final['GameDate']).dt.date
 ```
-#### Step 13: Show the final data frame for Liverpools game predictions vs actual results.
+#### Step 13: Show the final data frame for Liverpool's game predictions vs actual results.
 ```
 print('data frame shape:', liverpool_final.shape) # show the shape
 print('--- predicted counts ---')
