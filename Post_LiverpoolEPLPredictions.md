@@ -231,7 +231,7 @@ liverpool_final.sort_values('GameDate')
 Getting the data organized and put together the 23 files was the most time consuming portion of this project, I would have liked to find more data as making predicitons on these games without, lineups, weather, injury reports etc. will not generate very good accuracy for the predictions but working with what I had found this was fun and a good learning experience overall. 
 
 GitHub file:
-[Link]({{'https://github.com/CVanchieri/DSPortfolio/blob/master/posts/LiverpoolEPLPredictionsPost/LiverpoolEPL2021Predictions_RandomForestModel.ipynb'}})
+[Link]({{'https://github.com/CVanchieri/DSPortfolio/blob/master/posts/LiverpoolEPLPredictionsPost/LiverpoolEPLPredictions_RandomForestModel.ipynb'}})
 
 
 
