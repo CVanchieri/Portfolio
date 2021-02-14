@@ -41,7 +41,7 @@ df.tail()
 ```
 ![LiverpoolFootballClub](/assets/images/LiverPoolFCPredictions/LPFC1.png){: .center-block :}
 
-#### Step 2: Organize the data .
+#### Step 2: Organize the data.
 ```
 columns = ["Div", "GameDate", "HomeTeam", "AwayTeam", "FTHG", "FTAG", 
            "HTHG", "HTAG", "HTR", "HS", "AS", "HST", "AST", 
