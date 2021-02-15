@@ -8,6 +8,30 @@ show_tile: true
 
 ---
 
+### A live Plotly line graph of the COVID-19 virus's impact on the USA.
+
+<ul class="actions">
+   <li><a href="https://cvanchieri.github.io/DSPortfolio/Post_COVID19PlotlyLineGraph.html" class="button next">View Details</a></li>
+</ul>
+
+---
+
+### An educational website presenting Earth's environmental issues through interactive data visualizations.
+
+<ul class="actions">
+   <li><a href="https://cvanchieri.github.io/DSPortfolio/Post_PlanetDataVisionLabs.html" class="button next">View Details</a></li>
+</ul>
+
+---
+
+### Making predictions for Liverpool's English Premier League seasons with a RandomForest Classifier model.
+
+<ul class="actions">
+   <li><a href="https://cvanchieri.github.io/DSPortfolio/Post_LiverpoolEPLPredictions.html" class="button next">View Details</a></li>
+</ul>
+
+---
+
 ### A Twitterbot that pulls and stores Data Science related tweets from hashtags using a AWS Lambda Function.
 
 <ul class="actions">
@@ -40,34 +64,10 @@ show_tile: true
 
 ---
 
-### Making predictions for Liverpool's English Premier League seasons with a RandomForest Classifier model.
-
-<ul class="actions">
-   <li><a href="https://cvanchieri.github.io/DSPortfolio/Post_LiverpoolEPLPredictions.html" class="button next">View Details</a></li>
-</ul>
-
----
-
-### An educational website presenting Earth's environmental issues through interactive data visualizations.
-
-<ul class="actions">
-   <li><a href="https://cvanchieri.github.io/DSPortfolio/Post_PlanetDataVisionLabs.html" class="button next">View Details</a></li>
-</ul>
-
----
-
 ### Matplotlib bar chart race representing the top countries death counts from the COVID-19 virus.
 
 <ul class="actions">
    <li><a href="https://cvanchieri.github.io/DSPortfolio/Post_COVID19BarChartRace.html" class="button next">View Details</a></li>
-</ul>
-
----
-
-### A live Plotly line graph of the COVID-19 virus's impact on the USA.
-
-<ul class="actions">
-   <li><a href="https://cvanchieri.github.io/DSPortfolio/Post_COVID19PlotlyLineGraph.html" class="button next">View Details</a></li>
 </ul>
 
 ---
