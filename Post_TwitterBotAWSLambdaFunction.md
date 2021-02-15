@@ -13,8 +13,10 @@ show_tile: false
 ## Using a AWS Lambda Function to automate a Twitterbot that searches and stores data science related tweets.
 
 ---
+The live data set is here. --> [Link]({{'https://portfolioprojects.herokuapp.com/twitterbot'}})
 
 If you need assistance getting started with Tweepy api or AWS Lambda Function connections, this is the blog I followed for those connections. --> [Link]({{'https://dylancastillo.co/how-to-make-a-twitter-bot-for-free/'}})
+
 
 #### Necessary imports.
 ```
