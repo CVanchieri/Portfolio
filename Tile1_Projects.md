@@ -8,7 +8,7 @@ show_tile: true
 
 ---
 
-### A Twitterbot pulling and storing Data Science related tweets from hashtags using a AWS Lambda Function.
+### A Twitterbot that pulls and stores Data Science related tweets from hashtags using a AWS Lambda Function.
 
 <ul class="actions">
    <li><a href="https://cvanchieri.github.io/DSPortfolio/Post_TwitterBotAWSLambdaFunction.html" class="button next">View Details</a></li>
