@@ -56,6 +56,10 @@ These are useful notes and templates I have created for information and future u
 
 ---
 
+## K-Fold Cross-Validation.
+- SKlearn KFold Cross-Validation. ---> [GitHub](https://github.com/CVanchieri/CS_Notes/blob/main/AlgorithmAnalysis_Notes/BigOAlgorithmAnalysis_Notes.ipynb)
+
+---
 ## Neural Networks.
  - Keras Feed Forward (MLP) Neural Network. ---> [GitHub](https://github.com/CVanchieri/CS_Notes/blob/main/NeuralNetwork_Notes/Keras_FeedForward(MLP)_NeuralNetwork.ipynb)
 
