@@ -57,7 +57,7 @@ These are useful notes and templates I have created for information and future u
 ---
 
 ## K-Fold Cross-Validation.
-- SKlearn KFold Cross-Validation. ---> [GitHub](https://github.com/CVanchieri/CS_Notes/blob/main/AlgorithmAnalysis_Notes/BigOAlgorithmAnalysis_Notes.ipynb)
+- SKlearn KFold Cross-Validation. ---> [GitHub](https://github.com/CVanchieri/CS_Notes/blob/main/KFoldCrossValidation_Notes/SKlearn_KFoldCrossValidation_Notes.ipynb)
 
 ---
 ## Neural Networks.
