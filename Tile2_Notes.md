@@ -31,6 +31,20 @@ These are useful notes and templates I have created for information and future u
 
 ---
 
+## Docker Commands.
+- Docker Processes and Notes. ---> [GitHub](https://github.com/CVanchieri/CS_Notes/blob/main/Docker_Notes/Docker_Notes.py)
+
+---
+
+## Data Encoding. 
+- Categorical Encoding Notes. ---> [GitHub](https://github.com/CVanchieri/CS_Notes/blob/main/DataEncoding_Notes/DataEncoding_Notes.ipynb)
+
+---
+
+## Algorithm Analysis.
+- Big O Notation Notes. ---> [GitHub](https://github.com/CVanchieri/CS_Notes/blob/main/AlgorithmAnalysis_Notes/BigOAlgorithmAnalysis_Notes.ipynb)
+
+---
 ## Natural Language Processing.
  - spaCy NLP.  ---> [GitHub](https://github.com/CVanchieri/CS_Notes/blob/main/NLP_Notes/SpacyNLPNotes.py)
 
@@ -65,25 +79,6 @@ These are useful notes and templates I have created for information and future u
 
  - Keras Recurrent (RNN) Neural Network. ---> [GitHub](https://github.com/CVanchieri/CS_Notes/blob/main/NeuralNetwork_Notes/Keras_Recurrent(RNN)_NeuralNetwork.ipynb)
  
----
-
-## Algorithm Analysis.
-- Big O Notation Notes. ---> [GitHub](https://github.com/CVanchieri/CS_Notes/blob/main/AlgorithmAnalysis_Notes/BigOAlgorithmAnalysis_Notes.ipynb)
-
----
-
-## Docker Commands.
-- Docker Processes and notes. ---> [GitHub](https://github.com/CVanchieri/CS_Notes/blob/main/Docker_Notes/Docker_Notes.py)
-
----
-
-## Bayesian Methods.
-...
-
----
-
-## Optimzation.
-...
 ---
 
 
