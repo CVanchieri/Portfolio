@@ -79,6 +79,8 @@ These are useful notes and templates I have created for information and future u
 
  - Keras Recurrent (RNN) Neural Network. ---> [GitHub](https://github.com/CVanchieri/CS_Notes/blob/main/NeuralNetwork_Notes/Keras_Recurrent(RNN)_NeuralNetwork.ipynb)
  
+  - Keras Convolutional (CNN) Neural Network. ---> [GitHub](https://github.com/CVanchieri/CS_Notes/blob/main/NeuralNetwork_Notes/Keras_Convolutional(CNN)_NeuralNetwork_Notes.ipynb)
+ 
 ---
 
 
