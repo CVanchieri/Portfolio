@@ -45,6 +45,11 @@ These are useful notes and templates I have created for information and future u
 - Big O Notation Notes. ---> [GitHub](https://github.com/CVanchieri/CS_Notes/blob/main/AlgorithmAnalysis_Notes/BigOAlgorithmAnalysis_Notes.ipynb)
 
 ---
+
+## Python Pickling.
+- Python Pickling Notes. ---> [GitHub](https://github.com/CVanchieri/CS_Notes/blob/main/Pickle_Notes/PythonPickle_Notes.py)
+
+---
 ## Natural Language Processing.
  - spaCy NLP.  ---> [GitHub](https://github.com/CVanchieri/CS_Notes/blob/main/NLP_Notes/SpacyNLPNotes.py)
 
