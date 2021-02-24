@@ -90,7 +90,7 @@ These are useful notes and templates I have created for information and future u
  ---
  
 ## Computer Vision.
- - OpenCV Notes. ---> [GitHub](https://github.com/CVanchieri/CS_Notes/blob/main/ComputerVision_Notes/OpenCV_Notes.ipynb)
+ - OpenCV Notes. ---> [GitHub](https://github.com/CVanchieri/CS_Notes/blob/main/ComputerVision_Notes/OpenCV_Notes)
  
 ---
 
