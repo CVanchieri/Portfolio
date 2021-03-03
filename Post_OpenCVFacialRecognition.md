@@ -8,166 +8,106 @@ show_tile: false
 
 ---
 
-![twitter](/assets/images/TwitterBot/TwitterBotHeader.png) <br>
+![twitter](https://github.com/CVanchieri/DSPortfolio/blob/master/assets/images/ImageFacialRecognition/face_recognition.png?raw=true) <br>
 
-## Using a AWS Lambda Function to automate a Twitterbot that searches and stores data science related tweets.
+## Image facial recognition using OpenCV.
+There is a Pipfile in the repo with the necessary imports as well as 2 folders, 1 for the face images to learn from and 1 for the image we are trying to recognize faces from.
 
 ---
-The live data set is here. --> [Link]({{'https://portfolioprojects.herokuapp.com/twitterbot'}})
-
-If you need assistance getting started with Tweepy api or AWS Lambda Function connections, this is the blog I followed for those connections. --> [Link]({{'https://dylancastillo.co/how-to-make-a-twitter-bot-for-free/'}})
-
 
 #### Necessary imports.
 ```
+import face_recognition as fr
 import os
-from pathlib import Path
-from datetime import datetime, timedelta
-import pandas
-from pandas import DataFrame 
-import regex as re
-import tweepy
-import psycopg2
-from sqlalchemy import create_engine
+import cv2
+import face_recognition
+import numpy as np
 ```
 
-#### Step 1: Collect the variables and build the connection.
+#### Step 1: A function to encode all the face images from a folder.
 ```
-TWITconsumer_key = os.getenv("TWITCONSUMER_KEY")
-TWITconsumer_secret = os.getenv("TWITCONSUMER_SECRET")
-TWITaccess_token = os.getenv("TWITACCESS_TOKEN")
-TWITaccess_token_secret = os.getenv("TWITACCESS_TOKEN_SECRET")
-auth = tweepy.OAuthHandler(TWITconsumer_key, TWITconsumer_secret)
-auth.set_access_token(TWITaccess_token, TWITaccess_token_secret)
-api = tweepy.API(auth, wait_on_rate_limit=True, wait_on_rate_limit_notify=True)
+### encode all the face images ###
+def encoded_faces():
+# returns a dict of (name, image encoded)
+    encoded = {}
+    for dirpath, dnames, fnames in os.walk("./face_images"): # look through each image in face_iamges folder 
+        for f in fnames: 
+            if f.endswith(".jpg") or f.endswith(".png"):
+                face = fr.load_image_file("face_images/" + f) # load each file 
+                encoding = fr.face_encodings(face)[0] # get the face encoding 
+                encoded[f.split(".")[0]] = encoding # split encoding add to dict
+
+    return encoded
 ```
 
-#### Step 2: Create the storage dictionary and the start & end dates.
+#### Step 2: A function to encode an individual face image .
 ```
-tweets = {}
-days = 3
-today = datetime.utcnow()
-end_date = today - timedelta(days=days)
-end_str = end_date.strftime('%m/%d/%Y')
-start = datetime.now()
+### encode image from file name ### 
+def unknown_image(img):
+    face = fr.load_image_file("face_images/" + img) # load the image file 
+    encoding = fr.face_encodings(face)[0] # get the face encoding 
+
+    return encoding
 ```
 
-#### Step 3: Use the cursor to search each hashtag while storing tweets.
+#### Step 3: A function to saerch for faces, draw rectangles around found faces, and label if known.
 ```
-tags = ['datascience', 'machinelearning', 'artificialintelligence']
-for tag in tags:
-  try:
-    print(f'---> hashtag: {tag}')
-    for status in tweepy.Cursor(api.search,q=tag,
-                                since=end_str,   
-                                exclude_replies=True,    
-                                lang='en', 
-                                tweet_mode='extended').items(100):
-      if status.full_text is not None:
-        text = status.full_text.lower()
-
-        id_s = status.id
-        date = status.created_at 
-        name = status.user.name 
-        tweets[id_s] = [date, name, text]
-
-  except tweepy.TweepError as e: 
-    print("Tweepy Error: {}".format(e))
-    
-print('--- hashtags tweets ---')
-print(f'pulled tweets count: {len(tweets)}')
+### find the faces and label if known ###
+def search_face(im):
+# param 'im' is str of file path
+# returns a list of face names
+    face_names = [] # create a list for the face names found 
+    faces = encoded_faces() # set the function
+    faces_encoded = list(faces.values()) # create a list of the encoded faces values 
+    known_face_names = list(faces.keys()) # creat a list of the faces key values 
+    img = cv2.imread(im, 1) # read in the image
+    face_locations = face_recognition.face_locations(img) # find the face locations from the image 
+    unknown_face_encodings = face_recognition.face_encodings(img, face_locations) # find the unkown face encodings
 ```
-![twitter](/assets/images/TwitterBot/TwitterBot1.png) <br>
-
-#### Step 4: Store all the hashtags used in the dictionary.
 ```
-for key, val in tweets.items():
-val0, val1, val2 = val
-tags = re.findall("[#]\w+", val2)
-tweets[key] = [val0, val1, val2, tags]
-
-tweets
+    ### loop through unkown face encodings ###
+    for face_encoding in unknown_face_encodings:
+        # See if the face is a match for the known face(s)
+        match_list = face_recognition.compare_faces(faces_encoded, face_encoding) # see if the face is a match 
+        name = "Unknown" 
+        face_distances = face_recognition.face_distance(faces_encoded, face_encoding) # find face distances 
+        best_match = np.argmin(face_distances) # find the smallest distance from known face to new face 
+        if match_list[best_match]: # if a match 
+            name = known_face_names[best_match] # set the name 
+        face_names.append(name) # add the name to the list 
 ```
-![twitter](/assets/images/TwitterBot/TwitterBot2.png) <br>
-
-#### Step 5: Convert the dictionary to a dataframe, clean and filter the data.
 ```
-df1 = DataFrame.from_dict(tweets, orient='index', columns=['date', 'name', 'text',  'tags'])
-df1.reset_index(inplace=True)
-df1 = df1.rename(columns = {'index':'id'})
-df1 = df1.drop_duplicates(subset=['id'], keep='last')
-df1[['First','Last']] = df1.text.str.split(n=1, expand=True)
-df1 = df1.drop_duplicates(subset=['First'])
-df1 = df1.drop(columns=['First', 'Last'])
-df1['retweet'] = 'NO' # add a retweet column, set to 'NO'
-strings = ['rt', '@', 'trial', 'free', 'register', 'subscription'] 
-df1 = df1[~df1.text.str.contains('|'.join(strings))]
-
-df1['text'].values
+    ### create the visual face boxes and text ### 
+        for (top, right, bottom, left), name in zip(face_locations, face_names): # loop through face_locations and face_names
+            # Draw a box around the face
+            cv2.rectangle(img, (left-20, top-20), (right+20, bottom+40), (0, 255, 0), 1) # set the box parameters 
+            font = cv2.FONT_HERSHEY_DUPLEX # set the font 
+            cv2.putText(img, name, (left -20, bottom +75), font, 1.0, (0, 0, 255), 2) # set the text parameters 
 ```
-![twitter](/assets/images/TwitterBot/twitterbot3.png) <br>
-
-#### Step 6: Collect variables and connect to the database.
 ```
-AWSdatabase = os.getenv("AWSDATABASE")
-AWSuser = os.getenv("AWSUSER")
-AWSpassword = os.getenv("AWSPASSWORD")
-AWShost = os.getenv("AWSHOST")
-AWSport = os.getenv("AWSPORT")
-sql_AWS = os.getenv("AWSSQL")
-
-connection = psycopg2.connect(database=AWSdatabase,
-                              user=AWSuser,
-                              password=AWSpassword,
-                              host=AWShost,
-                              port=AWSport)
-
-cur = connection.cursor()
+    ### return the image with face names if found ###
+    while True: 
+        cv2.imshow('Face Recgonition Results', img) # show the title and image 
+        if cv2.waitKey(1) & 0xFF == ord('q'): # set wait key and q exit command 
+            return face_names 
 ```
-
-#### Step 7: SQL query all of the database and convert to a dataframe.
 ```
-sql_select_Query = "select * from tweets_storage"
-cur.execute(sql_select_Query)
-records = cur.fetchall()
-df2 = DataFrame(records)
-df2.columns = ['id', 'date', 'name', 'text', 'tags', 'retweet']
+### run the function on the image to search ### 
+print(search_face('Barak_Joe.jpg')) # alternative example 
 ```
-
-#### Step 8: Merge the pulled tweets with the current database.
+![FaceRec](https://github.com/CVanchieri/DSPortfolio/blob/master/assets/images/ImageFacialRecognition/BarakJoe.png?raw=true) <br>
 ```
-df3 = pandas.concat([df1, df2], axis = 0)
-df3 = df3.reset_index(drop=True)
-df3 = df3.drop_duplicates(subset=['id'], keep='last')
-df3[['First','Last']] = df3.text.str.split(n=1, expand=True)
-df3 = df3.drop_duplicates(subset=['First'])
-df3 = df3.drop(columns=['First', 'Last'])
-
-df3.head()
+print(search_face('test_images/Jumanji_Cast.jpg'))
 ```
-![twitter](/assets/images/TwitterBot/TwitterBot4.png) <br>
-
-#### Step 9: Update the AWS database.
-```
-engine = create_engine(sql_AWS)
-df3.to_sql('tweets_storage', con=engine, index=False, if_exists='replace')
-```
+![FaceRec](https://github.com/CVanchieri/DSPortfolio/blob/master/assets/images/ImageFacialRecognition/JumanjiCast.png?raw=true) <br>
 
 #### Summary
-There was a lot of research and time that went into this project a little more than expected, connecting to Tweepy and searching for tweets was not very difficult and there is quite a bit of options for the api which is fun to mess around with.  I had never used AWS Lambda Functions before so setting the Lambda Function up with proper triggers and properly connection to the AWS database took quite a bit of time, but now that I have completed this I am very happy to know how to use these Lambda Functions which are great for automation.   I hope to in the future add on to this project with some analysis on the tweets but this was a great start and learning experience.
+I have been working on increasing my knowledge on computer vision techniques and the OpenCV library is a really great tool and not super difficult to use.  I am looking forward to seeing how this is works and is implemented in a more advanced way.  More and more computer vision is implemented everywhere around us, it makes it moer itneresting and fun knowing the behind the scenes of how it may be working.
 
 Any suggestions or feedback is greatly appreciated, I am still learning and am always open to suggestions and comments.
 
-LambdaFunction file
-[Link]({{'https://github.com/CVanchieri/DSPortfolio/blob/master/posts/TwitterBotAWSLambdaFunctionPost/lambda_function.py'}})
-
 GitHub repo
-[Link]({{'https://github.com/CVanchieri/DSPortfolio'}})
-
-Tweepy/AWS connection support
-[Link]({{'https://dylancastillo.co/how-to-make-a-twitter-bot-for-free/'}})
-
-
+[Link]({{'https://github.com/CVanchieri/DSPortfolio/tree/master/posts/OpenCVImageFacialRecognitionPost'}})
 
 
 
