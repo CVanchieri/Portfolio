@@ -11,7 +11,7 @@ show_tile: false
 ![twitter](https://github.com/CVanchieri/DSPortfolio/blob/master/assets/images/ImageFacialRecognition/face_recognition.png?raw=true) <br>
 
 ## Image facial recognition using OpenCV.
-There is a Pipfile in the repo with the necessary imports as well as 2 folders, 1 for the face images to learn from and 1 for the image we are trying to recognize faces from.
+There is a Pipfile in the repo with 2 folders, 1 for the face images and 1 for the test image.
 
 ---
 
@@ -24,7 +24,7 @@ import face_recognition
 import numpy as np
 ```
 
-#### Step 1: A function to encode all the face images from a folder.
+#### Step 1: The face images need to be encoded, this function will go through the images in the folder and encode them.
 ```
 ### encode all the face images ###
 def encoded_faces():
@@ -40,7 +40,7 @@ def encoded_faces():
     return encoded
 ```
 
-#### Step 2: A function to encode an individual face image .
+#### Step 2: The test image needs to be encoded as well, this function will encode a single image.
 ```
 ### encode image from file name ### 
 def unknown_image(img):
@@ -50,7 +50,7 @@ def unknown_image(img):
     return encoding
 ```
 
-#### Step 3: A function to saerch for faces, draw rectangles around found faces, and label if known.
+#### Step 3: Search for faces in the face images and the test image, check to see if there is a comparable match, draw rectangles around the faces located, and add names if a match was found.
 ```
 ### find the faces and label if known ###
 def search_face(im):
@@ -102,7 +102,7 @@ print(search_face('test_images/Jumanji_Cast.jpg'))
 ![FaceRec](https://github.com/CVanchieri/DSPortfolio/blob/master/assets/images/ImageFacialRecognition/JumanjiCast.png?raw=true) <br>
 
 #### Summary
-I have been working on increasing my knowledge on computer vision techniques and the OpenCV library is a really great tool and not super difficult to use.  I am looking forward to seeing how this is works and is implemented in a more advanced way.  More and more computer vision is implemented everywhere around us, it makes it moer itneresting and fun knowing the behind the scenes of how it may be working.
+I have been working on increasing my knowledge on computer vision techniques and the OpenCV library is a really great tool and not super difficult to use.  I am looking forward to seeing how this is works and is implemented in a more advanced way such as live video.  More and more computer vision is implemented everywhere around us, it makes it more itneresting and fun knowing the behind the scenes of how it may be working.
 
 Any suggestions or feedback is greatly appreciated, I am still learning and am always open to suggestions and comments.
 
