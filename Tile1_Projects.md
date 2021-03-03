@@ -8,6 +8,12 @@ show_tile: true
 
 ---
 
+### Facial recognition with the OpenCV Library.
+
+<ul class="actions">
+   <li><a href="https://cvanchieri.github.io/DSPortfolio/Post_OpenCVFacialRecognition.html" class="button next">View Details</a></li>
+</ul>
+
 ### A live Plotly line graph of the COVID-19 virus's impact on the USA.
 
 <ul class="actions">
