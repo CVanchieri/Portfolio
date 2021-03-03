@@ -85,12 +85,16 @@ These are useful notes and templates I have created for information and future u
 
  - Keras Recurrent (RNN) Neural Network. ---> [GitHub](https://github.com/CVanchieri/CS_Notes/blob/main/NeuralNetwork_Notes/Keras_Recurrent(RNN)_NeuralNetwork.ipynb)
  
-  - Keras Convolutional (CNN) Neural Network. ---> [GitHub](https://github.com/CVanchieri/CS_Notes/blob/main/NeuralNetwork_Notes/Keras_Convolutional(CNN)_NeuralNetwork_Notes.ipynb)
+ - Keras Convolutional (CNN) Neural Network. ---> [GitHub](https://github.com/CVanchieri/CS_Notes/blob/main/NeuralNetwork_Notes/Keras_Convolutional(CNN)_NeuralNetwork_Notes.ipynb)
  
  ---
  
 ## Computer Vision.
- - OpenCV Notes. ---> [GitHub](https://github.com/CVanchieri/CS_Notes/blob/main/ComputerVision_Notes/OpenCV_Notes)
+ - OpenCV Object Detection. ---> [GitHub](https://github.com/CVanchieri/CS_Notes/tree/main/ComputerVision_Notes/OpenCV_Notes/object_detection)
+ 
+ - OpenCV Facial Detection. ---> [GitHub](https://github.com/CVanchieri/CS_Notes/tree/main/ComputerVision_Notes/OpenCV_Notes/face_detection_model)
+ 
+ - OpenCV Facial Recognition. ---> [GitHub](https://github.com/CVanchieri/CS_Notes/tree/main/ComputerVision_Notes/OpenCV_Notes/face_recognition_model)
  
 ---
 
