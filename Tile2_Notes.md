@@ -36,6 +36,11 @@ These are useful notes and templates I have created for information and future u
 
 ---
 
+## Web Scraping. 
+ - Web Scraping Notes.  ---> [GitHub](https://github.com/CVanchieri/WebScraping)
+
+---
+
 ## Data Encoding. 
 - Categorical Encoding Notes. ---> [GitHub](https://github.com/CVanchieri/CS_Notes/blob/main/DataEncoding_Notes/DataEncoding_Notes.ipynb)
 
