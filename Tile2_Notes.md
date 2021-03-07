@@ -37,7 +37,7 @@ These are useful notes and templates I have created for information and future u
 ---
 
 ## Web Scraping. 
- - Web Scraping Notes.  ---> [GitHub](https://github.com/CVanchieri/WebScraping)
+ - Web Scraping Notes.  ---> [GitHub]()
 
 ---
 
