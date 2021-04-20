@@ -13,7 +13,10 @@ show_tile: false
 ## Visualizing the COVID-19 virus impact on the USA in a plotly line graph.
 
 ---
-Using an AWS Lambda Function, RDS Database, FalconIO, and Ploty Chart Studio, I created a live graph that updates daily.  [Link]({{'https://portfolioprojects.herokuapp.com/covid19usagraph'}})
+Using an AWS Lambda Function, RDS Database, FalconIO, and Ploty Chart Studio, I created a live graph that updates daily.  [Link] 
+'API is no longer free, daily pull has been disconnected.'
+
+({{'https://portfolioprojects.herokuapp.com/covid19usagraph'}})
 
 #### Necessary installs.
 ```
