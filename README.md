@@ -2,5 +2,5 @@
 
 Data Science Portfolio.
 
-In progress...
+A few projects and notes I have created along the way.
 
