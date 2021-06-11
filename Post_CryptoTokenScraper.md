@@ -27,7 +27,7 @@ import tweepy
 
 #### Step 1: Scraping newly released tokens from the CoinMarketCap website.
 ```
-start = datetime.now() # set the start date 
+start = datetime.now()
 source_new = requests.get(f'https://coinmarketcap.com/new/').text
 soup_4 = BeautifulSoup(source_new, 'lxml')
 card_5 = soup_4.find('tbody')
@@ -380,11 +380,11 @@ Working...
 
 Any suggestions or feedback is greatly appreciated, I am still learning and am always open to suggestions and comments.
 
-Video
-[Link to live site]({{'https://portfolioprojects.herokuapp.com/coinscraper'}})
+Link to live site.
+[[Link to live site]]('https://portfolioprojects.herokuapp.com/coinscraper')
 
-Notebook
-[Link]({{'https://github.com/CVanchieri/CryptoTokenScraper'}})
+Link to Repo.
+[[Link to repo]]('https://github.com/CVanchieri/CryptoTokenScraper')
 
 
 
