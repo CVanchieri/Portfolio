@@ -381,10 +381,10 @@ Working...
 Any suggestions or feedback is greatly appreciated, I am still learning and am always open to suggestions and comments.
 
 Link to live site.
-[[Link to live site]]('https://portfolioprojects.herokuapp.com/coinscraper')
+[[Link to live site]](https://portfolioprojects.herokuapp.com/coinscraper)
 
 Link to Repo.
-[[Link to repo]]('https://github.com/CVanchieri/CryptoTokenScraper')
+[[Link to repo]](https://github.com/CVanchieri/CryptoTokenScraper)
 
 
 
