@@ -58,7 +58,7 @@ for td in card_5.find_all('tr')[0:10]:
     token['cmc url'] = 'https://coinmarketcap.com' + cmc_url
     new_tokens[new_num] = token
 ```
-![CryptoToken1](/assets/images/CryptoTokenScraper/Crypto1.png) <br>
+![CryptoToken1](/assets/images/CryptoTokenScraper/crypto1.png) <br>
 (Newly released tokens.)
 
 #### Step 2: Take a user input and gather token info from the CoinMarketCap API.
