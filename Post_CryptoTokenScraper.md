@@ -9,7 +9,7 @@ show_tile: false
 ---
 
 ![CryptoTokenBanner](/assets/images/CryptoTokenScraper/CryptoBanner.jpeg) <br>
-## Scraping websites with Beautiful Soup and pulling data from APIs to gather crypto token information.
+## Scraping websites and pulling data from APIs to gather crypto token information.
 
 ---
 
