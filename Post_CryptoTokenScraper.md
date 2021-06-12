@@ -69,13 +69,11 @@ user_input = input ("Enter the token name:")
 x_query = 'https://pro-api.coinmarketcap.com/v1/cryptocurrency/quotes/latest'
 x_latest = 'https://pro-api.coinmarketcap.com/v1/cryptocurrency/listings/latest'
 x_meta = 'https://pro-api.coinmarketcap.com/v1/cryptocurrency/info'
-### CMC api key ###
 apikey = os.getenv("CMC_APIKEY")
 headers = {
     'Accepts': 'application/json',
     'X-CMC_PRO_API_KEY' : apikey,
     }
-### parameters ###
 params = {
     'symbol' : user_input,
     }
@@ -147,7 +145,8 @@ for key, value in coins_stats.items():
         market_dominance_numbers = market_dominance.td.text
         token_info['market dominance'] = market_dominance_numbers
 ```
-``` token_hash = []
+``` 
+    token_hash = []
     hash_url = []
     platform = []
     source_hash = requests.get(f'https://coinmarketcap.com/currencies/{url_name}').text
