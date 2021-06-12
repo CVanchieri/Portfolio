@@ -11,7 +11,7 @@ show_tile: true
 ### A live website that generates information about a given cryptocurrency token through APIs and webscraping.
 
 <ul class="actions">
-   <li><a href="https://cvanchieri.github.io/DSPortfolio/Post_Post_CryptoTokenScraper.html" class="button next">View Details</a></li>
+   <li><a href="https://cvanchieri.github.io/DSPortfolio/Post_CryptoTokenScraper.html" class="button next">View Details</a></li>
 </ul>
 
 ---
