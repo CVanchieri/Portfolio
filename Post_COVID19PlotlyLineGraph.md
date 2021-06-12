@@ -16,7 +16,7 @@ show_tile: false
 Using an AWS Lambda Function, RDS Database, FalconIO, and Ploty Chart Studio, I created a live graph that updates daily.  [Link] 
 'API is no longer free, daily pull has been disconnected.'
 
-({{'https://portfolioprojects.herokuapp.com/covid19usagraph'}})
+[[Link to graph]](https://portfolioprojects.herokuapp.com/covid19usagraph)
 
 #### Necessary installs.
 ```
