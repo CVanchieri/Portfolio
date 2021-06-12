@@ -183,7 +183,7 @@ for key, value in coins_stats.items():
 ![CryptoToken2](/assets/images/CryptoTokenScraper/crypto2.png) <br>
 (Token stats.)
 
-#### Step 4: If token is on the Binance Smart Chain, scrape the bscscan website for holders information.
+#### Step 4: If the token is on the Binance Smart Chain, scrape the bscscan website for holders information.
 ```
 token_holder_info = {}
 top_holders = {}
@@ -295,7 +295,7 @@ else:
                 token_slug, token_slug+'news', token_slug+'updates']
     for val in token_tags:
         tags.append(val)
-for tag in tags: # loop through hashtags
+for tag in tags: 
     try:
         print(f'---> hashtag: {tag}')
         for status in tweepy.Cursor(api.search,q=tag,
@@ -347,8 +347,8 @@ REDsecret_key = os.getenv("RED_SECRET_KEY")
 auth = requests.auth.HTTPBasicAuth(REDclient_id, REDsecret_key)
 data = {
         'grant_type': 'password',
-        'username': 'GnarlyCharley6',
-        'password': 'Charryn84',
+        'username': ''########',',
+        'password': '########',
         }
 headers = {'User-Agent': 'MyAPI/0.0.1'}
 res = requests.post('https://www.reddit.com/api/v1/access_token', 
