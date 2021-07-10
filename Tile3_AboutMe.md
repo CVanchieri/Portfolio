@@ -12,7 +12,7 @@ show_tile: false
 </ul>
 
 <ul class="actions">
- <li><a href="https://cvanchieri.github.io/DSPortfolio/Blockheads.html" class="button next">NFT BlockHeads Collection</a></li>
+ <li><a href="https://cvanchieri.github.io/DSPortfolio/Post_Blockheads.html" class="button next">NFT BlockHeads Collection</a></li>
 </ul>
 
 ---
