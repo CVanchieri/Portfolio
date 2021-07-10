@@ -11,6 +11,10 @@ show_tile: false
  <li><a href="https://cvanchieri.github.io/DSPortfolio/Post_Resume.html" class="button next">Charles Vanchieri Resume</a></li>
 </ul>
 
+<ul class="actions">
+ <li><a href="https://cvanchieri.github.io/DSPortfolio/Blockheads.html" class="button next">NFT BlockHeads Collection</a></li>
+</ul>
+
 ---
 
 I am a passionate Data Scientist in search of a company where I will have opportunity for career growth as well as growth in education and knowledge.  I am eager to join team where I am able to use my software engineering and data science skills to assist in exploring data, making predictions, and discovering data-based solutions while learning from the others around me.
