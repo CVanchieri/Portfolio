@@ -1,13 +1,13 @@
 ---
 layout: page
-title: Resume
+title: BlockHeads!
 description:
 image: false
 nav-menu: true
 show_tile: false
 ---
 
-## <center> BLOCKHEADS! </center>
+## <center> What are BlockHeads? </center>
 
 ---
 More to come...
