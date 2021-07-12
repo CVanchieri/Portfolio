@@ -7,7 +7,10 @@ nav-menu: true
 show_tile: false
 ---
 
-#### <center> What are BlockHeads? </center>
+#### What are BlockHeads?
+
+
+
 
 ---
 More to come...
