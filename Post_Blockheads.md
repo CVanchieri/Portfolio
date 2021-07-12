@@ -21,8 +21,8 @@ On October 11th 2021 those that own a Misfits head will have the option to give 
 
 ---
 #### Important dates.
-October 11th 2021 - Owners of Misfits heads can give input on how the body to their Misfits character will look.
-December 3rd 2021 - Misfits characters are released, owners of the Misfits heads will have 72hrs to purchase their corresponding Misfits character.
+October 11th 2021 - Owners of Misfits heads can give input on how the body to their Misfits character will look.  
+December 3rd 2021 - Misfits characters are released, owners of the Misfits heads will have 72hrs to purchase their corresponding Misfits character.  
 
 ---
 #### Rules. 
