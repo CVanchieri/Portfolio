@@ -1,6 +1,6 @@
 # site settings
 title: Charles Vanchieri
-subtitle: DS Portfolio
+subtitle: Portfolio
 email: CVanchieri@gmail.com
 description: “May your choices reflect your hopes, not your fears.”
 baseurl: "/DSPortfolio" # the subpath of your site, e.g. /blog
