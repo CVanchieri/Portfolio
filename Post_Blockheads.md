@@ -8,11 +8,11 @@ show_tile: false
 ---
 
 #### What are Misfits?
-Misfits are an NFT collection that is a 2 part character builder series.  Each Misfit is not like the other, digitally created, tagged, minted, and sold by myself Charles Vanchieri.
+Misfits are a 2 part character builder series NFT collection.  Each Misfit is not like the other, digitally created, tagged, minted, and sold by --> Charles Vanchieri.
 
 ---
 Part 1: The release of the Misfits heads, there will only be 50 Misfits heads created and are all 1 of a kind.  
-Part 2: The customization and development of the Misfits characters, a unique full character will be created for every Misfits head.  
+Part 2: The customization and development of the Misfits characters, a unique full character will be created for each Misfits head.  
 Part 3: The release of the Misfits characters, owners of a Misfits heads will have the first opportunity to purchase the customized Misfits character.  
 
 ---
