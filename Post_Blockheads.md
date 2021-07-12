@@ -3,12 +3,13 @@ layout: page
 title: Misfits!
 description:
 image: false
-nav-menu: true
+nav-menu: false
 show_tile: false
 ---
 
 #### What are Misfits?
 Misfits are an NFT collection that is a 2 part character builder series.  Each Misfit is not like the other, digitally created, tagged, minted, and sold by myself Charles Vanchieri.
+
 ---
 Part 1 includes the release of the Misfits heads, there will only ever be 50 Misfits heads created and are all 1 of a kind.  
 Part 2 involves the customization and development of the Misfits characters, a unique full character will be created for every Misfits head.
@@ -24,8 +25,6 @@ December 3rd 2021 - Misfits characters are released and owners of the Misfits he
 #### Rules. 
 There are none.
 
----
-Lets have some fun.
 
 
 ---
