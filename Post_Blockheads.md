@@ -1,19 +1,31 @@
 ---
 layout: page
-title: BlockHeads!
+title: Misfits!
 description:
 image: false
 nav-menu: true
 show_tile: false
 ---
 
-#### What are Block-Heads?
-Misfits are a fun unique 2 part character series digital-art NFT collection.  
+#### What are Misfits?
+Misfits are an NFT collection that is a 2 part character builder series.  Each Misfit is not like the other, digitally created, tagged, minted, and sold by myself Charles Vanchieri.
+---
+Part 1 includes the release of the Misfits heads, there will only ever be 50 Misfits heads created and are all 1 of a kind.  
+Part 2 involves the customization and development of the Misfits characters, a unique full character will be created for every Misfits head.
+Part 3 is the release of the Misfits characters, owners of a Misfits heads will have the first opportunity to purchase the corresponding customized Misfits character to their Misfit head.
 
-Part 1 of the Misfits collection includes the Misfit heads, there will only ever be 50 Misfits heads created and each piece is unique and one of a kind.  Part 2 of the series is the full Misfits character, each Misfits head will have a unique Misfits body designed and created specifically for it.  On October 11th 2021 those that own a Misfits head will have the option to give direct input on how the body to their Misfits head will look.  This will involve size, shape, color, clothes, accessories, anything that has to do with the character body can be discussed.  If the Misfit head is not owned or the owner does not wish to give input, a unique Misfits body will be designed for the Misfit head and sold to the public.  The full characters of the Misfits will be released on December 3rd 2021, those that own a Misfits head on this date will be given 72hrs to purchase the full Misfits character that represents their Misfits head, after 72hrs the full Misfits character will be open to the public for sale.  
+#### How does it work?
+On October 11th 2021 those that own a Misfits head will have the option to give direct input on how the character to their Misfits head will look.  This will involve size, shape, color, clothes, accessories, anything that has to do with the characters body can be discussed.  Every Misfits head will have a character designed no matter what, if the Misfits head is not owned or the owner does not wish to give input, a character will still be designed for the Misfit head and sold directly to the public.  The Misfits characters will be released on December 3rd 2021, those that own a Misfits head on this date will be given 72hrs to purchase the Misfits character that represents their Misfits head, after 72hrs the Misfits character will be open to the public for sale. 
+
+#### Important dates.
+October 11th 2021 - Owners of Misfits heads can give input on how the body of their Misfits character will look.
+December 3rd 2021 - Misfits characters are released and owners of the Misfits heads will have 72hrs to purchase their corresponding Misfits character.
+
+#### Rules. 
+There are none.
 
 ---
-More to come...
+Lets have some fun.
 
 
 ---
