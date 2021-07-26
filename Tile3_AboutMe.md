@@ -19,7 +19,7 @@ I am a passionate Data Scientist in search of a company where I will have opport
 
 Besides the constant indepth education what I really felt was important and useful were the group labs projects that were completed throughout the course.  The teams for these projects included multiple members from Web Fontend & Backend, UX & UI Design, and Data Science.  Having to work together through different platforms like Notion, Trello, GitHub, and AWS was great first hand experience of how a data scientist would work within a companies team from the concept of an idea to its final delpoyment.  I enjoyed and learned a lot from all the group projects I worked on but the **PlanetData.Vsion** website I was the most impressed with and probably my favorite to work on.  
 
-The website is the start to an educational platform for middle school students to learn about some of Earth's environmental topics through interactive data visualizations.  Along with the rest of the team in generating ideas, I was able to produce 4 data visualizations for the project that were used on the site and assisted in the data science backend development that fed our collected data to the web development team.  You can check the website out [HERE](https://planetdata.vision).
+The website is the start to an educational platform for middle school students to learn about some of Earth's environmental topics through interactive data visualizations.  Along with the rest of the team in generating ideas, I was able to produce 4 data visualizations for the project that were used on the site and assisted in the data science backend development that fed our collected data to the web development team. 
 
 ---
 
