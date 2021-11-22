@@ -45,11 +45,6 @@ print('>>> pulling hash address overview')
 print("----------------")
 url_main = scraper.get(f'https://etherscan.io/address/{user_input}')
 
-# if url_main.status_code == 200:
-#     print("connected to page")
-# else:
-#     print("unable to fetch page")
-# get hash overview
 hash_scan = BeautifulSoup(url_main.text, 'lxml')
 hash_title = hash_scan.title.text.strip()
 hash_title = hash_title.replace('Address', '')
@@ -60,6 +55,7 @@ print("-- wallet overview --")
 print("-- hash address --")
 hash_overview['address'] = hash_title
 print(hash_title)
+
 # get hash eth balance
 overview = hash_scan.find('div', class_='row mb-4')
 body = overview.find('div', class_='card-body')
@@ -70,6 +66,7 @@ eth_balance = split_string[1].strip()
 print("-- eth balance --")
 hash_overview['eth balance'] = eth_balance
 print(f'{eth_balance}')
+
 # get hash usd balance
 balance_usd = body.select_one('div:nth-child(3)')
 hash_usd_balance = balance_usd.text
@@ -124,13 +121,11 @@ print("----------------")
 for x in df_nfts.hash.values:
     token_url_main = scraper.get(f'https://etherscan.io{x}')
     time.sleep(1)
-    # if url_main.status_code == 200:
-    #     print("connected to page")
-    # else:
-    #     print("unable to fetch page")
+
     # get wallet overview
     hash_scan = BeautifulSoup(token_url_main.text, 'lxml')
     hash_title = hash_scan.title.text
+    
     # # get wallet balances
     token_overview = hash_scan.find('div', id='ContentPlaceHolder1_divSummary')
     token_card = token_overview.find('div', class_='card h-100')
@@ -167,6 +162,7 @@ for x in df_nfts.hash.values:
         total_supply = total_supply[:total_supply.index('.')]
     else:
         total_supply = total_supply
+        
     df_nfts['total_supply'] = total_supply
     token_holders = card_body.find('div', id='ContentPlaceHolder1_tr_tokenHolders')
     total_holders = token_holders.find('div', class_='col-md-8').text.strip() #
