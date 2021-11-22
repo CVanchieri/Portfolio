@@ -254,7 +254,7 @@ print("----------------")
 
 ```
 ![EtherscanScraper1](/assets/images/EtherscanAddressScraper/Etherscan4.png) <br>
-(Hash address overview information.)
+(The program allows you to single out specific asset types 'ERC-721'.)
 
 
 #### Step 5: Scrape all the coins information from the wallet address.
@@ -322,7 +322,7 @@ print(df_coins.head())
 print("----------------")
 ```
 ![EtherscanScraper1](/assets/images/EtherscanAddressScraper/Etherscan5.png) <br>
-(All the coins in the wallet.)
+(All the coins and tokens in the wallet.)
 
 
 #### Step 6: Scrape all the transaction information and put into a database.
@@ -426,8 +426,8 @@ print("----------------")
 df_transactions.to_csv('df_transactions.csv',index=False)
 df_nfts.to_csv('df_nfts.csv',index=False)
 ```
-![EtherscanScraper1](/assets/images/EtherscanAddressScraper/Etherscan5.png) <br>
-(All the transactions from the wallet.)
+![EtherscanScraper1](/assets/images/EtherscanAddressScraper/Etherscan6.png) <br>
+(All the transactions from the address.)
 
 #### Summary
 Working...
