@@ -82,7 +82,7 @@ print("----------------")
 
 ```
 ![EtherscanScraper1](/assets/images/EtherscanAddressScraper/Etherscan2.png) <br>
-(Hash address overview information.)
+(An overview of the hash address.)
 
 #### Step 3: Scrape all the wallet assets information.
 ```
@@ -205,7 +205,7 @@ print(f'${usd_sum}')
 print(df_nfts.head(50))
 ```
 ![EtherscanScraper1](/assets/images/EtherscanAddressScraper/Etherscan3.png) <br>
-(All the wallet assests.)
+(All assets owned by the hash address.)
 
 #### Step 4: Seperate the information for the different assets.
 ```
@@ -254,7 +254,7 @@ print("----------------")
 
 ```
 ![EtherscanScraper1](/assets/images/EtherscanAddressScraper/Etherscan4.png) <br>
-(The program allows you to single out specific asset types 'ERC-721'.)
+(Single out specific asset types 'ERC-721'.)
 
 
 #### Step 5: Scrape all the coins information from the wallet address.
@@ -427,18 +427,17 @@ df_transactions.to_csv('df_transactions.csv',index=False)
 df_nfts.to_csv('df_nfts.csv',index=False)
 ```
 ![EtherscanScraper1](/assets/images/EtherscanAddressScraper/Etherscan6.png) <br>
-(All the transactions from the address.)
+(All the transactions from the hash address.)
 
 #### Summary
-Working...
+This was a lot of fun for me, I have had interest in Crypto and NFTs for a while now, and more specifically with NFTs your information is stored in the blockchain but its not easily accessible and tough to make sense of.  This is the beginning to trying to help solve that problem, the goal is to pull all the information from the wallet address and create dataframes that make sense for those that are in need of this info for tax purposes.  A little ways to go but this was a great start and I have a more clear understanding of what needs to come next in the project.  Let me know what you think, give it a go.
 
 Any suggestions or feedback is greatly appreciated, I am still learning and am always open to suggestions and comments.
 
 
-[[Link to live site]](https://portfolioprojects.herokuapp.com/coinscraper)
 
 
-[[Link to repo]](https://github.com/CVanchieri/CryptoTokenScraper)
+[[Link to repo]](https://github.com/CVanchieri/EtherscanScraper)
 
 
 
