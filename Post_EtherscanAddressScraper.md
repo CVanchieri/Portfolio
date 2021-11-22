@@ -426,7 +426,7 @@ print("----------------")
 df_transactions.to_csv('df_transactions.csv',index=False)
 df_nfts.to_csv('df_nfts.csv',index=False)
 ```
-![EtherscanScraper1](/assets/images/EtherscanAddressScraper/Etherscan6.png) <br>
+![EtherscanScraper1](/assets/images/EtherscanAddressScraper/Etherscan5.png) <br>
 (All the transactions from the wallet.)
 
 #### Summary
