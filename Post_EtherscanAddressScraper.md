@@ -322,7 +322,7 @@ print("----------------")
 (All the coins and tokens from the address.)
 
 
-#### Step 6: Scrape all the transaction information and put into a database.
+#### Step 6: Scrape all the transaction history, put into downloadable database.
 ```
 page_count = 0
 transaction_count = 0
