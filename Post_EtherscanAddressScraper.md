@@ -24,7 +24,7 @@ import time
 from datetime import datetime
 ```
 
-#### Step 1: Taking in a user input ETH 'hash address' and set up the CloudScraper.
+#### Step 1: Taking in a user input 'ETH hash address'and set up the CloudScraper.
 ```
 print('--- Etherscan.io Scraper ---')
 print("----------------")
@@ -35,8 +35,9 @@ user_input = user_input.replace(' ', '')
 scraper = cloudscraper.create_scraper()
 ```
 ![EtherscanScraper1](/assets/images/EtherscanAddressScraper/Etherscan1.png) <br>
+(Take the users input.)
 
-#### Step 2: Use the scraper and hash input to scrape the address overview.
+#### Step 2: Use the scraper and user input to scrape the hash address overview.
 ```
 start = datetime.now()
 
@@ -81,7 +82,7 @@ print("----------------")
 ![EtherscanScraper1](/assets/images/EtherscanAddressScraper/Etherscan2.png) <br>
 (An overview of the hash address.)
 
-#### Step 3: Scrape all the wallet assets information.
+#### Step 3: Scrape all the held assets for the hash address.
 ```
 print('>>> pulling wallet assets')
 print("----------------")
@@ -203,7 +204,7 @@ print(df_nfts.head(50))
 ![EtherscanScraper1](/assets/images/EtherscanAddressScraper/Etherscan3.png) <br>
 (All assets owned by the hash address.)
 
-#### Step 4: Seperate the information for the different assets.
+#### Step 4: Seperate the assets and information into a dictionary.
 ```
 dict_types = {}
 for x in nft_types:
@@ -250,10 +251,10 @@ print("----------------")
 
 ```
 ![EtherscanScraper1](/assets/images/EtherscanAddressScraper/Etherscan4.png) <br>
-(Single out specific asset types 'ERC-721'.)
+(Single out specific asset types, 'ERC-721'.)
 
 
-#### Step 5: Scrape all the coins information from the wallet address.
+#### Step 5: Scrape all the coins information from the hash address.
 ```
 print('>>> pulling coins information')
 url_tokens = scraper.get(f'https://etherscan.io/tokenholdings?a={input_hash}')
@@ -318,7 +319,7 @@ print(df_coins.head())
 print("----------------")
 ```
 ![EtherscanScraper1](/assets/images/EtherscanAddressScraper/Etherscan5.png) <br>
-(All the coins and tokens in the wallet.)
+(All the coins and tokens from the address.)
 
 
 #### Step 6: Scrape all the transaction information and put into a database.
