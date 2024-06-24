@@ -1,7 +1,7 @@
 # site settings
 title: Charles Vanchieri
 subtitle: Portfolio
-email: CVanchieri@Gmail.com
+email: C6feels@gmail.com
 description: This is all about ME.
 baseurl: 
 url: 
@@ -22,7 +22,7 @@ tiles-count: 6
 # Icons are not shown if value is empty
 # You need to restart jekyll for changes to have an effect
 socials:
-  GitHub: https://github.com/CVanchieri
+  GitHub: https://github.com/C6feels
   GitLab:
   Google-Plus:
   Instagram: https://www.instagram.com/cvanchieri6
