@@ -1,15 +1,15 @@
 # site settings
 title: Charles Vanchieri
 subtitle: Portfolio
-email: C6feels@gmail.com
+email: CVanchieri@Gmail.com
 description: This is all about ME.
 baseurl: 
 url: 
 author:
 street_address: 
-city: Randwick
+city: Caringbah
 state: NSW
-zip_code: 2031
+zip_code: 2229
 country: Australia
 phone: (61) 433854484
 
@@ -22,7 +22,7 @@ tiles-count: 6
 # Icons are not shown if value is empty
 # You need to restart jekyll for changes to have an effect
 socials:
-  GitHub: https://github.com/C6feels
+  GitHub: https://github.com/CVanchieri
   GitLab:
   Google-Plus:
   Instagram: https://www.instagram.com/cvanchieri6
