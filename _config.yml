@@ -2,7 +2,7 @@
 title: Charles Vanchieri
 subtitle: Portfolio
 email: CVanchieri@gmail.com
-description: A collection of data science and personal projects. 
+description: A collection of data science and personal projects
 baseurl: "/Portfolio" # the subpath of your site, e.g. /blog
 url: # the base hostname & protocol for your site
 author: Charles Vanchieri
