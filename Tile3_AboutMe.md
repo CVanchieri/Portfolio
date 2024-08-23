@@ -24,5 +24,11 @@ The website is the start to an educational platform for middle school students t
 ---
 
 ### Please feel free to get in touch through the contact form below.  I will do my best to respond as quickly as possbile, thank you. ###
+ 
+---
 
 
+
+
+---
+[[<< Back]](https://cvanchieri.github.io/Portfolio)

@@ -21,9 +21,11 @@ show_tile: true
 <ul class="actions">
    <li><a href="https://cvanchieri.github.io/Portfolio/posts/CryptoTokenScraperPost/Post_CryptoTokenScraper.html" class="button next">View Details</a></li>
 </ul>
+ 
+---
 
 
-/Users/cvanchieri6/Documents/Repos/Portfolio/posts/EtherscanAddressScraperPost/Post_EtherscanAddressScraper.md
+
 
 ---
 [[<< Back]](https://cvanchieri.github.io/Portfolio)
