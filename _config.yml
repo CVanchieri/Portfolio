@@ -6,7 +6,7 @@ description: A collection of data science and personal projects
 baseurl: "/Portfolio" # the subpath of your site, e.g. /blog
 url: # the base hostname & protocol for your site
 author: Charles Vanchieri
-#street_address: 2503 Mardell Way
+#street_address: 
 city: Caringbah
 state: NSW
 zip_code: 2229
