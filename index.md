@@ -2,7 +2,7 @@
 layout: home
 title: Home
 landing-title: 'Charles Vanchieri | Portfolio'
-description: null
+description: "Projects"
 image: null
 author: null
 show_tile: false
