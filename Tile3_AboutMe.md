@@ -23,16 +23,6 @@ The website is the start to an educational platform for middle school students t
 
 ---
 
-#### Favorite Quotes 
-
-"You don't have to see the whole staircase, just take the first step." - Martin Luthar King Jr
-
-"The greatness of a man is not in how much wealth he acquires, but in his integrity and his ability to affect those around him positively." - Bob Marley
-
-"May your choices reflect your hopes, not your fears." - Nelson Mandela
-
----
-
 ### Please feel free to get in touch through the contact form below.  I will do my best to respond as quickly as possbile, thank you. ###
 
 
