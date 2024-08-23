@@ -11,7 +11,7 @@ show_tile: true
 ### A program using Cloudscraper for Etherscan.io that pulls all information from a 'hash address' into downloadable dataframes.
 
 <ul class="actions">
-   <li><a href="https://cvanchieri.github.io/Portfolio/posts/EtherscanAddressScrapePost/Post_EtherscanAddressScraper.html" class="button next">View Details</a></li>
+   <li><a href="https://cvanchieri.github.io/Portfolio/posts/EtherscanAddressScraperPost/Post_EtherscanAddressScraper.html" class="button next">View Details</a></li>
 </ul>
 
 ---
