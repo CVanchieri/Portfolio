@@ -8,7 +8,7 @@ show_tile: false
 
 ---
 
-![CryptoTokenBanner](/assets/images/CryptoTokenScraper/CryptoBanner.jpeg) <br>
+![CryptoTokenBanner](/assets/images/CryptoTokenScraperPost/CryptoBanner.jpeg) <br>
 ## Scraping websites and pulling data from APIs to gather crypto token information.
 
 ---
@@ -58,7 +58,7 @@ for td in card_5.find_all('tr')[0:10]:
     token['cmc url'] = 'https://coinmarketcap.com' + cmc_url
     new_tokens[new_num] = token
 ```
-![CryptoToken1](/assets/images/CryptoTokenScraper/crypto1.png) <br>
+![CryptoToken1](/assets/images/CryptoTokenScraperPost/crypto1.png) <br>
 (Newly released tokens.)
 
 #### Step 2: Take a user input and gather token info from the CoinMarketCap API.
@@ -180,7 +180,7 @@ for key, value in coins_stats.items():
         if len(token_description) > 0:
             token_info['description'] = token_description[0]
 ```
-![CryptoToken2](/assets/images/CryptoTokenScraper/crypto2.png) <br>
+![CryptoToken2](/assets/images/CryptoTokenScraperPost/crypto2.png) <br>
 (Token stats.)
 
 #### Step 4: If the token is on the Binance Smart Chain, scrape the bscscan website for holders information.
@@ -263,7 +263,7 @@ if 'bsc' in token_info['hash_url']:
                 
                 top_holders[rank[0]] = [holder[0], holder_hash[0], holder_hash_url[0], quantity[0], percentage[0], exchange[0]]
 ```
-![CryptoToken3](/assets/images/CryptoTokenScraper/crypto5.png) <br>
+![CryptoToken3](/assets/images/CryptoTokenScraperPost/crypto5.png) <br>
 (Holder info.)
 
 #### Step 5: Connect to the Twitter API and pull the most recent hashtags for the token.
@@ -337,7 +337,7 @@ for key, val in tweets_temp.items():
     else:
         continue
 ```
-![CryptoToken4](/assets/images/CryptoTokenScraper/crypto4.png) <br>
+![CryptoToken4](/assets/images/CryptoTokenScraperPost/crypto4.png) <br>
 (Twitter tweets.)
 
 #### Step 6: Connect to the Reddit API and pull the most recent posts for the token.
@@ -371,7 +371,7 @@ if sub_res2.json() != None:
                 score = post['data']['score']
                 sub_posts[title] = [text, score]
 ```
-![CryptoToken5](/assets/images/CryptoTokenScraper/crypto5.png) <br>
+![CryptoToken5](/assets/images/CryptoTokenScraperPost/crypto5.png) <br>
 (Reddit posts.)
 
 #### Summary
