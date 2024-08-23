@@ -8,7 +8,7 @@ show_tile: false
 
 ---
 
-![CryptoTokenBanner](https://github.com/CVanchieri/Portfolio/blob/master/assets/images/EtherscanAddressScraper/EtherscanScraperheader.png) <br>
+![CryptoTokenBanner](https://cvanchieri.github.io/Portfolio/assets/images/EtherscanAddressScraperPost/EtherscanScraperheader.png) <br>
 ## Scraping Etherscan.io for hash address information.
 
 ---
@@ -34,7 +34,7 @@ user_input = user_input.replace(' ', '')
 
 scraper = cloudscraper.create_scraper()
 ```
-![EtherscanScraper1](/assets/images/EtherscanAddressScraperPost/Etherscan1.png) <br>
+![EtherscanScraper1](https://cvanchieri.github.io/Portfolio/assets/images/EtherscanAddressScraperPost/Etherscan1.png) <br>
 (Take the users input.)
 
 #### Step 2: Use the scraper and user input to scrape the hash address overview.
@@ -79,7 +79,7 @@ print(f'{usd_balance}')
 print("----------------")
 
 ```
-![EtherscanScraper1](/assets/images/EtherscanAddressScraperPost/Etherscan2.png) <br>
+![EtherscanScraper1](https://cvanchieri.github.io/Portfolio/assets/images/EtherscanAddressScraperPost/Etherscan2.png) <br>
 (An overview of the hash address.)
 
 #### Step 3: Scrape all the held assets for the hash address.
@@ -201,7 +201,7 @@ print('-- usd total --')
 print(f'${usd_sum}')
 print(df_nfts.head(50))
 ```
-![EtherscanScraper1](/assets/images/EtherscanAddressScraperPost/Etherscan3.png) <br>
+![EtherscanScraper1](https://cvanchieri.github.io/Portfolio/assets/images/EtherscanAddressScraperPost/Etherscan3.png) <br>
 (All assets owned by the hash address.)
 
 #### Step 4: Seperate the assets and information into a dictionary.
@@ -250,7 +250,7 @@ print(nfttoken.head(50))
 print("----------------")
 
 ```
-![EtherscanScraper1](/assets/images/EtherscanAddressScraperPost/Etherscan4.png) <br>
+![EtherscanScraper1](https://cvanchieri.github.io/Portfolio/assets/images/EtherscanAddressScraperPost/Etherscan4.png) <br>
 (Single out specific asset types, 'ERC-721'.)
 
 
@@ -318,7 +318,7 @@ print(usd_total)
 print(df_coins.head())
 print("----------------")
 ```
-![EtherscanScraper1](/assets/images/EtherscanAddressScraperPost/Etherscan5.png) <br>
+![EtherscanScraper1](https://cvanchieri.github.io/Portfolio/assets/images/EtherscanAddressScraperPost/Etherscan5.png) <br>
 (All the coins and tokens from the address.)
 
 
@@ -423,7 +423,7 @@ print("----------------")
 df_transactions.to_csv('df_transactions.csv',index=False)
 df_nfts.to_csv('df_nfts.csv',index=False)
 ```
-![EtherscanScraper1](/assets/images/EtherscanAddressScraperPost/Etherscan6.png) <br>
+![EtherscanScraper1](https://cvanchieri.github.io/Portfolio/assets/images/EtherscanAddressScraperPost/Etherscan6.png) <br>
 (All the transactions from the hash address.)
 
 #### Summary
