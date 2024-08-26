@@ -28,10 +28,9 @@ Furthermore, I am highly skilled in various technical tools and platforms, inclu
 
 ### Please feel free to get in touch through the contact form below.  I will do my best to respond as quickly as possible, thank you. ###
 
+
+
+
 ---
 
-
-
-
----
 [[<< Back]](https://cvanchieri.github.io/Portfolio)

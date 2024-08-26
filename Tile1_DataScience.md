@@ -8,6 +8,10 @@ show_tile: true
 
 ---
 
+## Data Science projects.
+
+---
+
 ### A program using Cloudscraper for Etherscan.io that pulls all information from a 'hash address' into downloadable dataframes.
 
 <ul class="actions">
@@ -26,4 +30,5 @@ show_tile: true
 
 
 ---
+
 [[<< Back]](https://cvanchieri.github.io/Portfolio)
