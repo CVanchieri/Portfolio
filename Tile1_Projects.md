@@ -1,6 +1,6 @@
 ---
 layout: page
-title: Projects
+title: Data Science
 description:
 image: assets/images/General/projects.jpg
 nav-menu: true
