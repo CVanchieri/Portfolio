@@ -8,17 +8,16 @@ show_tile: true
 
 ---
 
-# Personal interest and fun projects.
+## Personal interest and fun projects.
 
 ---
 
-## Flask App.
+### Flask App.
 - Flask app local and live. ---> [GitHub](https://github.com/CVanchieri/FlaskApp_Template)
 
+
+
+
 ---
 
-
-
-
----
 [[<< Back]](https://cvanchieri.github.io/Portfolio)
