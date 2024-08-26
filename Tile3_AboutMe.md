@@ -7,24 +7,31 @@ show_tile: false
 ---
 
 ![ProfilePic](/assets/images/General/aboutme.png) 
-<ul class="actions">
- <li><a href="https://cvanchieri.github.io/DSPortfolio/Post_Resume.html" class="button next">Charles Vanchieri Resume</a></li>
+<!--
+    <ul class="actions">
+<li><a href="https://cvanchieri.github.io/DSPortfolio/Post_Resume.html" class="button next">Charles Vanchieri Resume</a></li>
 </ul>
+-->
+---
+
+For the last 10+ years I have been working in project management and customer relations roles based out of the United States, I am now looking to transition to a company that is located here in Sydney.
+</br>
+My wife was born and raised in Sydney which grants me full working rights with a Partner Visa #0729500048650.
+</br>
+With a strong background in management, leadership, and customer relations, I am seeking an opportunity where I can apply my valuable skills and unique work experience. I am confident that I can excel in project management and leadership roles while also providing additional contributions to the company’s ongoing success.
+</br>
+Throughout my experience as a project leader I’ve been able to effectively manage teams of various sizes ranging from 45 to 5.  I have the ability to efficiently complete complex product releases all within budget and on time. My experience with strategically developing project plans, managing resources, and coordinating in-person and remote teams has prepared me to successfully manage new challenging projects in fast-paced environments.
+</br>
+In addition to project management, I have many years of experience with customer relations.  I have developed the skills that build and maintain strong productive relationships, help resolve customer conflicts, and ensure a higher retention through enhancing the customer experience. I understand the importance of in-depth product knowledge, listening to the customers, strategically resolving issues, and tailoring solutions to their unique needs to foster valuable long-term success.
+</br>
+My sales experience has also equipped me with expansive knowledge of CRMs, pipelines, various communication techniques, and the ability to correctly identify customer needs. I have great pride in my abilities to provide unique solutions, customer care that exceeds expectations, and a track record of exceeding sales targets and KPIs.
+</br>
+Furthermore, I am highly skilled in various technical tools and platforms, including Microsoft Office, Google Workspace, Slack, Zoom, Asana, Jira, Trello, Notion, Monday, SaaS, Salesforce, Zendesk, Hubspot, GitHub, Figma, Python, SQL, HTML, and the Blockchain. I use these tools to enhance the operations of customer success, streamline project management, and to better understand technical developments.  My strong interest in self education and new technologies has always made it easy for me to adapt, pivot, and quickly learn anything new.
 
 ---
 
-I am a passionate Data Scientist in search of a company where I will have opportunity for career growth as well as growth in education and knowledge.  I am eager to join team where I am able to use my software engineering and data science skills to assist in exploring data, making predictions, and discovering data-based solutions while learning from the others around me.
+### Please feel free to get in touch through the contact form below.  I will do my best to respond as quickly as possible, thank you. ###
 
- For the past 13 years I have been working in the health & wellness industry both corporate and privately in many different deparments.  Health & wellness and working with people was always natural and second-nature for me, so with a few great opportunities that is where I began my professional career in 2008.  I have always had a passion for technology and a desire to get involved with software engineering & developement but with no education in computer science I had little success finding any opportunities that were not sales. In early 2019 I decided I was going to pursue a career change and get involved with software engineering & data science by enrolling in Lambda School's part-time data science program.  Since June 2019 I have been taking online daily courses that covered the most important and commonly used computer science, software engineering, and data science techniques.  
-
-Besides the constant indepth education what I really felt was important and useful were the group labs projects that were completed throughout the course.  The teams for these projects included multiple members from Web Fontend & Backend, UX & UI Design, and Data Science.  Having to work together through different platforms like Notion, Trello, GitHub, and AWS was great first hand experience of how a data scientist would work within a companies team from the concept of an idea to its final delpoyment.  I enjoyed and learned a lot from all the group projects I worked on but the **PlanetData.Vsion** website I was the most impressed with and probably my favorite to work on.  
-
-The website is the start to an educational platform for middle school students to learn about some of Earth's environmental topics through interactive data visualizations.  Along with the rest of the team in generating ideas, I was able to produce 4 data visualizations for the project that were used on the site and assisted in the data science backend development that fed our collected data to the web development team. 
-
----
-
-### Please feel free to get in touch through the contact form below.  I will do my best to respond as quickly as possbile, thank you. ###
- 
 ---
 
 
