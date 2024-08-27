@@ -43,7 +43,7 @@ df.head()
 #### Linear Regression.
 ```
 names = ['GOLD', 'OIL', 'GAS', 'BTC', 'ETH', 'SOL', 'ADA', 'XRP'] # names to predict for
-date = '09/01/2024' # pick a date
+date = '01/01/2025' # pick a date
 
 for name in names:
 
@@ -69,7 +69,7 @@ for name in names:
 #### Decision Tree.
 ```
 names = ['GOLD', 'OIL', 'GAS', 'BTC', 'ETH', 'SOL', 'ADA', 'XRP'] # names to predict for
-date = '09/01/2024' # pick a date
+date = '01/01/2025' # pick a date
 
 for name in names:
 
@@ -95,7 +95,7 @@ for name in names:
 #### Random Forest.
 ```
 names = ['GOLD', 'OIL', 'GAS', 'BTC', 'ETH', 'SOL', 'ADA', 'XRP'] # names to predict for
-date = '09/01/2024' # pick a date
+date = '01/01/2025' # pick a date
 
 for name in names:
 
@@ -121,7 +121,7 @@ for name in names:
 #### Support Vector Machine.
 ```
 names = ['GOLD', 'OIL', 'GAS', 'BTC', 'ETH', 'SOL', 'ADA', 'XRP'] # names to predict for
-date = '09/01/2024' # pick a date
+date = '01/01/2025' # pick a date
 
 for name in names:
 
@@ -144,7 +144,7 @@ for name in names:
 #### Neural Network.
 ```
 names = ['GOLD', 'OIL', 'GAS', 'BTC', 'ETH', 'SOL', 'ADA', 'XRP'] # names to predict for
-date = '09/01/2024' # pick a date
+date = '01/01/2025' # pick a date
 
 for name in names:
 
@@ -167,7 +167,7 @@ for name in names:
 #### Gradient Boosting Machine.
 ```
 names = ['GOLD', 'OIL', 'GAS', 'BTC', 'ETH', 'SOL', 'ADA', 'XRP'] # names to predict for
-date = '09/01/2024' # pick a date
+date = '01/01/2025' # pick a date
 
 for name in names:
 
@@ -191,7 +191,7 @@ for name in names:
 #### Get the data and organize it.
 ```
 names = ['GOLD', 'OIL', 'GAS', 'BTC', 'ETH', 'SOL', 'ADA', 'XRP'] # names to predict for
-date = '09/01/2024' # pick a date
+date = '01/01/2025' # pick a date
 
 for name in names:
 
