@@ -39,7 +39,6 @@ print(df.shape)
 df.head()
 ```
 ![CryptoPredictions](https://cvanchieri.github.io/Portfolio/assets/images/CryptoPredictionsPost/CryptoPredictions1.png) <br>
-(Newly released tokens.)
 
 #### Linear Regression.
 ```
@@ -66,7 +65,6 @@ for name in names:
     print(f"LR - Predicted {name} price on {date} (Linear Regression): {predicted_price[0]}")
 ```
 ![CryptoPredictions](https://cvanchieri.github.io/Portfolio/assets/images/CryptoPredictionsPost/CryptoPredictions2.png) <br>
-(Newly released tokens.)
 
 #### Decision Tree.
 ```
@@ -93,7 +91,6 @@ for name in names:
     print(f"DT - Predicted {name} price on {date} (Decision Tree): {predicted_price[0]}")
 ```
 ![CryptoPredictions](https://cvanchieri.github.io/Portfolio/assets/images/CryptoPredictionsPost/CryptoPredictions3.png) <br>
-(Newly released tokens.)
 
 #### Random Forest.
 ```
@@ -120,7 +117,6 @@ for name in names:
     print(f"RF - Predicted {name} price on {date} (Random Forests): {predicted_price[0]}")
 ```
 ![CryptoPredictions](https://cvanchieri.github.io/Portfolio/assets/images/CryptoPredictionsPost/CryptoPredictions4.png) <br>
-(Newly released tokens.)
 
 #### Support Vector Machine.
 ```
@@ -144,7 +140,6 @@ for name in names:
     print(f"SVM - Predicted {name} price on {date} (Support Vector Machines): {svm_predicted_price[0]}")
 ```
 ![CryptoPredictions](https://cvanchieri.github.io/Portfolio/assets/images/CryptoPredictionsPost/CryptoPredictions5.png) <br>
-(Newly released tokens.)
 
 #### Neural Network.
 ```
@@ -168,7 +163,6 @@ for name in names:
     print(f"Neural Network - Predicted {name} price on {date} (Neural Networks): {nn_predicted_price[0]}")
 ```
 ![CryptoPredictions](https://cvanchieri.github.io/Portfolio/assets/images/CryptoPredictionsPost/CryptoPredictions6.png) <br>
-(Newly released tokens.)
 
 #### Gradient Boosting Machine.
 ```
@@ -193,7 +187,6 @@ for name in names:
     print(f"GBM - Predicted {name} price on {date} (Gradient Boosting Machines): {gbm_predicted_price[0]}")
 ```
 ![CryptoPredictions](https://cvanchieri.github.io/Portfolio/assets/images/CryptoPredictionsPost/CryptoPredictions7.png) <br>
-(Newly released tokens.)
 
 #### Get the data and organize it.
 ```
