@@ -8,10 +8,6 @@ show_tile: true
 
 ---
 
-## My personal interests projects.
-
----
-
 ### .
 - 
 

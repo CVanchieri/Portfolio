@@ -8,10 +8,6 @@ show_tile: true
 
 ---
 
-## My Data Science projects.
-
----
-
 ### Making crypto predictions using 1 year of gathered data.
 
 <ul class="actions">
