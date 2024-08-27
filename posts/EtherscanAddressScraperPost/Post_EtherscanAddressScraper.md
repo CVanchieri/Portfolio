@@ -426,17 +426,10 @@ df_nfts.to_csv('df_nfts.csv',index=False)
 ![EtherscanScraper1](https://cvanchieri.github.io/Portfolio/assets/images/EtherscanAddressScraperPost/Etherscan6.png) <br>
 (All the transactions from the hash address.)
 
-#### Summary
-This was a lot of fun for me, I have had interest in Crypto and NFTs for a while now, and more specifically with NFTs your information is stored in the blockchain but its not easily accessible and tough to make sense of.  This is the beginning to trying to help solve that problem, the goal is to pull all the information from the wallet address and create dataframes that make sense for those that are in need of this info for tax purposes.  A little ways to go but this was a great start and I have a more clear understanding of what needs to come next in the project.  Let me know what you think, give it a go.
-
-Any suggestions or feedback is greatly appreciated, I am still learning and am always open to suggestions and comments.
-
 
 
 
 [[Link to repo]](https://github.com/CVanchieri/EtherscanScraper)
-
-
 
 
 

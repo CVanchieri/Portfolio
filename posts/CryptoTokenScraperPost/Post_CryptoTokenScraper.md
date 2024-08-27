@@ -374,13 +374,7 @@ if sub_res2.json() != None:
 ![CryptoToken5](https://cvanchieri.github.io/Portfolio/assets/images/CryptoTokenScraperPost/crypto5.png) <br>
 (Reddit posts.)
 
-#### Summary
-Working...
 
-Any suggestions or feedback is greatly appreciated, I am still learning and am always open to suggestions and comments.
-
-
-[[Link to live site]](https://portfolioprojects.herokuapp.com/coinscraper)
 
 
 [[Link to repo]](https://github.com/CVanchieri/CryptoTokenScraper)
@@ -388,7 +382,5 @@ Any suggestions or feedback is greatly appreciated, I am still learning and am a
 
 
 
-
-
 ---
-[[<< Back]](https://cvanchieri.github.io/DSPortfolio/Tile1_Projects.html)
+[[<< Back]](https://cvanchieri.github.io/Portfolio/Tile1_Projects.html)

@@ -8,11 +8,19 @@ show_tile: true
 
 ---
 
-## Data Science projects.
+## My Data Science projects.
 
 ---
 
-### A program using Cloudscraper for Etherscan.io that pulls all information from a 'hash address' into downloadable dataframes.
+### Making crypto predictions using 1 year of gathered data.
+
+<ul class="actions">
+   <li><a href="https://cvanchieri.github.io/Portfolio/posts/CryptoPredictionsPost/Post_CryptoPredictions.html" class="button next">View Details</a></li>
+</ul>
+
+---
+
+### Using Cloudscraper for Etherscan.io pulling all information from a 'hash address' into downloadable dataframes.
 
 <ul class="actions">
    <li><a href="https://cvanchieri.github.io/Portfolio/posts/EtherscanAddressScraperPost/Post_EtherscanAddressScraper.html" class="button next">View Details</a></li>
@@ -20,7 +28,7 @@ show_tile: true
 
 ---
 
-### A live page that gathers information about a given cryptocurrency token through connected APIs and BeautifulSoup webscraping.
+### Gathering information about a given cryptocurrency token through connected APIs and BeautifulSoup web-scraping.
 
 <ul class="actions">
    <li><a href="https://cvanchieri.github.io/Portfolio/posts/CryptoTokenScraperPost/Post_CryptoTokenScraper.html" class="button next">View Details</a></li>
@@ -30,5 +38,4 @@ show_tile: true
 
 
 ---
-
 [[<< Back]](https://cvanchieri.github.io/Portfolio)
