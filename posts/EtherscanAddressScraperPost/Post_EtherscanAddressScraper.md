@@ -435,4 +435,4 @@ df_nfts.to_csv('df_nfts.csv',index=False)
 
 
 ---
-[[<< Back]](https://cvanchieri.github.io/Portfolio/Tile1_Projects.html)
+[[<< Back]](https://cvanchieri.github.io/Portfolio/Tile1_DataScience.html)
