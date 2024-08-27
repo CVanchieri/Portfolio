@@ -8,7 +8,7 @@ show_tile: false
 
 ---
 
-![CryptoTokenBanner](https://cvanchieri.github.io/Portfolio/assets/images/CryptoTokenScraperPost/CryptoBanner.jpeg) <br>
+![CryptoTokenBanner](https://cvanchieri.github.io/Portfolio/assets/images/CryptoPredictionsPost/CryptoPredictionsBanner.png) <br>
 ## Making crypto predictions based on 1 year of compiled data.
 
 ---
@@ -38,7 +38,7 @@ print(f"Dates = {df['Date'].iloc[0]} - {df['Date'].iloc[-1]}")
 print(df.shape)
 df.head()
 ```
-![CryptoToken1](https://cvanchieri.github.io/Portfolio/assets/images/CryptoTokenScraperPost/crypto1.png) <br>
+![CryptoPredictions](https://cvanchieri.github.io/Portfolio/assets/images/CryptoPredictionsPost/CryptoPredictions1.png) <br>
 (Newly released tokens.)
 
 #### Linear Regression.
@@ -65,7 +65,7 @@ for name in names:
 
     print(f"LR - Predicted {name} price on {date} (Linear Regression): {predicted_price[0]}")
 ```
-![CryptoToken1](https://cvanchieri.github.io/Portfolio/assets/images/CryptoTokenScraperPost/crypto1.png) <br>
+![CryptoPredictions](https://cvanchieri.github.io/Portfolio/assets/images/CryptoPredictionsPost/CryptoPredictions2.png) <br>
 (Newly released tokens.)
 
 #### Decision Tree.
@@ -92,7 +92,7 @@ for name in names:
 
     print(f"DT - Predicted {name} price on {date} (Decision Tree): {predicted_price[0]}")
 ```
-![CryptoToken1](https://cvanchieri.github.io/Portfolio/assets/images/CryptoTokenScraperPost/crypto1.png) <br>
+![CryptoPredictions](https://cvanchieri.github.io/Portfolio/assets/images/CryptoPredictionsPost/CryptoPredictions3.png) <br>
 (Newly released tokens.)
 
 #### Random Forest.
@@ -119,7 +119,7 @@ for name in names:
 
     print(f"RF - Predicted {name} price on {date} (Random Forests): {predicted_price[0]}")
 ```
-![CryptoToken1](https://cvanchieri.github.io/Portfolio/assets/images/CryptoTokenScraperPost/crypto1.png) <br>
+![CryptoPredictions](https://cvanchieri.github.io/Portfolio/assets/images/CryptoPredictionsPost/CryptoPredictions4.png) <br>
 (Newly released tokens.)
 
 #### Support Vector Machine.
@@ -143,7 +143,7 @@ for name in names:
 
     print(f"SVM - Predicted {name} price on {date} (Support Vector Machines): {svm_predicted_price[0]}")
 ```
-![CryptoToken1](https://cvanchieri.github.io/Portfolio/assets/images/CryptoTokenScraperPost/crypto1.png) <br>
+![CryptoPredictions](https://cvanchieri.github.io/Portfolio/assets/images/CryptoPredictionsPost/CryptoPredictions5.png) <br>
 (Newly released tokens.)
 
 #### Neural Network.
@@ -167,7 +167,7 @@ for name in names:
 
     print(f"Neural Network - Predicted {name} price on {date} (Neural Networks): {nn_predicted_price[0]}")
 ```
-![CryptoToken1](https://cvanchieri.github.io/Portfolio/assets/images/CryptoTokenScraperPost/crypto1.png) <br>
+![CryptoPredictions](https://cvanchieri.github.io/Portfolio/assets/images/CryptoPredictionsPost/CryptoPredictions6.png) <br>
 (Newly released tokens.)
 
 #### Gradient Boosting Machine.
@@ -192,7 +192,7 @@ for name in names:
 
     print(f"GBM - Predicted {name} price on {date} (Gradient Boosting Machines): {gbm_predicted_price[0]}")
 ```
-![CryptoToken1](https://cvanchieri.github.io/Portfolio/assets/images/CryptoTokenScraperPost/crypto1.png) <br>
+![CryptoPredictions](https://cvanchieri.github.io/Portfolio/assets/images/CryptoPredictionsPost/CryptoPredictions7.png) <br>
 (Newly released tokens.)
 
 #### Get the data and organize it.
@@ -227,8 +227,7 @@ for name in names:
 
     print(f"ARIMA - Predicted {name} price on {prediction_date.date()} (Time Series Analysis): {predicted_price}")
 ```
-![CryptoToken1](https://cvanchieri.github.io/Portfolio/assets/images/CryptoTokenScraperPost/crypto1.png) <br>
-(Newly released tokens.)
+![CryptoPredictions](https://cvanchieri.github.io/Portfolio/assets/images/CryptoPredictionsPost/CryptoPredictions8.png) <br>
 
 
 
